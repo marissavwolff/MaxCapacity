@@ -1,10 +1,13 @@
 .container {
-  flex-wrap: wrap;
   background-color: #545B77;
   width: 700px;
-  height: 500px;
   margin: 0 auto;
-  font-family: "Roboto";
+  // font-family: "Roboto";
+
+}
+.jadid {
+  background-color: #5C8984;
+  padding: 10px;
 }
 .projectinfo {
     display: flex;
