@@ -1,0 +1,35 @@
+.container {
+  flex-wrap: wrap;
+  background-color: #F5E9CF;
+  width: 100%;
+  width: 700px;
+  height: 500px;
+  margin: 0 auto;
+}
+
+.project-info {
+  display: flex;
+  width: 200px;
+}
+
+.project_info_left {
+  background-color: #545B77;
+  width: 200px;
+  height: 200px;
+  opacity: 0.7;
+
+}
+
+.project_info_middle {
+  background-color: #5C8984;
+  width: 200px;
+  opacity: 0.7;
+
+}
+
+.project_info_right {
+  background-color: #EAB2A0;
+  width: 200px;
+  height: 300 px;
+  opacity: 0.9;
+}
