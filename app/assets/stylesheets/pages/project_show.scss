@@ -1,48 +1,41 @@
-// h2 {
-
-// }
 .container {
-  display: grid;
+  flex-wrap: wrap;
   background-color: #545B77;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 16px;
+  width: 700px;
+  height: 500px;
   margin: 0 auto;
   font-family: "Roboto";
 }
 .projectinfo {
     display: flex;
+    width: 300px;
 }
 
 .projectinfoleft {
   background-color: #F5E9CF;
-  width: 50%;
+  width: 200px;
+  height: 200px;
 }
 .cards_buttom {
-  // width: 700px;
+  width: 700px;
   background-color: #545B77;
   margin: 0 auto;
 
 }
 
-.projectinfomiddle {
+.project_info_middle {
   background-color: #5C8984;
-  padding: 10px;
-  width: 50%;
+  width: 300;
+
 }
 
 .project_info_right {
   background-color: #EAB2A0;
-  width: 100%;
+  width: 200px;
   height: 300 px;
   opacity: 0.9;
-}
-
-.information-card {
-  background-color: #545B77;
-
 }
 .item {
     font-family: "Open Sans";
     font-weight:  "Bold 700";
-
 }
