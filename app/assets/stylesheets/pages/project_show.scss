@@ -1,45 +1,50 @@
 .container {
-  .main {
-    flex-wrap: wrap;
-    background-color: #545B77;
-    width: 700px;
-    height: 500px;
-    margin: 0 auto;
-  }
-  .projectinfo {
-      display: flex;
-      width: 300px;
-  }
+  flex-wrap: wrap;
+  background-color: #545B77;
+  width: 700px;
+  height: 500px;
+  margin: 0 auto;
+}
+.projectinfo {
+    display: flex;
+    width: 300px;
+}
 
-  .project_info_left {
-    background-color: #F5E9CF;
-    width: 200px;
-    height: 200px;
-  }
-  .cards_buttom {
-    width: 700px;
-    margin: 0 auto;
+.projectinfoleft {
+  background-color: #F5E9CF;
+  width: 200px;
+  height: 200px;
+}
+.cards_buttom {
+  width: 700px;
+  background-color: #545B77;
+  margin: 0 auto;
 
-  }
+}
 
-  .project_info_middle {
-    background-color: #5C8984;
-    width: 200px;
-    opacity: 0.7;
+.project_info_middle {
+  background-color: #5C8984;
+  width: 300;
 
-  }
+}
 
-  .project_info_right {
-    background-color: #EAB2A0;
-    width: 200px;
-    height: 300 px;
-    opacity: 0.9;
-  }
+.project_info_right {
+  background-color: #EAB2A0;
+  width: 200px;
+  height: 300 px;
+  opacity: 0.9;
+}
 
-  .information-card {
-    background-color: #545B77;
-    .img {
-      padding: 5px;
+.information-card {
+  background-color: #545B77;
+  .img {
+    padding: 5px;
+
+  .projectinfoleft {
+    h2, p2 {
+      font-size: 12px;
     }
   }
+
+}
 }
