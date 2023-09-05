@@ -78,5 +78,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
-gem "psych", "4.0.3"
