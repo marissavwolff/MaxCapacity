@@ -5,6 +5,7 @@ class Project < ApplicationRecord
   validates :name, :tool_system, presence: true
   validates :deadline, presence: true
   validates :capacity, presence: true
+  validates :tool_system, inclusion: { in: ["jira", "asana", "google meets", "slack"] }
 
   include PgSearch::Model
   pg_search_scope :search,
