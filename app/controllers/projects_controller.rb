@@ -3,6 +3,6 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @members = @project_member([:project_id])
+    @members = @project.members
   end
 end
