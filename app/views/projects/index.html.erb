@@ -1,13 +1,27 @@
-<div class="row m-2" style="padding-bottom:100px;">
+<div class="icon-bar">
+  <%= link_to projects_path, class: 'icon-link' do %>
+    <strong><h4>All Projects</h4></strong>
+  <% end %>
+
+  <%= link_to projects_path, class: 'icon-link' do %>
+    <h4>My Projects</h4>
+  <% end %>
+
+  <%= link_to projects_path, class: 'icon-link' do %>
+    <h4>Completed Projects</h4>
+  <% end %>
+</div>
+
+<div class="row m-2 container-projects align-items-center" style="padding-bottom:100px;">
     <% @projects.each do |project| %>
-      <div class="humor-card col-12 col-sm-3 mb-4 rounded" data-aos="zoom-in">
+      <div class="project-card col-12 col-sm-4 mb-4 rounded" data-aos="zoom-in">
 
         <%= link_to project_path(project) do %>
           <div class="bg-white rounded shadow h-100">
+            <h2><%= link_to project.name, project_path(project), class: 'text-decoration-none text-reset' %></h2>
             <div class="p-2 rounded-bottom row justify-content-between">
-              <strong></span><%= link_to project.name, project_path(project), class: 'text-decoration-none text-reset' %> <span class="text-muted font-weight-normal">• <i class="fa-solid fa-sterling-sign"></i><%= project.price %></strong>
-              <div class="col"><em><small class="text-muted"><%= project.deadline %></small></em></div>
-              <div class="col"><em><small class="text-muted"><%= project.priority %></small></em></div>
+              <strong></span><%= link_to project.name, root_path, class: 'text-decoration-none text-reset' %> <span class="text-muted font-weight-normal">•<%= project.priority %></strong>
+              <div class="col"><em><small class="text-muted"><%= project.name %></small></em></div>
               <div class="col text-end">
               </div>
             </div>

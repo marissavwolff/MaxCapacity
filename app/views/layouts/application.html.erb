@@ -11,22 +11,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <!-- Include Bootstrap CSS from a CDN -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
-<%= render 'layouts/navbar' %>
+  <body style="background-color: #545B77"><%= render "shared/navbar" %>
+  <%= render "shared/flashes" %>
+  <%= render 'layouts/navbar' %>
 
-  <div class="container">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
     <%= yield %>
-    </div>
-    <!-- Include Bootstrap JavaScript from a CDN (optional) -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
   </body>
 </html>
