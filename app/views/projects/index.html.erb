@@ -1,27 +1,33 @@
 <div class="icon-bar">
-  <%= link_to projects_path, class: 'icon-link' do %>
+  <%= link_to projects_path, class: 'icon-link text-decoration-none' do %>
     <strong><h4>All Projects</h4></strong>
   <% end %>
 
-  <%= link_to projects_path, class: 'icon-link' do %>
+  <%= link_to projects_path, class: 'icon-link text-decoration-none' do %>
     <h4>My Projects</h4>
   <% end %>
 
-  <%= link_to projects_path, class: 'icon-link' do %>
+  <%= link_to projects_path, class: 'icon-link text-decoration-none' do %>
     <h4>Completed Projects</h4>
   <% end %>
 </div>
 
-<div class="row m-2 container-projects align-items-center" style="padding-bottom:100px;">
+<div class="row container-projects align-items-center" style="padding-bottom:100px;">
     <% @projects.each do |project| %>
-      <div class="project-card col-12 col-sm-4 mb-4 rounded" data-aos="zoom-in">
+      <div class="card-for-project col-12 col-sm-3 mb-4" data-aos="zoom-in">
 
         <%= link_to project_path(project) do %>
-          <div class="bg-white rounded shadow h-100">
-            <h2><%= link_to project.name, project_path(project), class: 'text-decoration-none text-reset' %></h2>
-            <div class="p-2 rounded-bottom row justify-content-between">
-              <strong></span><%= link_to project.name, root_path, class: 'text-decoration-none text-reset' %> <span class="text-muted font-weight-normal">•<%= project.priority %></strong>
-              <div class="col"><em><small class="text-muted"><%= project.name %></small></em></div>
+          <div>
+            <h2><%= link_to project.name, project_path(project), class: 'text-decoration-none text-reset' %>
+            <% if project.priority == "high" %>
+              <i class="fa-solid fa-circle" style="color: #fb6060;"></i>
+              <% elsif project.priority == "medium" %>
+                <i class="fa-solid fa-circle" style="color: #fbb360;"></i>
+              <% elsif project.priority == "low" %>
+                <i class="fa-solid fa-circle" style="color: #78e26a;"></i>
+            <% end %></h2>
+            <div class="p-2 rounded-bottom row justify-content-space-between">
+              <strong><%= project.project_manager %></strong>
               <div class="col text-end">
               </div>
             </div>
