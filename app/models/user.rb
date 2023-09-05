@@ -7,4 +7,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :title, presence: true
   validates :company, presence: true
+  validates :telephone_number, presence: true
+  
+  attr_accessor :title
 end

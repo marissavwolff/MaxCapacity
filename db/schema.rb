@@ -88,6 +88,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_093507) do
     t.string "telephone_number"
     t.string "title"
     t.string "company"
+    t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
