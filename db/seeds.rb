@@ -8,6 +8,8 @@
 tool = ["jira", "asana", "google meets", "slack"]
 User.create!(name: "Bob", telephone_number: "+33456 781345", email: "gb@gb.co.uk", password: "gb@gb.co.uk", title: "product manager", company: "Google")
 
+
+puts "Seeding Projects"
 Project.create!(user_id: 1, name: "Project One", deadline: "15/9/23", description: "This project is about....", priority: "high", capacity: 0, tool_system: tool.sample)
 Project.create!(user_id: 1, name: "Project Two", deadline: "15/1/24", description: "This project is about....", priority: "low", capacity: 0, tool_system: tool.sample)
 Project.create!(user_id: 1, name: "Project Three", deadline: "15/10/24", description: "This project is about....", priority: "high", capacity: 0, tool_system: tool.sample)
@@ -19,4 +21,8 @@ Project.create!(user_id: 1, name: "Project Eight", deadline: "30/4/24", descript
 Project.create!(user_id: 1, name: "Project Nine", deadline: "28/11/23", description: "This project is about....", priority: "medium", capacity: 0, tool_system: tool.sample)
 Project.create!(user_id: 1, name: "Project Ten", deadline: "12/10/23", description: "This project is about....", priority: "high", capacity: 0, tool_system: tool.sample)
 
+
+puts "Seeding Member"
+Member.create!(name: 'Bob', company: 'Le Wagon', title: 'Designer', email: 'bob@lewagon.com', capacity: 8, line_manager: 'Wade')
+Member.create!(name: 'Beth', company: 'Le Wagon', title: 'Performance', email: 'beth@lewagon.com', capacity: 8, line_manager: 'Wade')
 puts "created seeds"
