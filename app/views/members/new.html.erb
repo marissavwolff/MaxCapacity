@@ -1,26 +1,28 @@
-<div class="new_member_page">
-  <div class="row new-member-form">
-    <h2 class="sub-heading">New Team Member</h2>
-    <div class="justify-content-center">
-      <%= simple_form_for @member do |f|%>
-       <div class="col-md-3">
-        <%= f.input :photo, as: :file, input_html: { class: 'circle-input' } %>
-        <p class="description p-4 text-center">Add Photo</p>
+<div style ="background-color: #DDD">
+  <div style ="background-color: #545B77" class="container new_member_page mtb-5">
+    <div class="row new-member-form">
+      <h2 class="sub-heading">New Team Member</h2>
+      <div class="justify-content-center">
+        <%= simple_form_for @member do |f|%>
+        <div class="col-md-3">
+          <%= f.input :photo, as: :file, label: false%>
+          <p class="description p-4 text-center">Add Photo</p>
+        </div>
+        <div class="col-md-9">
+            <h2 class="sub-heading text-left">Name</h2>
+          <%= f.input :name, label_html: {class: 'member_input'}, label: false %>
+          <h2 class="sub-heading">Role</h2>
+          <%= f.input :title, label_html: {class: 'member_input'}, label: false %>
+          <h2 class="sub-heading">Email</h2>
+          <%= f.input :email, label_html: {class: 'member_input'}, label: false %>
+          <h2 class="sub-heading">Line Manager</h2>
+          <%= f.input :line_manager, label_html: {class: 'member_input'}, label: false %>
+            <h2 class="sub-heading">Team Member Capacity (hours)</h2>
+          <%= f.input :capacity, label_html: {class: 'member_input'}, label: false %>
+          <%= f.submit class: 'button-save' %>
+        </div>
+        <% end %>
       </div>
-      <div class="col-md-9">
-          <h2 class="sub-heading text-left">Name</h2>
-        <%= f.input :name, label_html: {class: 'member_input'}, label: false %>
-         <h2 class="sub-heading">Role</h2>
-        <%= f.input :title, label_html: {class: 'member_input'}, label: false %>
-         <h2 class="sub-heading">Email</h2>
-        <%= f.input :email, label_html: {class: 'member_input'}, label: false %>
-         <h2 class="sub-heading">Line Manager</h2>
-        <%= f.input :line_manager, label_html: {class: 'member_input'}, label: false %>
-          <h2 class="sub-heading">Team Member Capacity (hours)</h2>
-        <%= f.input :capacity, label_html: {class: 'member_input'}, label: false %>
-         <%= f.submit class: 'btn btn-save' %>
-      </div>
-      <% end %>
     </div>
   </div>
 </div>

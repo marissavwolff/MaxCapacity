@@ -1,0 +1,22 @@
+.team-member-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+#capacity-card {
+  color: white;
+  width: 545px;
+  height: 189px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #5C8984;
+  text-align: center;
+  padding: 20%;
+}
+
+.container-team {
+  width: 1400px;
+  margin: 0 auto;
+}
