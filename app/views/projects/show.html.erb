@@ -19,7 +19,11 @@
       </div>
       <div class="col-6">
         <div class= "row rounded p-1 border border-1 bg-secondary">
-          <p><%= @members %></p>
+          <p>Team members</p>
+          <% @members.each do |member| %>
+            <%= member.name %>
+          <% end %>
+          <%= @client %>
           <div class = "col-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
           <div class = "col-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
           <div class = "col-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
