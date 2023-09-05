@@ -1,0 +1,12 @@
+<h1>Create New Project</h1>
+<div class="container">
+  <%= simple_form_for(@project) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :deadline, as: :date, html5: true %>
+    <%= f.input :capacity %>
+    <%= f.input :description %>
+    <%= f.select :tool_system, options_for_select(['Jira', 'Slack', 'Google Meet', 'Trello', 'Asana']), input_html: { multiple: true }, label: "Select tools" %>
+    <%= f.association :members, input_html: { multiple: true } %>
+    <%= f.submit "Create Project" %>
+  <% end %>
+</div>
