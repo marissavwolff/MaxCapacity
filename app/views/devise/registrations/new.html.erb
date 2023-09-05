@@ -4,6 +4,10 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "name" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -17,19 +21,20 @@
                 input_html: { autocomplete: "new-password" } %>
 
 
-    <%# <%= f.label :telephone_number %>
+    <%  f.label :telephone_number %>
     <%= f.input :telephone_number %>
-<%#
-    <%= f.label :company %> 
+
+    <%f.label :company%>
     <%= f.input :company %>
 
-    <%# <%= f.label :title %>
+    <%= f.label :title %>
     <%= f.input :title, autofocus: true %>
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
   </div>
  </div>
+
   <%# <div class="actions">
     <%= f.submit "Sign up" %>
   <%# </div>

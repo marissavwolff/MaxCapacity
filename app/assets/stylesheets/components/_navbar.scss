@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #374259;
+  font-family: 'Jost', sans-serif;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +10,43 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-brand {
+  h4 {
+    font-family: 'Jost', sans-serif;
+    font-size: 30px;
+    color: #f5e9cf;
+  }
+  i {
+    font-size: 25px;
+    color: #f5e9cf;
+  }
+}
+
+.avatar {
+  i {
+    font-size: 20px;
+    text-decoration: none;
+    color: #DDDDDD;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+#dropdown-menu {
+  border: solid 1px;
+  border-radius: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 8px;
+  padding-bottom: 5px;
+  border-color: #DDDDDD;
+}
+
+.navbar-menu-option {
+  text-decoration: none;
+  display: inline;
+
 }
