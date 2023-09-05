@@ -19,33 +19,26 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-  </div>
 
 
+    <%  f.label :telephone_number %>
+    <%= f.input :telephone_number %>
 
-<div class="field">
-    <%= f.label :phone_number %>
-    <%= f.text_field :telephone_number %>
-  </div>
+    <%f.label :company%>
+    <%= f.input :company %>
 
-  <div class="company">
-    <%= f.label :company %>
-    <%= f.text_field :company %>
-  </div>
-
-  <div class="field">
     <%= f.label :title %>
-    <%= f.text_field :title, autofocus: true %>
-  </div>
+    <%= f.input :title, autofocus: true %>
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
   </div>
+ </div>
+
   <%# <div class="actions">
     <%= f.submit "Sign up" %>
-  <%# </div>  %>
-
-
+  <%# </div>
+ %>
 <% end %>
 
 <%= render "devise/shared/links" %>
