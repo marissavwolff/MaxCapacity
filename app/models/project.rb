@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :user
+  has_many :project_members, dependent: :destroy
   has_many :members, through: :project_members
   validates :name, presence: true
   validates :deadline, presence: true
