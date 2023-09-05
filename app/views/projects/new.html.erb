@@ -1,12 +1,16 @@
-<h1>Create New Project</h1>
-<div class="container">
+<div class="form-new my-4 p-4">
+  <h1 class="justify">Create New Project</h1>
   <%= simple_form_for(@project) do |f| %>
     <%= f.input :name %>
     <%= f.input :deadline, as: :date, html5: true %>
+    <%= f.input :members, collection: Member.all, input_html: { multiple: true } %>
+    <%= link_to "Add a new team member" do %>
+      Add a new team member <i class="fa-solid fa-plus pb-3"></i>
+    <% end %>
+    <%= f.input :priority, as: :radio_buttons, collection: (['High', 'Medium', 'Low']), input_html: { multiple: true }, class: 'priority-select ' %>
     <%= f.input :capacity %>
     <%= f.input :description %>
-    <%= f.select :tool_system, options_for_select(['Jira', 'Slack', 'Google Meet', 'Trello', 'Asana']), input_html: { multiple: true }, label: "Select tools" %>
-    <%= f.association :members, input_html: { multiple: true } %>
-    <%= f.submit "Create Project" %>
+    <%= f.input :tool_system, as: :radio_buttons, collection: (['Jira', 'Slack', 'Google Meet', 'Trello', 'Asana']), input_html: { multiple: true }, label: "Select tools" %>
+    <%= f.submit "Create", class: 'btn button-save' %>
   <% end %>
 </div>
