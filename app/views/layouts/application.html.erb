@@ -8,6 +8,8 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <!-- Include Bootstrap CSS from a CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   </head>
 
   <body><%= render "shared/navbar" %>
@@ -26,5 +28,8 @@
 
     <%= yield %>
     </div>
+    <!-- Include Bootstrap JavaScript from a CDN (optional) -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
   </body>
 </html>

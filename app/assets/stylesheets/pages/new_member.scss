@@ -1,0 +1,31 @@
+.new-member-form {
+  width: 997px;
+  height: 1030px;
+  flex-shrink: 0;
+  border: 3px solid #F5E9CF;
+  background: var(--Background, #545B77);
+  text-align: left;
+}
+
+.new_member_page {
+width: 1728px;
+height: 1117px;
+background: var(--Light-Grey, #DDD);
+text-align: left;
+}
+
+.member_input {
+  margin: 15px;
+  width: 407px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: var(--Light-Grey, #DDD);
+}
+
+.circle-input {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #ccc;
+}
