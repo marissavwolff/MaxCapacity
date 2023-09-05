@@ -1,0 +1,40 @@
+.icon-bar {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  justify-content: left;
+
+  i {
+    text-align: left;
+    transition: all 0.3s ease;
+    color: #DDDDDD;
+    font-size: 36px;
+    text-decoration: none;
+    padding-bottom: 4px;
+  }
+
+  h4 {
+    text-align: left;
+    transition: all 0.3s ease;
+    color: #DDDDDD;
+    font-size: 15px;
+    font-family: 'Jost', sans-serif;
+    &:hover {
+      color: #545b77;
+      padding-top: 3px;
+      padding-left: 3px;
+      padding-right: 3px;
+      padding-bottom: 3px;
+      border-radius: 4px;
+      background: #DDDDDD;
+    }
+  }
+}
+
+.icon-link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: 20px;
+}
