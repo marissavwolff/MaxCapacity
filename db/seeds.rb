@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Project.create(name: "Project One", deadline: "15/9/23", description: "This project is about....", priority: "high", capacity: 0, tool_system: ["jira", "asana", "slack"])

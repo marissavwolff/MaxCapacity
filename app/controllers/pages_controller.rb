@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home, :about_us ]
+  skip_before_action :authenticate_user!, only: [ :home, :about_us, :index ]
 
   def home
   end
@@ -8,6 +8,5 @@ class PagesController < ApplicationController
   raise
   @project = Project.find(params[:id])
   @user = current_user
-
   end
 end
