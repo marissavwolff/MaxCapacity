@@ -138,6 +138,7 @@ GEM
       sassc (~> 2.0)
     globalid (1.2.0)
       activesupport (>= 6.1)
+    hashie (5.0.0)
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
@@ -292,10 +293,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
-<<<<<<< HEAD
     version_gem (1.1.3)
-=======
->>>>>>> f38e6d26df0ed2a3f73449530ae7772d3aaa3788
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
