@@ -79,4 +79,4 @@ group :test do
   gem "webdrivers"
 end
 
-gem "psych", "4.0.3"
+
