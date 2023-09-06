@@ -3,7 +3,17 @@
 }
 
 .container-projects {
-  width: 70%;
-  align-items: center;
-  margin: 20px;
+  width: 100vw;
+  overflow: hidden;
+  margin: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  //flex-wrap: wrap;
+  justify-content: center;
+  //padding: 40px calc((100% - (255px * 3)) / 2);
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr;
+  // grid-gap: 16px;
+  // margin: 20px;
+  // padding: 40px calc((100% - (255px * 3)) / 2);
 }
