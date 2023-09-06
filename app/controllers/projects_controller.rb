@@ -1,13 +1,12 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_project, only: [:edit, :update]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
     @projects = Project.all
   end
 
   def show
-
   end
 
   def new
@@ -20,7 +19,7 @@ class ProjectsController < ApplicationController
     add_members
     add_tools
     if @project.save
-      redirect_to projects_path, notice: "Project successfully created"
+      redirect_to project_path(@project), notice: "Project successfully created"
     else
       render :new, status: :unprocessable_entity
     end
@@ -31,7 +30,12 @@ class ProjectsController < ApplicationController
 
   def update
     @project.update(project_params)
-    redirect_to projects_path
+    redirect_to project_path
+  end
+
+  def destroy
+    @project.destroy
+    redirect_to projects_path, status: :see_other
   end
 
   private
@@ -44,8 +48,7 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def method_name
-    
+  def add_tools
   end
 
   def project_params

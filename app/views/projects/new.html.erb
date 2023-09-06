@@ -13,14 +13,15 @@
         </div>
         <%= f.input :priority, as: :check_boxes, collection: (['High', 'Medium', 'Low']), include_blank: false, include_hidden: false, class: 'priority-select' %>
         <%= f.input :capacity %>
-        <%= f.input :tool_system, as: :check_boxes, include_blank: false, include_hidden: false,
+        <%#= f.input :tool_system, as: :check_boxes, include_blank: false, include_hidden: false,
             input_html: { multiple: true, class: 'tool-selector'},
             wrapper_html: { class: 'tool-wrapper'},
             item_wrapper_class: 'tool-item',
-            collection: (["Jira", "Asana", "Google Meets", "Slack"]) %>
+            collection: (Tool.apps.keys) %>
         <%= f.input :description %>
         <div class="py-4"><%= f.submit "Create", class: 'btn button-save' %></div>
       <% end %>
     </div>
   </div>
 <%# </div> %>
+

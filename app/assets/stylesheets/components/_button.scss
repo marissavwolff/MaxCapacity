@@ -5,7 +5,7 @@
   color: #F5E9CF;
 
   &:hover {
-    background-color: #F5E9CF;
+  background-color: #F5E9CF;
   color: #5C8984;
   border-color: #5C8984;
   border-radius: 20px;
@@ -13,6 +13,19 @@
 }
 
 
+.button-delete {
+  background-color: #F5E9CF;
+  border-radius: 20px;
+  border-color: #5C8984;
+  color: #5C8984;
+
+  &:hover {
+    background-color: #5C8984;
+    border-radius: 20px;
+    border-color: #F5E9CF;
+    color: #F5E9CF;
+  }
+}
 
 .project_priority {
   display: flex;
