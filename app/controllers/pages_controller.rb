@@ -8,4 +8,16 @@ class PagesController < ApplicationController
   @project = Project.find(params[:id])
   @user = current_user
   end
+
+  def about_us
+  end
+  
+  def demo
+  end
+
+  def pricing
+  end
+
+  def contact_us
+  end
 end
