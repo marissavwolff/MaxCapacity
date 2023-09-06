@@ -4,6 +4,15 @@ class MembersController < ApplicationController
   def show
   end
 
+  def edit
+
+  end
+
+  def update
+    @member = Member.find(params[:id])
+    @member.update(member_params)
+  end
+
   def index
     @members = Members.all
   end
@@ -28,6 +37,6 @@ private
   end
 
   def member_params
-    params.require(:member).permit(:name, :company, :title, :email, :line_manager, :capacity, :photo)
+    params.require(:member).permit(:name, :asanatoken, :company, :title, :email, :line_manager, :capacity, :photo)
   end
 end

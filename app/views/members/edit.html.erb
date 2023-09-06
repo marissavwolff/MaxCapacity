@@ -1,0 +1,24 @@
+<div style ="background-color: #DDD">
+  <div style ="background-color: #545B77" class="container new_member_page mt-5">
+    <div class="row new-member-form">
+      <h2 class="sub-heading">Add/Edit Tools</h2>
+      <div class="justify-content-center">
+        <%= simple_form_for @project do |f|%>
+        <div class="col-9">
+            <h2 class="sub-heading text-left">Asana Token</h2>
+          <%= f.input :asanatoken, label_html: {class: 'member_input'}, label: false %>
+          <h2 class="sub-heading">Trello</h2>
+          <%= f.input :trellotoken, label_html: {class: 'member_input'}, label: false %>
+          <h2 class="sub-heading">Jira Token</h2>
+          <%= f.input :jiratoken, label_html: {class: 'member_input'}, label: false %>
+          <h2 class="sub-heading">Google Token</h2>
+          <%= f.input :googletoken, label_html: {class: 'member_input'}, label: false %>
+          <h2 class="sub-heading">Slack Token</h2>
+          <%= f.input :slacktoken, label_html: {class: 'member_input'}, label: false %>
+          <%= f.submit class: 'button-save' %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

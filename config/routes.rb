@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
   resources :projects
-  resources :members
+  resources :members do
+    get "new_tool", to: "members#edit", as: :edit_tools
+  end
 
   get "about_us", to: "pages#about_us", as: :about_us
 end
