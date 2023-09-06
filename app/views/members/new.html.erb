@@ -1,14 +1,14 @@
 <div style ="background-color: #DDD">
-  <div style ="background-color: #545B77" class="container new_member_page mtb-5">
+  <div style ="background-color: #545B77" class="container new_member_page mt-5">
     <div class="row new-member-form">
       <h2 class="sub-heading">New Team Member</h2>
       <div class="justify-content-center">
         <%= simple_form_for @member do |f|%>
-        <div class="col-md-3">
+        <div class="col-3">
           <%= f.input :photo, as: :file, label: false%>
-          <p class="description p-4 text-center">Add Photo</p>
+          <p class="description p-2 text-center">Add Photo</p>
         </div>
-        <div class="col-md-9">
+        <div class="col-9">
             <h2 class="sub-heading text-left">Name</h2>
           <%= f.input :name, label_html: {class: 'member_input'}, label: false %>
           <h2 class="sub-heading">Role</h2>

@@ -1,22 +1,39 @@
 <div class= "container-team">
   <div class="row mt-5 team-member-info">
+    <div class="photo-title">
     <div class="col-4">
       <img class="member-avatar" src="<%= cl_image_path(@member.photo.key) %>" alt="Member Avatar">
     </div>
-    <div class="col-4">
-      <h2 class="sub-heading"><%= @member.name %></h2>
-      <p class="sub-title mt-3"><%= @member.title %></p>
-      <%= link_to "edit", edit_member_path(@member), class: 'btn button-save'  %>
-    </div>
-    <div class="col-4">
-      <div id="capacity-card">
-        <p class="capacity-font"> Members's Capacity Today</p>
+      <div class="col-3 col-lg-4">
+        <div class="member-title-card">
+        <h2 class="sub-heading"><%= @member.name %></h2>
+        <p class="sub-title mt-3"><%= @member.title %></p>
+        <%= link_to "edit", edit_member_path(@member), class: 'btn button-save'  %>
+        </div>
       </div>
+  </div>
+  <div class="col-3 col-lg-4">
+    <div id="capacity-card">
+      <p class="capacity-font"> Members's Capacity Today</p>
     </div>
   </div>
+</div>
   <div class="row mt-5 team-member-info">
-    <div class= "col-2">
-      <div class="week-day-card">
+    <div class="weekday-grid">
+      <div class="weekday-card">
+        <p class="sub-title" >Monday</p>
+      </div>
+      <div class="weekday-card">
+        <p class="sub-title"> Tuesday</p>
+      </div>
+      <div class="weekday-card">
+        <p class="sub-title">Wednesday</p>
+      </div>
+      <div class="weekday-card">
+        <p class="sub-title">Thursday</p>
+      </div>
+      <div class="weekday-card">
+        <p class="sub-title">Friday</p>
       </div>
     </div>
   </div>
