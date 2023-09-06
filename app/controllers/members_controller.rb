@@ -5,6 +5,15 @@ class MembersController < ApplicationController
     @projects = @member.projects
   end
 
+  def edit
+
+  end
+
+  def update
+    @member = Member.find(params[:id])
+    @member.update(member_params)
+  end
+
   def index
     @members = Members.all
   end

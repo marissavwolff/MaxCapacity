@@ -1,14 +1,15 @@
-// h1, h2, h3 {
-//   text-shadow: 2px 2px 5px black;
-// }
+h1, h2 {
+  text-shadow: 2px 2px 2px black;
+}
 
 .container {
-  width: 700px;
+  background-color: #545B77;
   margin: 0 auto;
  // border: 2px solid gray;
   // box-shadow: 2px 4px 10px #5C8984;
   color: white;
-  // font-family: "Roboto";
+  border-radius: 25px;
+  overflow: hidden;
 }
 
 .show-header {
@@ -36,8 +37,13 @@
 
 .jadid {
   background-color: #5C8984;
+  border: 2px solid gray;
+  margin-top: 15px;
+  box-shadow: 2px 4px 10px reddish;
   padding: 10px;
+  border-radius: 15px 50px;
 }
+
 .projectinfo {
     display: flex;
     width: 300px;
@@ -48,6 +54,7 @@
   width: 200px;
   height: 200px;
 }
+
 .cards_buttom {
   width: 700px;
   background-color: #545B77;
