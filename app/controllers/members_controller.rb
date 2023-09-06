@@ -34,6 +34,7 @@ class MembersController < ApplicationController
   end
 
   def destroy
+    @member.project_members.destroy_all
     @member.destroy
     redirect_to projects_path, status: :see_other
   end
