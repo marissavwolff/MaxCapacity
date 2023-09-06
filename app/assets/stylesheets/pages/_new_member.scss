@@ -4,6 +4,7 @@
   flex-shrink: 0;
   background:  #545B77;
   text-align: left;
+  margin: auto;
 }
 
 .new_member_page {
@@ -20,4 +21,20 @@ text-align: left;
   flex-shrink: 0;
   border-radius: 15px;
   background: var(--Light-Grey, #DDD);
+}
+
+.select-project {
+  display: grid;
+  justify-content: start;
+  justify-items: center;
+}
+
+.button-right-corner {
+  margin-top: 40px;
+  float: right;
+  margin-right: 0%;
+}
+
+.form-header {
+  margin-bottom: 55px;
 }
