@@ -1,0 +1,50 @@
+.team-member-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+#capacity-card {
+  color: white;
+  width: 545px;
+  height: 189px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #5C8984;
+  text-align: center;
+  padding: 20%;
+}
+
+.container-team {
+  width: 1400px;
+  margin: 0 auto;
+}
+
+.photo-title {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 15px;
+  align-items: center;
+}
+
+.member-title-card {
+  width: 545px;
+  height: 189px;
+  padding: 15px;
+}
+
+.weekday-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 80px;
+}
+
+.weekday-card {
+  width: 214px;
+  height: 73px;
+  align-items: center;
+  text-align: center;
+  background: #374259;
+  border-radius: 10px;
+  padding: 15px;
+}

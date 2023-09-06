@@ -1,17 +1,39 @@
 .form-new {
   border-style: none;
+  background-color: #545B77;
 }
 
 .form-new h1 {
   color: #F5E9CF;
+  padding-bottom: 12px;
 }
 
 .form-label, .col-form-label {
   color: #F5E9CF;
+  font-size: 16px;
 }
 
 .form-control, .form-select {
   // border-style: inherit;
   border-radius: 20px;
   background-color: #DDDDDD;
+}
+
+.form-new p {
+  color: #F5E9CF;
+  text-decoration: none;
+}
+
+.select-member {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-start;
+}
+
+.fa-solid {
+  color: #F5E9CF;
+  &:hover {
+    color: #5C8984;
+  }
 }

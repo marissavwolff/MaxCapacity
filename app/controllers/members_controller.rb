@@ -28,6 +28,6 @@ private
   end
 
   def member_params
-    params.require(:member).permit(:name, :company, :title, :email, :capactiy, :line_manager)
+    params.require(:member).permit(:name, :company, :title, :email, :line_manager, :capacity, :photo)
   end
 end

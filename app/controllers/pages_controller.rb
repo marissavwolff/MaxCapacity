@@ -5,7 +5,6 @@ class PagesController < ApplicationController
   end
 
   def show
-  raise
   @project = Project.find(params[:id])
   @user = current_user
   end

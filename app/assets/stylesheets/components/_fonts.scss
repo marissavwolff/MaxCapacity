@@ -9,10 +9,28 @@ line-height: normal;
 }
 
 .description {
-  color: #F5E9CF;
+color: #F5E9CF;
 font-family: Inter;
 font-size: 15px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
+}
+
+.sub-title {
+  color: #000;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.capacity-font {
+  color: white;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: bold;
+  font-weight: 400;
+  line-height: normal;
 }
