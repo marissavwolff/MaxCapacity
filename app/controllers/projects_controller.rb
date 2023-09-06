@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
   end
-  
+
   skip_before_action :authenticate_user!
 
   def show
@@ -25,7 +25,6 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project.user = current_user
     if @project.save
       redirect_to projects_path, notice: "Project successfully created"
     else
@@ -36,6 +35,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :deadline, :capacity, :description, :tool_system, :members)
+    params.require(:project).permit(:name, :deadline, :capacity, :description, :tool_system, :members, :priority)
   end
 end
