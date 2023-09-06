@@ -3,14 +3,15 @@
   border-radius: 20px;
   border-color: #F5E9CF;
   color: #F5E9CF;
-}
 
-.button-save:hover {
-  background-color: #F5E9CF;
+  &:hover {
+    background-color: #F5E9CF;
   color: #5C8984;
   border-color: #5C8984;
   border-radius: 20px;
+  }
 }
+
 
 
 .project_priority {
