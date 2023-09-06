@@ -1,3 +1,25 @@
 .project-card {
-  border-radius: 10px;
+  border-radius: 30px;
+}
+
+.card-for-project {
+  margin: 16px;
+  text-decoration: none;
+  height: 300px;
+  width: 300px;
+  border-radius: 10%;
+  padding: 10px;
+  text-align: center;
+  background-color: #374259;
+  &:hover {
+    box-shadow: 6px 6px #eab2a0;
+  }
+  h2 {
+    color: #f5e9cf;
+    padding-top: 5px;
+    font-family: 'Jost', sans-serif;
+  }
+  i {
+    font-size: 20px;
+  }
 }
