@@ -27,11 +27,11 @@
         </div>
         <%= link_to project_path(project) do %>
           <h2><%= link_to project.name, project_path(project), class: 'text-decoration-none text-reset' %>
-            <% if project.priority == "high" %>
+            <% if project.priority == "High" %>
               <i class="fa-solid fa-circle" style="color: #fb6060;"></i>
-              <% elsif project.priority == "medium" %>
+              <% elsif project.priority == "Medium" %>
                 <i class="fa-solid fa-circle" style="color: #fbb360;"></i>
-              <% elsif project.priority == "low" %>
+              <% elsif project.priority == "Low" %>
                 <i class="fa-solid fa-circle" style="color: #78e26a;"></i>
             <% end %></h2>
             <div class="p-2 rounded-bottom row justify-content-space-between">
@@ -39,8 +39,8 @@
               <div class="col text-end">
               </div>
               <small><p class="text-left mt-3" style="color: #000000;">Days to deadline:</p></small>
-              <div class="w2-border w3-round align-items-center" style="width: 300px;">
-                <% percent = ((Date.today - project.created_at.to_date).to_i/(project.deadline - project.created_at.to_date).to_i)*100 %>
+              <div class="w3-border w3-round align-items-center" style="width: 300px;">
+                <% percent = (((Date.today - project.created_at.to_date).to_i/(project.deadline - project.created_at.to_date).to_f)*100).round() %>
                 <div class="w3-sand w3-round" style="height:10px;width: <%= percent %>%"></div>
               </div>
               <% @project_member = project.members.last(3) %>
