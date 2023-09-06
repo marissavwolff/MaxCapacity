@@ -11,12 +11,15 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @members = @project.members
     # require 'asana'
-    # personal_access_token = '0/123456789....'
-    # @client = Asana::Client.new do |c|
-    #   c.authentication :access_token, 'personal_access_token'
-    # end
 
-    @client.workspaces.get_workspaces.first
+    # client = Asana::Client.new do |c|
+    #     c.authentication :access_token, '1/1205422980318130:72fecd4355e1f6dfe789e2b414108a98'
+    # end
+    # @goals = client.goals.get_goal
+
+    url = 'https://app.asana.com/api/1.0/workspaces'
+    user_serialized = URI.open(url).read
+    @user = JSON.parse(user_serialized)
   end
 
   def new
