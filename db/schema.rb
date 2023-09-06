@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_06_114046) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_06_140914) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,11 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_114046) do
     t.string "line_manager"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "asanatoken"
-    t.string "trellotoken"
-    t.string "jiratoken"
-    t.string "slacktoken"
-    t.string "googletoken"
   end
 
   create_table "project_members", force: :cascade do |t|
@@ -80,6 +75,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_114046) do
     t.datetime "updated_at", null: false
     t.string "project_manager"
     t.boolean "completed"
+    t.string "asana_token"
+    t.string "trello_token"
+    t.string "google_token"
+    t.string "slack_token"
+    t.string "jira_token"
+    t.string "asana_workspace"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

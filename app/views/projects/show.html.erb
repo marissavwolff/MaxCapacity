@@ -1,28 +1,35 @@
 <div class="container">
   <div class="d-flex justify-content-md-center">
+    <div class = "jadid">
     <div class="row">
-      <div class="col-5 m-2">
-      <div class = "jadid">
-        <h2><%= @project.name %></h2>
-        <p style="font-size:small;">Deadline: <%= @project.deadline %></p>
-        <p><input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked=""><label class="form-check-label" for="flexSwitchCheckChecked">Mark as completed.</label></p>
+      <%# <div class="col-5 m-2"> %>
+        <div class="col-8">
+          <h2><%= @project.name %></h2>
+          <div class="deadpri">
+            <p class="pr-2" style="font-size:small;">Deadline: <%= @project.deadline %></p>
+            <% if @project.priority == "[\"High\"]" %>
+              <i class="fa-solid fa-circle fa-xs" style="color: #fb6060;"></i>
+            <% elsif (@project.priority == "[\"Medium\"]")%>
+              <i class="fa-solid fa-circle fa-xs" style="color: #fbb360;"></i>
+            <% else %>
+              <i class="fa-solid fa-circle fa-xs" style="color: #78e26a;"></i>
+            <% end %>
+          </div>
+
+        </div>
+        <div class="col-4">
+
+          <div style="margin: 5px;">
+          <%= link_to "Add tools", project_new_tool_path(@project), class: "btn button-save" %>
+
+          <%= link_to "Edit project", edit_project_path(@project), class: "btn button-save" %>
+          <p><input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" ><label class="form-check-label" for="flexSwitchCheckChecked">Mark as completed</label></p>
+          </div>
+
+        </div>
       </div>
       <div class=" m-2 show-header">
-        <div class = "col-5 project-info">
-        <h2><%= @project.name %></h2>
-        <div class="deadpri">
-          <p class="pr-2" style="font-size:small;">Deadline: <%= @project.deadline %></p>
-          <% if @project.priority == "[\"High\"]" %>
-            <i class="fa-solid fa-circle fa-xs" style="color: #fb6060;"></i>
-          <% elsif (@project.priority == "[\"Medium\"]")%>
-            <i class="fa-solid fa-circle fa-xs" style="color: #fbb360;"></i>
-          <% else %>
-            <i class="fa-solid fa-circle fa-xs" style="color: #78e26a;"></i>
-          <% end %>
-        </div>
-        <%= link_to "Edit", edit_project_path(@project), class: "btn button-save" %>
-        <p><input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" ><label class="form-check-label" for="flexSwitchCheckChecked">Mark as completed</label></p>
-        </div>
+
         <div class="col-7 show-widgets">
           Project Milestone Tracker
           <div class="pt-3">
@@ -71,9 +78,7 @@
       </div>
       <div class="col-12 mt-3 border border-1">
         <div class= "d-flex justify-content-evenly p-1 bg-secondary">
-          <div class = "col-5 bg-info rounded-3 m-1 p-1"><h3>    <% @goals.each do |goal| %>
-          <%= goal %>
-    <% end %>
+          <div class = "col-5 bg-info rounded-3 m-1 p-1"><h3>A headline here
     </h3><p style = "font-size:12px;">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups</p></div>
           <div class = "col-5 bg-info rounded-3 m-1 p-1"><h3>heading</h3><p style = "font-size:12px;">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups</p></div>
         </div>
@@ -83,6 +88,6 @@
         </div>
 
       </div>
-    </div>
+    <%# </div> %>
   </div>
 </div>
