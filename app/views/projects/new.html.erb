@@ -1,19 +1,19 @@
 <%# <div style="background-color:#DDDDDD;"> %>
   <div class="container">
     <div class="form-new my-4 p-4">
-      <h1 class="justif">Create New Project</h1>
+      <h1 class="">Create New Project</h1>
       <%= simple_form_for @project do |f| %>
         <%= f.input :name %>
         <%= f.input :deadline, as: :date, html5: true %>
         <div class="select-member">
-          <%= f.input :members, as: :check_boxes, collection: Member.all, input_html: { multiple: true, class: "team-member-select" }, item_wrapper_class: 'member-item', include_blank: false %>
+          <%= f.input :members, as: :check_boxes, collection: Member.all, include_blank: false, include_hidden: false, input_html: { multiple: true, class: "team-member-select" }, item_wrapper_class: 'member-item' %>
           <%= link_to new_member_path do %>
             <i class="fa-solid fa-plus pb-2"></i>
           <% end %>
         </div>
-        <%= f.input :priority, as: :check_boxes, collection: (['High', 'Medium', 'Low']), class: 'priority-select', include_blank: false %>
+        <%= f.input :priority, as: :check_boxes, collection: (['High', 'Medium', 'Low']), include_blank: false, include_hidden: false, class: 'priority-select' %>
         <%= f.input :capacity %>
-        <%= f.input :tool_system, as: :check_boxes,  include_blank: false,
+        <%= f.input :tool_system, as: :check_boxes, include_blank: false, include_hidden: false,
             input_html: { multiple: true, class: 'tool-selector'},
             wrapper_html: { class: 'tool-wrapper'},
             item_wrapper_class: 'tool-item',
