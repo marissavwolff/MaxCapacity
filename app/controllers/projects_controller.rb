@@ -42,6 +42,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project.update(project_params)
+    add_members
     redirect_to project_path
   end
 
@@ -56,7 +57,7 @@ class ProjectsController < ApplicationController
     member_ids = params[:project][:members]
     member_ids.each do |id|
       member = Member.find(id)
-      ProjectMember.new(member: member, project: @project) # When @project saves, this will be created
+      ProjectMember.create(member: member, project: @project) # When @project saves, this will be created
     end
   end
 
