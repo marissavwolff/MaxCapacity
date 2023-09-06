@@ -45,9 +45,21 @@
   // height: 69px;
 
   &:hover {
-    background-color: #E46D6D;
-    color: #5C8984;
-    border-color: #5C8984;
+    background-color: #F5E9CF;
+    color: #EAB2A0;
+    border-color: #EAB2A0;
+    border-radius: 20px;
+  }
+}
+
+.button-signup {
+  background-color: #5C8984;
+  color: #F5E9CF;
+  border-radius: 20px;
+
+  &:hover {
+    background-color: #EAB2A0;
+    color: #374259;
     border-radius: 20px;
   }
 }

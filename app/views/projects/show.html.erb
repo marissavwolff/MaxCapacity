@@ -50,11 +50,17 @@
       <div class="col-6">
         <div class= "row p-1 show-widgets">
           <p>Team members</p>
+          <ul class="team-members">
+            <% @project.members.each do |member| %>
+              <li><%= member.name %> -
+              <%= member.title %> </li>
+            <% end %>
+          </ul>
+            <%# <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
             <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
             <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
             <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
-            <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
-            <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
+            <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div> %>
         </div>
       </div>
       <div class="col-12 mt-3 ">
