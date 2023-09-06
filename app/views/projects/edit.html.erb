@@ -1,8 +1,7 @@
-<%# <div style="background-color:#DDDDDD;"> %>
-  <div class="container">
+ <div class="container">
     <div class="form-new my-4 p-4">
-      <h1 class="">Create New Project</h1>
-      <%= simple_form_for @project do |f| %>
+      <h1 class=""><%= "Edit #{@project.name} Project" %></h1>
+      <%= simple_form_for(@project) do |f| %>
         <%= f.input :name %>
         <%= f.input :deadline, as: :date, html5: true %>
         <div class="select-member">
@@ -13,15 +12,15 @@
         </div>
         <%= f.input :priority, as: :check_boxes, collection: (['High', 'Medium', 'Low']), include_blank: false, include_hidden: false, class: 'priority-select' %>
         <%= f.input :capacity %>
-        <%#= f.input :tool_system, as: :check_boxes, include_blank: false, include_hidden: false,
+        <%#= f.input :tool_system, as: :check_boxes,  include_blank: false,
             input_html: { multiple: true, class: 'tool-selector'},
             wrapper_html: { class: 'tool-wrapper'},
             item_wrapper_class: 'tool-item',
-            collection: (Tool.apps.keys) %>
+            collection: (["Jira", "Asana", "Google Meets", "Slack"]) %>
         <%= f.input :description %>
-        <div class="py-4"><%= f.submit "Create", class: 'btn button-save' %></div>
+        <div class="py-4"><%= f.submit "Update", class: 'btn button-save' %></div>
+        <%= link_to "Delete", project_path(@project), class: 'btn button-delete',
+        data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this project?" } %>
       <% end %>
     </div>
   </div>
-<%# </div> %>
-

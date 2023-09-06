@@ -1,8 +1,6 @@
 <div class="container new_member_page mt-5">
   <div class="row new-member-form">
-    <div class="form-header">
-      <h2 class="sub-heading">New Team Member</h2>
-    </div>
+    <h2 class="sub-heading">New Team Member</h2>
     <div class="justify-content-center">
       <%= simple_form_for @member do |f|%>
       <div class="col-3">
@@ -10,18 +8,18 @@
         <p class="description p-2 text-center">Add Photo</p>
       </div>
       <div class="col-9">
-          <h2 class="form-heading text-left">Name</h2>
+          <h2 class="sub-heading text-left">Name</h2>
         <%= f.input :name, label_html: {class: 'member_input'}, label: false %>
-        <h2 class="form-heading">Role</h2>
+        <h2 class="sub-heading">Role</h2>
         <%= f.input :title, label_html: {class: 'member_input'}, label: false %>
-        <h2 class="form-heading">Email</h2>
+        <h2 class="sub-heading">Email</h2>
         <%= f.input :email, label_html: {class: 'member_input'}, label: false %>
-        <h2 class="form-heading">Line Manager</h2>
+        <h2 class="sub-heading">Line Manager</h2>
         <%= f.input :line_manager, label_html: {class: 'member_input'}, label: false %>
-          <h2 class="form-heading">Team Member Capacity (hours)</h2>
+          <h2 class="sub-heading">Team Member Capacity (hours)</h2>
         <%= f.input :capacity, label_html: {class: 'member_input'}, label: false %>
         <div class="select-project">
-          <h2 class="form-heading ">Select Projects</h2>
+          <h2 class="sub-heading ">Select Projects</h2>
           <%= f.input :project_ids, as: :check_boxes, collection: Project.all, input_html: {multiple: true}, include_blank: false, label: false  %>
         </div>
         <div class="button-right-corner">
