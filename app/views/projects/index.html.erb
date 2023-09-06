@@ -12,13 +12,21 @@
   <% end %>
 </div>
 
-<div class="row container-projects align-items-center" style="padding-bottom:100px;">
+<div class="container-projects align-items-center mx-auto" style="padding-bottom:100px; width: 996px;">
+  <div class="row row-cols-4">
     <% @projects.each do |project| %>
-      <div class="card-for-project col-12 col-sm-3 mb-4" data-aos="zoom-in">
-
+      <div class="card-for-project col mb-4" data-aos="zoom-in">
+        <div class="dropdown text-right">
+          <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to "Edit", "#", class: "dropdown-item" %>
+            <%= link_to "Delete", "#", class: "dropdown-item" %>
+          </div>
+        </div>
         <%= link_to project_path(project) do %>
-          <div>
-            <h2><%= link_to project.name, project_path(project), class: 'text-decoration-none text-reset' %>
+          <h2><%= link_to project.name, project_path(project), class: 'text-decoration-none text-reset' %>
             <% if project.priority == "high" %>
               <i class="fa-solid fa-circle" style="color: #fb6060;"></i>
               <% elsif project.priority == "medium" %>
@@ -27,12 +35,17 @@
                 <i class="fa-solid fa-circle" style="color: #78e26a;"></i>
             <% end %></h2>
             <div class="p-2 rounded-bottom row justify-content-space-between">
-              <strong><%= project.project_manager %></strong>
+              <p><%= project.project_manager %></p>
               <div class="col text-end">
               </div>
-            </div>
+              <small><p class="text-left mt-3" style="color: #000000;">Days to deadline:</p></small>
+              <div class="w3-border w3-round align-items-center" style="width: 300px;">
+                <% percent = 50 %>
+                <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
+              </div>
           </div>
         <% end %>
       </div>
     <% end %>
   </div>
+</div>
