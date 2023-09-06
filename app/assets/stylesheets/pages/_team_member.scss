@@ -2,6 +2,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    margin-bottom: 15px;
+    row-gap: 25px;
 }
 
 #capacity-card {
@@ -34,17 +36,42 @@
 }
 
 .weekday-grid {
+  width: 1338px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 80px;
+  margin-top: 65px;
+  margin-bottom: 65px;
 }
 
 .weekday-card {
   width: 214px;
-  height: 73px;
+  height: auto;
   align-items: center;
   text-align: center;
   background: #374259;
   border-radius: 10px;
   padding: 15px;
+}
+
+.container-white {
+  width: 1338px;
+  height: auto;
+  margin: auto;
+  border-radius: 15px;
+  background: #DDD;
+}
+
+.member-project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-right: 40px;
+  padding-left: 150px;
+  padding-bottom: 40px;
+}
+
+.member-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
