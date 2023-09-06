@@ -3,7 +3,19 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @projects = Project.all
+    if params[:filter].present?
+      if params[:filter] == 'my-projects'
+        @projects = current_user.projects
+      elsif params[:filter] == 'completed-projects'
+        @projects = Project.where('completed = true')
+      end
+    else
+      @projects = Project.all
+    end
+  end
+
+  def days_to_deadline
+    @days = Project.deadline - Date.today
   end
 
   def show
