@@ -46,3 +46,27 @@ nav ul li a:hover {
   cursor: pointer;
   border: none;
 }
+
+.home-info {
+  display: flex;
+}
+
+.item {
+  flex-grow: 1;
+}
+
+.homepage-info {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-us {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}

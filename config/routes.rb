@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   get 'demo', to: 'pages#demo', as: :demo
   get 'pricing', to: 'pages#pricing', as: :pricing
   get 'contact_us', to: 'pages#contact_us', as: :contact_us
-  get 'sign_up', to: 'registrations#new', as: :new_user_registration
+  # get 'sign_up', to: 'registrations#new', as: :new_user_registration
 
 end
