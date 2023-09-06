@@ -3,19 +3,51 @@
   border-radius: 20px;
   border-color: #F5E9CF;
   color: #F5E9CF;
-}
+  width: 126px;
+  height: 69px;
 
-.button-save:hover {
+  &:hover {
   background-color: #F5E9CF;
   color: #5C8984;
   border-color: #5C8984;
   border-radius: 20px;
+  }
 }
 
+
+.button-delete {
+  background-color: #F5E9CF;
+  border-radius: 20px;
+  border-color: #5C8984;
+  color: #5C8984;
+
+  &:hover {
+    background-color: #5C8984;
+    border-radius: 20px;
+    border-color: #F5E9CF;
+    color: #F5E9CF;
+  }
+}
 
 .project_priority {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.button-delete {
+  background-color: #EAB2A0;
+  border-radius: 20px;
+  border-color: #F5E9CF;
+  color: #F5E9CF;
+  width: 126px;
+  height: 69px;
+
+  &:hover {
+    background-color: #E46D6D;
+  color: #5C8984;
+  border-color: #5C8984;
+  border-radius: 20px;
+  }
 }

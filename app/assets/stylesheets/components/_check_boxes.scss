@@ -1,0 +1,100 @@
+.member-item {
+  display: inline-block;
+}
+
+.team-member-select {
+  position: absolute;
+  transform: scale(0);
+}
+
+.team-member-select + label {
+  display: inline-block;
+  border-radius: 20px;
+  padding: 5px 10px 5px;
+  background-color: #F5E9CF;
+  color: #374259;
+  border: 1px solid #374259;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.team-member-select:checked + label {
+  background-color: #374259;
+  color: #F5E9CF;
+}
+
+.tool-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.tool-item {
+  flex: 0 0 30%;
+  padding: 5px
+}
+
+.tool-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.tool-selector + label {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #F5E9CF;
+  border-radius: 20px;
+  background-color: #5C8984;
+  color: #F5E9CF;
+}
+
+// .tool-selector:checked + label {
+ // color: #374259;
+// }
+
+
+#project_tool_system_slack + label {
+  color: #F5E9CF;
+}
+
+#project_tool_system_slack:checked + label {
+  background-color: #F5E9CF;
+  border-color: #5C8984;
+  color: #5C8984;
+}
+
+// project_tool_system_google_meet
+#project_tool_system_google_meets + label {
+  color: #F5E9CF;
+}
+
+#project_tool_system_google_meets:checked + label {
+  background-color: #F5E9CF;
+  border-color: #5C8984;
+  color: #5C8984;
+}
+
+// project_tool_system_trello
+#project_tool_system_jira + label {
+  color: #F5E9CF;
+}
+
+#project_tool_system_jira:checked + label {
+  background-color: #F5E9CF;
+  border-color: #5C8984;
+  color: #5C8984;
+}
+
+// project_tool_system_asana
+#project_tool_system_asana + label {
+  color: #F5E9CF;
+}
+
+#project_tool_system_asana:checked + label {
+  background-color: #F5E9CF;
+  border-color: #5C8984;
+  color: #5C8984;
+}
