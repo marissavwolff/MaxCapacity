@@ -2,7 +2,9 @@
   width: 100%;
   display: flex;
   overflow: auto;
-  justify-content: left;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
   h4 {
     text-align: left;
     text-decoration: none;
@@ -13,10 +15,10 @@
     font-family: 'Jost', sans-serif;
     &:hover {
       color: #545b77;
-      padding-top: 2px;
-      padding-left: 2px;
-      padding-right: 2px;
-      padding-bottom: 2px;
+      padding: 5px;
+      // padding-left: 4px;
+      // padding-right: 2px;
+      // padding-bottom: 2px;
       border-radius: 4px;
       background: #DDDDDD;
     }
@@ -29,4 +31,12 @@
   // flex-direction: column;
   align-items: left;
   margin: 8px;
+}
+
+.create-new:hover {
+  font-weight: bolder;
+}
+
+.edit-pc:hover {
+  box-shadow: 3px 3px #eab2a0;
 }

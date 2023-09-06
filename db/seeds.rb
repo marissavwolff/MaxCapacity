@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 tool = ["Jira", "Asana", "Google Meets", "Slack"]
-User.create!(name: "Bob", telephone_number: "+33456 781345", email: "glbbb@gl.co.uk", password: "gb@gb.co.uk", title: "product manager", company: "Google")
+User.create!(name: "Bob", telephone_number: "+33456 781345", email: "glbbb@glb.co.uk", password: "gb@gb.co.uk", title: "product manager", company: "Google")
 
 
 puts "Seeding Projects"
@@ -39,12 +39,12 @@ puts "created seeds"
 # create project_member seeds
 puts "Seeding ProjectMember"
 ProjectMember.create!(project_id: 5, member_id: 1, capacity_member: 40)
-ProjectMember.create!(project_id: 4, member_id: 23, capacity_member: 30)
-ProjectMember.create!(project_id: 1, member_id: 13, capacity_member: 20)
-ProjectMember.create!(project_id: 1, member_id: 2, capacity_member: 50)
-ProjectMember.create!(project_id: 3, member_id: 14, capacity_member: 50)
-ProjectMember.create!(project_id: 3, member_id: 15, capacity_member: 50)
-ProjectMember.create!(project_id: 2, member_id: 16, capacity_member: 50)
-ProjectMember.create!(project_id: 2, member_id: 17, capacity_member: 50)
+ProjectMember.create!(project_id: 4, member_id: 2, capacity_member: 30)
+ProjectMember.create!(project_id: 1, member_id: 3, capacity_member: 20)
+ProjectMember.create!(project_id: 1, member_id: 4, capacity_member: 50)
+ProjectMember.create!(project_id: 3, member_id: 5, capacity_member: 50)
+ProjectMember.create!(project_id: 3, member_id: 6, capacity_member: 50)
+ProjectMember.create!(project_id: 2, member_id: 7, capacity_member: 50)
+ProjectMember.create!(project_id: 2, member_id: 8, capacity_member: 50)
 
 puts "Created seeds"

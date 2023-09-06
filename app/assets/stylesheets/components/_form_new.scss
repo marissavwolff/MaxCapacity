@@ -1,11 +1,15 @@
 .form-new {
   border-style: none;
   background-color: #545B77;
-}
+    h1 {
+      color: #F5E9CF;
+      padding-bottom: 12px;
+    }
+    p {
+      color: #F5E9CF;
+      text-decoration: none;
+    }
 
-.form-new h1 {
-  color: #F5E9CF;
-  padding-bottom: 12px;
 }
 
 .form-label, .col-form-label {
@@ -19,11 +23,6 @@
   background-color: #DDDDDD;
 }
 
-.form-new p {
-  color: #F5E9CF;
-  text-decoration: none;
-}
-
 .select-member {
   display: flex;
   flex-direction: row;
@@ -33,7 +32,7 @@
 
 .fa-solid {
   color: #F5E9CF;
-  &:hover {
-    color: #5C8984;
-  }
+    &:hover {
+      color: #5C8984;
+    }
 }
