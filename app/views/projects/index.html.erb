@@ -30,7 +30,7 @@
               <em><%= link_to "Delete", project_path(project), class: "dropdown-item", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this listing?"} %></em>
             </div>
           </div>
-        </div>
+        
           <%= link_to project_path(project) do %>
             <h2><%= link_to project.name, project_path(project), class: 'text-decoration-none text-reset' %>
               <% if project.priority == "[\"High\"]" %>
