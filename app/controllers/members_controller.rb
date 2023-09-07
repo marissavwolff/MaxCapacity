@@ -6,16 +6,15 @@ class MembersController < ApplicationController
   end
 
   def edit
-
   end
 
-  def update
-    @member = Member.find(params[:id])
-    @member.update(member_params)
-  end
+  # def update
+  #   @member = Member.find(params[:id])
+  #   @member.update(member_params)
+  # end
 
   def index
-    @members = Members.all
+    @members = Member.all
   end
 
   def new
@@ -29,9 +28,6 @@ class MembersController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def edit
   end
 
   def update
@@ -48,7 +44,7 @@ class MembersController < ApplicationController
     redirect_to projects_path, status: :see_other
   end
 
-private
+  private
 
   def set_member
     @member = Member.find(params[:id])

@@ -20,6 +20,17 @@ class ProjectsController < ApplicationController
 
   def show
     @members = @project.members
+    require 'asana'
+    client = Asana::Client.new do |c|
+      c.authentication :access_token, '1/1205422980318130:72fecd4355e1f6dfe789e2b414108a98'
+    end
+    workspaces = client.workspaces.get_workspaces(options: { pretty: true })
+    workspace_id = workspaces.to_a[0].gid
+    @goals = client.goals.get_goals(workspace: workspace_id, options: { pretty: true })
+    # first_goal = goals.to_a[0]
+    @result = client.tasks.get_tasks_for_project(project_gid: '1205422662236262', options: { pretty: true, fields: ["name", "due_on", "completed", "assignee.name", "start_on", "tags.name", "notes"] })
+    @result = @result.elements
+    
   end
 
   def new_tool
