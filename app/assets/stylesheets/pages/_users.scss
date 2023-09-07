@@ -1,0 +1,27 @@
+.users-container {
+  background-color: #545B77;
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 20px;
+ // border: 2px solid gray;
+  // box-shadow: 2px 4px 10px #5C8984;
+  color: white;
+  border-radius: 25px;
+  // overflow: hidden;
+  text-decoration: none;
+}
+.users-container a {
+  text-decoration: none;
+  color: white;
+  opacity: .9;
+}
+
+.users-container a:hover {
+  color: white;
+}
+
+
+.users-links {
+  text-decoration: none;
+  color: white;
+}
