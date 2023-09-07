@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" data-controller="trello">
   <div class="d-flex justify-content-md-center">
     <div class = "jadid">
       <div class="row show-header">
@@ -54,6 +54,19 @@
             <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
             <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div> %>
 
+
+            <p data-trello-target="task"></p>
+            <p data-trello-target="highPriority">High Priority Tasks Pending</p>
+            <p data-trello-target="hours"></p>
+
+
+
+      <div class="col-12 mt-3">
+        <div class= "d-flex justify-content-evenly p-1 show-widgets">
+          <div class = "col-5 rounded-3 m-1 p-1"><h3>A headline here
+    </h3><p style = "font-size:12px;">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups</p></div>
+          <div class = "col-5 rounded-3 m-1 p-1"><h3>heading</h3><p style = "font-size:12px;">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups</p></div>
+
       <div class="mt-3">
         <div class="show-widgets col-12 mb-4">
           <div class="row m-1 p-1"><h4> <%= @project.name %> Asana Tasks</h4></div>
@@ -88,6 +101,7 @@
               <% end %>
             </ul>
           </div>
+
         </div>
 
         <div class="show-widgets col-6">
