@@ -20,20 +20,13 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-
-
-    <%  f.label :telephone_number %>
     <%= f.input :telephone_number %>
-
-    <%f.label :company%>
     <%= f.input :company %>
+    <%= f.input :title %>
 
-    <% f.label :title %>
-    <%= f.input :title, autofocus: true %>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up", class: "button-save" %>
-  </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Sign up", class: "button-save" %>
+    </div>
  </div>
 
   <%# <div class="actions">

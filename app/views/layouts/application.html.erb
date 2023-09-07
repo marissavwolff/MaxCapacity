@@ -23,13 +23,12 @@
   </head>
 
   <body style="background-color: #545B77">
-  <%= render "shared/navbar" %>
-  <%= render "shared/flashes" %>
+    <div style="min-height: calc(100vh - 100px);">
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
 
-<%#
-  <p class="notice"><%= notice %>
-  <%# <p class="alert"><%= alert %>
-
-    <%= yield %>
+      <%= yield %>
+    </div>
+    <%= render "shared/footer" %>
   </body>
 </html>
