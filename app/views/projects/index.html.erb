@@ -22,15 +22,15 @@
       <% @projects.each do |project| %>
         <div class="card-for-project col mb-4" data-aos="zoom-in">
           <div class="dropdown text-right">
-            <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: transparent";>
+            <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: transparent;border: none";>
               <i class="fa-solid fa-ellipsis-vertical"></i>
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-menu text-decoration-none" aria-labelledby="dropdownMenuButton">
               <em><%= link_to "Edit", edit_project_path(project), class: "dropdown-item" %></em>
               <em><%= link_to "Delete", project_path(project), class: "dropdown-item", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this listing?"} %></em>
             </div>
           </div>
-        
+
           <%= link_to project_path(project) do %>
             <h2><%= link_to project.name, project_path(project), class: 'text-decoration-none text-reset' %>
               <% if project.priority == "[\"High\"]" %>
@@ -45,7 +45,7 @@
                 <div class="col text-end">
                 </div>
                 <small><p class="text-left mt-3 px-2" style="color: #000000;">Days to deadline:</p></small>
-                <div class="w2-border w3-round align-items-center" style="width: 300px;">
+                <div class="w3-border w3-round align-items-center" style="width: 300px;">
                   <% percent = ((Date.today - project.created_at.to_date).to_i/(project.deadline - project.created_at.to_date).to_i)*100 %>
                   <div class="w3-sand w3-round" style="height:10px;width: <%= percent %>%"></div>
                 </div>
