@@ -6,10 +6,13 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 tool = ["Jira", "Asana", "Google Meets", "Slack"]
+User.destroy_all
 User.create!(name: "Bob", telephone_number: "+33456 781345", email: "glbb@glb.co.uk", password: "gb@gb.co.uk", title: "product manager", company: "Google")
 
 
 puts "Seeding Projects"
+
+Project.destroy_all!
 Project.create!(user_id: 1, project_manager: "Tom Jones", name: "Create MaxCapcity Site", deadline: "2024/4/15", description: "This project is about....", priority: "[\"High\"]", capacity: 70, tool_system: tool.sample)
 Project.create!(user_id: 1, project_manager: "Sally Weaver", name: "Launch Capacity Product", deadline: "2024/2/15", description: "This project is about....", priority: "[\"Low\"]", capacity: 40, tool_system: tool.sample)
 Project.create!(user_id: 1, project_manager: "Charlotte Reyburn", name: "Project Three", deadline: "2024/8/15", description: "This project is about....", priority: "[\"High\"]", capacity: 65, tool_system: tool.sample)
@@ -24,6 +27,7 @@ puts "Created seeds"
 
 
 puts "Seeding Member"
+Member.destroy_all!
 Member.create!(name: 'Sam', company: 'Le Wagon', title: 'Engineer', email: 'sam@lewagon.com', capacity: 8, line_manager: 'Wade')
 Member.create!(name: 'Will', company: 'Le Wagon', title: 'Performance', email: 'will@lewagon.com', capacity: 8, line_manager: 'Wade')
 Member.create!(name: 'Jack', company: 'Le Wagon', title: 'Designer', email: 'jack@lewagon.com', capacity: 8, line_manager: 'Wade')
@@ -38,6 +42,7 @@ puts "created seeds"
 
 # create project_member seeds
 puts "Seeding ProjectMember"
+ProjectMember.destroy_all!
 ProjectMember.create!(project_id: 5, member_id: 1, capacity_member: 40)
 ProjectMember.create!(project_id: 4, member_id: 2, capacity_member: 30)
 ProjectMember.create!(project_id: 1, member_id: 3, capacity_member: 20)
