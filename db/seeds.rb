@@ -6,20 +6,20 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 tool = ["Jira", "Asana", "Google Meets", "Slack"]
-User.create!(name: "Bob", telephone_number: "+33456 781345", email: "glbbb@glb.co.uk", password: "gb@gb.co.uk", title: "product manager", company: "Google")
+User.create!(name: "Bob", telephone_number: "+33456 781345", email: "glbb@glb.co.uk", password: "gb@gb.co.uk", title: "product manager", company: "Google")
 
 
 puts "Seeding Projects"
-Project.create!(user_id: 1, project_manager: "Project Manager", name: "Project One", deadline: "2024/4/15", description: "This project is about....", priority: "high", capacity: 0, tool_system: tool.sample)
-Project.create!(user_id: 1, project_manager: "Project Manager", name: "Project Two", deadline: "2024/2/15", description: "This project is about....", priority: "low", capacity: 0, tool_system: tool.sample)
-Project.create!(user_id: 1, project_manager: "Project Manager", name: "Project Three", deadline: "2024/8/15", description: "This project is about....", priority: "high", capacity: 0, tool_system: tool.sample)
-Project.create!(user_id: 1, project_manager: "Project Manager", name: "Project Four", deadline: "2024/9/1", description: "This project is about....", priority: "low", capacity: 0, tool_system: tool.sample)
-Project.create!(user_id: 1, project_manager: "Project Manager", name: "Project Five", deadline: "2024/2/15", description: "This project is about....", priority: "high", capacity: 0, tool_system: tool.sample)
-Project.create!(user_id: 1, project_manager: "Project Manager", name: "Project Six", deadline: "2023/12/15", description: "This project is about....", priority: "high", capacity: 0, tool_system: tool.sample)
-Project.create!(user_id: 1, project_manager: "Project Manager", name: "Project Seven", deadline: "2023/11/15", description: "This project is about....", priority: "medium", capacity: 0, tool_system: tool.sample)
-Project.create!(user_id: 1, project_manager: "Project Manager", name: "Project Eight", deadline: "2023/9/30", description: "This project is about....", priority: "high", capacity: 0, tool_system: tool.sample)
-Project.create!(user_id: 1, project_manager: "Project Manager", name: "Project Nine", deadline: "2023/10/15", description: "This project is about....", priority: "medium", capacity: 0, tool_system: tool.sample)
-Project.create!(user_id: 1, project_manager: "Project Manager", name: "Project Ten", deadline: "2023/9/15", description: "This project is about....", priority: "high", capacity: 0, tool_system: tool.sample)
+Project.create!(user_id: 1, project_manager: "Tom Jones", name: "Create MaxCapcity Site", deadline: "2024/4/15", description: "This project is about....", priority: "[\"High\"]", capacity: 70, tool_system: tool.sample)
+Project.create!(user_id: 1, project_manager: "Sally Weaver", name: "Launch Capacity Product", deadline: "2024/2/15", description: "This project is about....", priority: "[\"Low\"]", capacity: 40, tool_system: tool.sample)
+Project.create!(user_id: 1, project_manager: "Charlotte Reyburn", name: "Project Three", deadline: "2024/8/15", description: "This project is about....", priority: "[\"High\"]", capacity: 65, tool_system: tool.sample)
+Project.create!(user_id: 1, project_manager: "Madeleine Plumridge", name: "Bake a Cake", deadline: "2024/9/1", description: "This project is about....", priority: "[\"Low\"]", capacity: 20, tool_system: tool.sample)
+Project.create!(user_id: 1, project_manager: "Georgia Bean-Butler", name: "Project Five", deadline: "2024/2/15", description: "This project is about....", priority: "[\"Low\"]", capacity: 20, tool_system: tool.sample)
+Project.create!(user_id: 1, project_manager: "Bijan Sabbagh", name: "Project Six", deadline: "2023/12/15", description: "This project is about....", priority: "[\"High\"]", capacity: 60, tool_system: tool.sample)
+Project.create!(user_id: 1, project_manager: "Marissa Wolff", name: "Project Seven", deadline: "2023/11/15", description: "This project is about....", priority: "[\"Medium\"]", capacity: 50, tool_system: tool.sample)
+Project.create!(user_id: 1, project_manager: "Ben Affleck", name: "Launch New Site", deadline: "2023/9/30", description: "This project is about....", priority: "[\"High\"]", capacity: 65, tool_system: tool.sample)
+Project.create!(user_id: 1, project_manager: "Terry", name: "Marketing for New Product", deadline: "2023/10/15", description: "This project is about....", priority: "[\"Medium\"]", capacity: 45, tool_system: tool.sample)
+Project.create!(user_id: 1, project_manager: "Loki Millioud", name: "New Site Feature", deadline: "2023/9/15", description: "This project is about....", priority: "[\"High\"]", capacity: 65, tool_system: tool.sample)
 puts "Created seeds"
 
 
@@ -42,8 +42,8 @@ ProjectMember.create!(project_id: 5, member_id: 1, capacity_member: 40)
 ProjectMember.create!(project_id: 4, member_id: 2, capacity_member: 30)
 ProjectMember.create!(project_id: 1, member_id: 3, capacity_member: 20)
 ProjectMember.create!(project_id: 1, member_id: 4, capacity_member: 50)
-ProjectMember.create!(project_id: 3, member_id: 5, capacity_member: 50)
-ProjectMember.create!(project_id: 3, member_id: 6, capacity_member: 50)
+# ProjectMember.create!(project_id: 3, member_id: 5, capacity_member: 50)
+# ProjectMember.create!(project_id: 3, member_id: 6, capacity_member: 50)
 ProjectMember.create!(project_id: 2, member_id: 7, capacity_member: 50)
 ProjectMember.create!(project_id: 2, member_id: 8, capacity_member: 50)
 

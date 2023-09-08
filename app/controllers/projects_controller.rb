@@ -53,7 +53,7 @@ class ProjectsController < ApplicationController
     workspace_id = workspaces.to_a[0].gid
     @goals = client.goals.get_goals(workspace: workspace_id, options: {pretty: true})
     # first_goal = goals.to_a[0]
-    @result = client.tasks.get_tasks_for_project(project_gid: '1205422662236262', options: {pretty: true, fields: ["name", "due_on", "completed", "assignee.name", "start_on", "tags.name", "notes"]})
+    @result = client.tasks.get_tasks_for_project(project_gid: '1205422662236262', options: {pretty: true, fields: ["name", "due_on", "completed", "assignee.name", "start_on", "tags.name", "notes", "projects.name"]})
     @result = @result.elements
 
     # @task_name = @result.to_a[0].name
@@ -85,7 +85,7 @@ class ProjectsController < ApplicationController
 
     # @result = client.tasks.get_tasks_for_project(project_gid: '1205422662236262', options: {pretty: true})
 
-end
+  end
 
   def new
     @project = Project.new
@@ -120,10 +120,12 @@ end
   private
 
   def add_members
-    member_ids = params[:project][:members]
-    member_ids.each do |id|
-      member = Member.find(id)
+      member_ids = params[:project][:members]
+    if member_ids.present?
+      member_ids.each do |id|
+        member = Member.find(id)
       ProjectMember.create(member: member, project: @project) # When @project saves, this will be created
+      end
     end
   end
 
