@@ -90,7 +90,7 @@
             <h4>Team Members</h4>
             <ul class="team-members">
                 <% @project.members.each do |member| %>
-              <%= link_to members_path(params[:id]) do %>
+              <%= link_to member_path(member) do %>
                   <li class="pb-2"><%= member.name %> -
                   <% end %>
                   <%= member.title %> </li>

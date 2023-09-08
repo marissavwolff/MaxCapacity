@@ -120,10 +120,12 @@ class ProjectsController < ApplicationController
   private
 
   def add_members
-    member_ids = params[:project][:members]
-    member_ids.each do |id|
-      member = Member.find(id)
+      member_ids = params[:project][:members]
+    if member_ids.present?
+      member_ids.each do |id|
+        member = Member.find(id)
       ProjectMember.create(member: member, project: @project) # When @project saves, this will be created
+      end
     end
   end
 
