@@ -42,34 +42,24 @@
           </li>
         <% end %>
       </ul>
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="loginModalLabel">Log In</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <%= form_for(current_user, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <div class="mb-3">
-                <%= f.label :email %>
-                <%= f.email_field :email, class: "form-control" %>
+      <% if !current_user %>
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="mb-3">
-                  <%= f.label :password %>
-                  <%= f.password_field :password, class: "form-control" %>
-                  </div>
-                  <div class="mb-3">
-                    <%= f.submit "Log In", class: "btn btn-primary" %>
-                  </div>
-                <% end %>
+                <div class="modal-body">
+                <%=render 'devise/sessions/new' %>
+                </div>
+                  <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               </div>
-              <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      <% end %>
   </div>
 </div>
 </div>
