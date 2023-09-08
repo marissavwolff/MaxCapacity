@@ -14,10 +14,9 @@
               <i class="fa-solid fa-circle fa-xs" style="color: #78e26a;"></i>
             <% end %>
             </div>
-            Capacity <%= @project.capacity %>
             <div class="col-">
               <div style="margin: 5px;">
-                <%= link_to "Add tools", project_new_tool_path(@project), class: "btn button-save" %>
+                <%#= link_to "Add tools", project_new_tool_path(@project), class: "btn button-save" %>
                 <%= link_to "Edit", edit_project_path(@project), class: "btn button-save" %>
                 <p><input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" ><label class="form-check-label" for="flexSwitchCheckChecked">Mark as completed</label></p>
               </div>
@@ -26,6 +25,7 @@
           <div class="m-2">
           <div class="col-7 show-widgets-milestone">
           <h4> Project Milestone Tracker </h4>
+            Capacity hours: <%= @project.capacity %>
             <div class="pt-3">
               <div class="w3-border w3-round align-items-center">
                 <% percent = 50 %>
