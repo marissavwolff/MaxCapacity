@@ -46,12 +46,12 @@
                 </div>
                 <small><p class="text-left mt-3 px-2" style="color: #000000;">Days to deadline:</p></small>
                 <div class="w3-border w3-round align-items-center" style="width: 300px;">
-                  <% percent = ((Date.today - project.created_at.to_date).to_i/(project.deadline - project.created_at.to_date).to_i)*100 %>
+                  <% percent = ((Date.today - project.created_at.to_date).to_i/(project.deadline - project.created_at.to_date).to_f)*100 %>
                   <div class="w3-sand w3-round" style="height:10px;width: <%= percent %>%"></div>
                 </div>
                 <% @project_member = project.members.last(3) %>
                 <% @project_member.each do |member| %>
-                  <div class="avatar-small my-4 pt-2">
+                  <div class="avatar-small my-4 pt-2" data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= member.name %>">
                     <small><%= member.name.first %></small>
                   </div>
                 <% end %>
