@@ -1,4 +1,4 @@
-<div class="container" data-controller="trello">
+<div class="container" data-controller="trello" data-trello-capacity-value="<%= @project.capacity %>">
   <div class="d-flex justify-content-md-center">
     <div class = "jadid">
       <div class="row show-header">
@@ -14,7 +14,7 @@
               <i class="fa-solid fa-circle fa-xs" style="color: #78e26a;"></i>
             <% end %>
             </div>
-            Capacity <%= @project.capacity %>
+            Project Expected Hours: <%= @project.capacity %>
             <div class="col-">
               <div style="margin: 5px;">
                 <%= link_to "Add tools", project_new_tool_path(@project), class: "btn button-save" %>
@@ -27,21 +27,23 @@
           <div class="col-7 show-widgets-milestone">
           <h4> Project Milestone Tracker </h4>
             <div class="pt-3">
+              <p>Time to deadline:</p>
               <div class="w3-border w3-round align-items-center">
-                <% percent = 50 %>
+                <% percent = ((Date.today - @project.created_at.to_date).to_i/(@project.deadline - @project.created_at.to_date).to_f)*100 %>
                 <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
+            </div>
+            <div class="pt-3">
+              <p>% Trello Hours:</p>
+              <div class="w3-border w3-round align-items-center">
+                <div class="w3-grey w3-round" data-trello-target="progress"></div>
               </div>
-              <div class="pt-3">
-                <div class="w3-border w3-round align-items-center">
-                  <% percent = 50 %>
-                  <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
-                </div>
-              </div>
-              <div class="pt-3">
-                <div class="w3-border w3-round align-items-center">
-                  <% percent = 50 %>
-                <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
-              </div>
+            </div>
+            <div class="pt-3">
+              <p>% Asana Hours:</p>
+              <div class="w3-border w3-round align-items-center">
+                <% percent = 15 %>
+              <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
+            </div>
                 </div>
               </div>
           </div>
@@ -71,7 +73,9 @@
             </div>
           </div>
         <div class="show-widgets col-12">
-          <div class="m-1 p-1"><h4>Trello Tasks</h4>
+          <div class="m-1 p-1"><h4>Trello Tasks <%= link_to "https://trello.com/b/ZP1CdzZU/lewagonproject", target:"_blank" do %>
+          <i class="fa-solid fa-clipboard-list"></i>
+          <% end %> </h4>
           </div>
           <ul class="asana-task">
             <strong>High Priority Tasks:</strong>

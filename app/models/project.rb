@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :user
-  has_many :project_members
+  has_many :project_members, dependent: :destroy
   has_many :members, through: :project_members
   has_many :tools, dependent: :destroy
 

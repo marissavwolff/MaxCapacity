@@ -2,7 +2,8 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="trello"
 export default class extends Controller {
-  static targets = ["task", "highPriority", "hours"]
+  static targets = ["task", "highPriority", "hours", "progress"]
+  static values = {capacity: Number}
 
   connect() {
     console.log("test")
@@ -44,8 +45,11 @@ export default class extends Controller {
       this.highPriorityTarget.insertAdjacentHTML("beforeend", highCount)
 
       const hoursWork = "<p>" + hoursCount + "</p>"
-      this.hoursTarget.insertAdjacentHTML("beforeend", hoursWork)
+      this.hoursTarget.innerHTML=hoursCount
 
+      const trelloPercentage = (hoursCount / this.capacityValue)*100
+      console.log(trelloPercentage)
+      this.progressTarget.style = `height:10px;width: ${trelloPercentage}%`
     });
   }
 }
