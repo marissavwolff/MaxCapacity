@@ -45,9 +45,11 @@
                 <div class="col text-end">
                 </div>
                 <small><p class="text-left mt-3 px-2" style="color: #000000;">Days to deadline:</p></small>
-                <div class="w3-border w3-round align-items-center" style="width: 300px;">
-                  <% percent = ((Date.today - project.created_at.to_date).to_i/(project.deadline - project.created_at.to_date).to_f)*100 %>
-                  <div class="w3-sand w3-round" style="height:10px;width: <%= percent %>%"></div>
+                <div class="pt-3">
+                  <div class="w3-border w3-round align-items-center">
+                    <% percent = ((Date.today - project.created_at.to_date).to_i/(project.deadline - project.created_at.to_date).to_f)*100 %>
+                    <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
+                  </div>
                 </div>
                 <% @project_member = project.members.last(3) %>
                 <% @project_member.each do |member| %>
@@ -55,7 +57,7 @@
                     <small><%= member.name.first %></small>
                   </div>
                 <% end %>
-                <div class="avatar-small my-4 text-center pt-3 ml-3 edit-pc" style="margin-left:10px";>
+                <div class="avatar-small my-4 text-center pt-3 ml-2 edit-pc" style="margin-left:10px";>
                   <%= link_to edit_project_path(project), class:"text-decoration-none" do %>
                     <i class="fa-solid fa-pen fa-2xs" style="color: #5c8984;"></i>
                   <% end %>
