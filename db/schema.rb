@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_06_140914) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_11_123905) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -81,6 +81,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_140914) do
     t.string "slack_token"
     t.string "jira_token"
     t.string "asana_workspace"
+    t.string "asana_hours"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
