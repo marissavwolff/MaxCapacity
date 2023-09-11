@@ -156,11 +156,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-<<<<<<< HEAD
-    params.require(:project).permit(:name, :project_manager, :asana_token, :deadline, :capacity, :description, priority: [])
-=======
     params.require(:project).permit(:name, :project_manager, :asana_token, :deadline, :capacity, :asana_hours, :description, priority: [])
->>>>>>> master
   end
 
   def set_project
