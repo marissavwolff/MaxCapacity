@@ -1,5 +1,5 @@
 <%# <div style="background-color:#DDDDDD;"> %>
-  <div class="container">
+  <div class="users-container">
     <div class="form-new my-4 p-4">
       <h1 class="">Create New Project</h1>
       <%= simple_form_for @project do |f| %>
@@ -17,7 +17,7 @@
             input_html: { multiple: true, class: 'tool-selector'},
             wrapper_html: { class: 'tool-wrapper'},
             item_wrapper_class: 'tool-item',
-            collection: (['Jira', 'Google Meets', 'Asana', 'Slack']) %>
+            collection: (['Jira', 'Google Meets', 'Asana', 'Trello']) %>
          <%= f.input :project_manager, :label => "Project Manager" %>
         <%= f.input :description %>
         <div class="py-4"><%= f.submit "Create", class: 'btn button-save' %></div>
