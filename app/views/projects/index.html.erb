@@ -1,8 +1,8 @@
-  <div class="container-projects align-items-center mx-auto" style="padding-bottom:100px; width: 996px;">
+  <div class="container-projects align-items-center mx-auto" style="padding-bottom:100px;">
 
   <div class="icon-bar">
     <%= link_to projects_path, class: 'icon-link text-decoration-none pr-3' do %>
-      <strong><h4>All Projects</h4></strong>
+      <h4>All Projects</h4>
     <% end %>
 
     <%= link_to projects_path(filter: 'my-projects'), class: 'icon-link text-decoration-none pr-3' do %>
@@ -14,14 +14,13 @@
     <% end %>
 
     <%= link_to new_project_path do %>
-      <i class="fa-regular fa-square-plus fa-2xl pr-3 create-new" style="color: #5c8984;"></i>
+      <i class="fa-regular fa-square-plus fa-2xl pr-3 create-new" style="color: white;"></i>
     <% end %>
   </div>
-
-    <div class="row row-cols-4">
+    <div class="row row-cols-4" style="justify-content:center;">
       <% @projects.each do |project| %>
-        <div class="card-for-project col mb-4" data-aos="zoom-in">
-          <div class="dropdown text-right">
+        <div class="col card-for-project" data-aos="zoom-in" data-controller="battery" data-battery-capacity-value="<%= project.capacity %>" data-battery-asana-value="<%= project.asana_hours %>">
+          <div class="dropdown text-right" >
             <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: transparent;border: none";>
               <i class="fa-solid fa-ellipsis-vertical"></i>
             </button>
@@ -33,38 +32,34 @@
 
           <%= link_to project_path(project) do %>
             <h2><%= link_to project.name, project_path(project), class: 'text-decoration-none text-reset' %>
-              <% if project.priority == "[\"High\"]" %>
-                <i class="fa-solid fa-circle fa-2xs" style="color: #fb6060;"></i>
-                <% elsif project.priority == "[\"Medium\"]" %>
-                  <i class="fa-solid fa-circle fa-2xs" style="color: #fbb360;"></i>
-                <% elsif project.priority == "[\"Low\"]" %>
-                  <i class="fa-solid fa-circle fa-2xs" style="color: #78e26a;"></i>
-              <% end %></h2>
+              </h2>
               <div class="p-2 rounded-bottom row justify-content-space-between">
                 <p><%= project.project_manager %></p>
                 <div class="col text-end">
                 </div>
-                <small><p class="text-left mt-3 px-2" style="color: #000000;">Days to deadline:</p></small>
-                <div class="pt-3">
+                <small><p class="text-left mt-3 px-2" style="color: #DDDDDD;">Days to deadline:</p></small>
+                <div class="pb-3">
                   <div class="w3-border w3-round align-items-center">
                     <% percent = ((Date.today - project.created_at.to_date).to_i/(project.deadline - project.created_at.to_date).to_f)*100 %>
-                    <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
+                    <div class="w3 w3-round" style="height:10px;background-color:#eab2a0;width: <%= percent %>%"></div>
                   </div>
                 </div>
-                <% @project_member = project.members.last(3) %>
-                <% @project_member.each do |member| %>
-                  <div class="avatar-small my-4 pt-2" data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= member.name %>">
-                    <small><%= member.name.first %></small>
+
+                <div class="w-100 d-flex justify-content-between align-items-center">
+                  <% @project_member = project.members.last(3) %>
+                  <div class="d-flex">
+                    <% @project_member.each do |member| %>
+                      <div class="avatar-small my-4 pt-2" data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= member.name %>">
+                        <small><%= member.name.first %></small>
+                      </div>
+                    <% end %>
                   </div>
-                <% end %>
-                <div class="avatar-small my-4 text-center pt-3 ml-2 edit-pc" style="margin-left:10px";>
-                  <%= link_to edit_project_path(project), class:"text-decoration-none" do %>
-                    <i class="fa-solid fa-pen fa-2xs" style="color: #5c8984;"></i>
-                  <% end %>
+                  <div class="battery-small my-4 text-right pt-3" style="margin-left:120px";>
+                    <i data-battery-target="hours"></i>
+                  </div>
                 </div>
             </div>
           <% end %>
         </div>
       <% end %>
     </div>
-  </div>

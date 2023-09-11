@@ -1,6 +1,7 @@
- <div class="container col-sm-4" data-controller="asana">
+<div class="users-container" data-controller="asana">
     <div class="form-new my-4 p-4">
-      <h1 class=""><%= "Edit Tools for #{@project.name}" %></h1>
+      <h3 class=""><%= "Edit Tools for Project #{@project.name}" %></h3>
+      <br>
       <%= simple_form_for(@project, data: {action: "submit->asana#fetchasana"}) do |f| %>
         <%= f.input :asana_token, input_html: { data: {asana_target: 'input'} } %>
         <%= f.input :jira_token, class: 'priority-select' %>
@@ -11,14 +12,5 @@
         data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this project?" } %>
       <% end %>
 
-
-<%#
-
-      <form data-controller: "asana">
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname">
-</form>
     </div>
-  </div> %>
+</div>
