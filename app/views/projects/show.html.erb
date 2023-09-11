@@ -54,41 +54,55 @@
         </div>
       </div>
 
-            <%# <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
-            <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
-            <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
-            <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
-            <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div> %>
+    <% highcount = 0 %>
+    <%  medcount = 0 %>
+    <% lowcount = 0 %>
 
-      <div class="mt-3">
-        <div class="show-widgets col-12 mb-4">
+    <% @result.each do |task| %>
+    <% task.tags.each do |tag| %>
+        <% if tag.name == 'High' %>
+          <% highcount = highcount + 1 %>
+            <% elsif tag.name == 'Medium' %>
+            <% medcount = medcount + 1 %>
+            <% else tag.name == 'Low' %>
+            <% lowcount = lowcount + 1 %>
+          <% end %>
+        <% end %>
+    <% end %>
+
+      <div class="mt-3 pie-tasks">
+        <div class="show-widgets col-6 mb-4">
           <div class="row m-1 p-1"><h4> Asana Tasks <i class="fa-solid fa-clipboard-list"></i></h4></div>
             <div>
+
+            <%= pie_chart [['High', highcount ], ["Medium",  medcount], ["Low",  lowcount]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart" %>
+
             <%# <%= @project.asana_hours %>
               <ul class="asana-task">
                 <% @result.each do |task| %>
-                  <div class="col-4" style="text-align: center;">
-                    <li class="pb-2" style="color: #F5E9CF;"> <strong> <%= task.name %>:</strong></li>
-                    <li> Starts on <%= task.start_on %> </li>
-                    <li> Due on <%= task.due_on %> </li>
-                    <li  class="pt-2"> Completed: <%= task.completed %> </li>
-                  </div>
+                  <%# <div class="col-4" style="text-align: center;"> %>
+                    <%# <li class="pb-2" style="color: #F5E9CF;"> <strong> <%= task.name %>
+                    <%# <li> Starts on <%= task.start_on %>
+                    <%# <li> Due on <%= task.due_on %>
+                     <li  class="pt-2" style="color: #F5E9CF;"> Total Asana Hours: </li>
+                  <%# </div> %>
                 <% end %>
               </ul>
             </div>
           </div>
-        <div class="show-widgets col-12">
+        <div class="show-widgets col-6">
           <div class="m-1 p-1"><h4>Trello Tasks <%= link_to "https://trello.com/b/ZP1CdzZU/lewagonproject", target:"_blank" do %>
-          <i class="fa-solid fa-clipboard-list"></i>
-          <% end %> </h4>
+            <i class="fa-solid fa-clipboard-list"></i>
+            <% end %> </h4>
           </div>
+            <canvas data-trello-target="pieChart" id="myChart"></canvas>
           <ul class="asana-task" style="text-align: center;">
-            <li><strong class="pb-2" style="color: #F5E9CF;">High Priority Tasks:</strong>
-            <p data-trello-target="task"></p></li>
-            <li><strong class="pb-2" style="color: #F5E9CF;">Open High Priority Tasks:</strong>
-            <p data-trello-target="highPriority"></p></li>
+            <%# <li><strong class="pb-2" style="color: #F5E9CF;">High Priority Tasks:</strong>
+            <p data-trello-target="task"></p></li> %>
+            <%# <li><strong class="pb-2" style="color: #F5E9CF;">Open High Priority Tasks:</strong>
+            <p data-trello-target="highPriority"></p></li> %>
             <li><strong class="pb-2" style="color: #F5E9CF;">Total Trello Hours:</strong>
-            <p data-trello-target="hours"></p></li>
+             <p data-trello-target="hours"></p></li>
           </ul>
         </div>
       </div>
@@ -98,12 +112,18 @@
           <div class="m-1 p-1">
             <h4>Team Members</h4>
             <ul class="team-members">
-                <% @project.members.each do |member| %>
-              <%= link_to member_path(member) do %>
-                  <li class="pr-4" style="text-decoration-none;"><%= member.name %>
-                  <% end %>
-                  <em><%= member.title %> </em></li>
-              <% end %>
+              <% @project.members.each do |member| %>
+                <li class="team-member p-2" style="text-decoration-none;">
+                <% if member.photo.attached? %>
+                 <img class="member-show-page pb-2" src="<%= cl_image_path(member.photo.key) %>" alt="Member Avatar">
+                  <% else %>
+                  <%= image_tag "Avatar.jpg", class:"member-show-page pb-2"%>
+                <% end %>
+                <%= link_to member_path(member) do %>
+                    <%= member.name %>
+                    <% end %>
+                    <em><%= member.title %> </em></li>
+                <% end %>
             </ul>
           </div>
 
@@ -117,21 +137,11 @@
                 <%# <li class="pb-2"> %>
                 <%# <%= task.assignee["name"] if task.assignee %>
                 <%# <%= task.notes</li> %>
-                <%# <% task.tags.each do |tag|%>
-                  <%# <%= tag.name %>
-                  <%# <% end %>
+
               <%# </ul> %>
             <%# <% end %>
         <%# </div> %>
-
       </div>
-
-      <div class="show-widgets col-12 my-3">
-          <div class="m-1 p-1"><h4>Asana Notes</h4></div>
-          <% @result.each do |task| %>
-          <%= task.notes %>
-          <% end %>
-        </div>
     </div>
   </div>
 </div>
