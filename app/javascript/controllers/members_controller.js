@@ -1,18 +1,26 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["bar-chart"]
-  connect() {
-    console.log("test")
+  static targets = ["barChart"]
+  static values = { memberProjects: Number }
 
-    const ctx = document.getElementById('myChart');
+  connect() {
+    const ctx = this.barChartTarget.getContext("2d");
+    const memberProjects = this.memberProjectsValue;
+
+    let chartData = [3, 5, 6]; // Default data
+
+    if (memberProjects === 3) {
+      chartData = [8, 9, 4]; // Updated data
+    }
+
     const myChart = new Chart(ctx, {
       type: 'bar',
       data: {
         labels: ['High Priority', 'Medium Priority', 'Low Priority'],
         datasets: [{
           label: 'Assigned tasks',
-          data: [3, 5, 6,],
+          data: chartData,
           backgroundColor: [
             'rgb(255, 99, 132)',
             'rgb(54, 162, 235)',
@@ -30,8 +38,5 @@ export default class extends Controller {
         }
       }
     });
-  
-
-
   }
 }

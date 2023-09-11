@@ -1,4 +1,4 @@
-<div class="container mt-5" data-controller="members">
+<div class="container mt-5" data-controller="members" data-members-member-projects="<%= @member_projects %>">
   <div class= "container-team">
     <div class="row team-member-info">
       <div class="photo-title">
@@ -16,7 +16,7 @@
           <p class="small-title mt-3"> Line Manager: <%= @member.line_manager %></p>
           <div class="member-buttons">
             <%= link_to edit_member_path(@member), class:"text-decoration-none" do %>
-                    <i class="fa-solid fa-pen fa-2s" style="color: white;"></i>
+                    <i class="fa-solid fa-pen fa-2ml hover" style="color: white;"></i>
                     <% end %>
           </div>
           </div>
@@ -26,9 +26,9 @@
       <div id="capacity-card">
         <p class="sub-title"> <%= @member.name %> is at 80% of their weekly capacity</p>
         <% @result.each do |task| %>
-          <%= task.assignee.name %>
+          <%= task.assignee%>
           <% end %>
-        <canvas id="myChart" width="960" height="200" data-members-target="bar-chart"></canvas>
+        <canvas id="myChart" width="960" height="200" data-members-target="barChart" data-member-projects-value="<%= @member_projects %>"></canvas>
       </div>
     </div>
   </div>
@@ -61,7 +61,9 @@
       <h2 class= "projects-font"> Projects</h2>
     </div>
     <div class="row member-project-grid row-cols-4">
+    <% @member_projects = 0 %>
       <% @projects.each do |project| %>
+        <% @member_projects += 1 %>
         <div class="col card-for-project" data-aos="zoom-in" data-controller="battery" data-battery-capacity-value="<%= project.capacity %>" data-battery-asana-value="<%= project.asana_hours %>">
           <div class="dropdown text-right" >
             <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: transparent;border: none";>
