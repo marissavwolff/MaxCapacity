@@ -118,3 +118,25 @@
       }
     }
 }
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#myChart {
+  width: 100px;
+  height: 100px;
+  color: black;
+}
+
+#asana-chart {
+  width: 440px;
+  height: 440px;
+}
+
+.pie-tasks {
+  display: flex;
+
+}
