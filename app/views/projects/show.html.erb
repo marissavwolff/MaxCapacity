@@ -74,7 +74,9 @@
         <div class="show-widgets col-6 mb-4">
           <div class="row m-1 p-1"><h4> Asana Tasks <i class="fa-solid fa-clipboard-list"></i></h4></div>
             <div>
+
             <%= pie_chart [['High', highcount ], ["Medium",  medcount], ["Low",  lowcount]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart" %>
+
             <%# <%= @project.asana_hours %>
               <ul class="asana-task">
                 <% @result.each do |task| %>
