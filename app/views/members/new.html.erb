@@ -1,4 +1,4 @@
-<div class="container new_member_page mt-5">
+<div class="users-container new_member_page mt-5">
   <div class="row new-member-form">
     <div class="form-header">
       <h2 class="sub-heading">New Team Member</h2>
@@ -9,7 +9,7 @@
         <%= f.input :photo, as: :file, label: false%>
         <p class="description p-2 text-center">Add Photo</p>
       </div>
-      <div class="col-9">
+      <div class="col-7">
           <h2 class="form-heading text-left">Name</h2>
         <%= f.input :name, label_html: {class: 'member_input'}, label: false %>
         <h2 class="form-heading">Role</h2>
@@ -24,7 +24,7 @@
           <h2 class="form-heading ">Select Projects</h2>
           <%= f.input :project_ids, as: :check_boxes, collection: Project.all, input_html: {multiple: true}, include_blank: false, label: false  %>
         </div>
-        <div class="button-right-corner">
+        <div class="button-left-corner">
           <%= f.submit 'Save', class: 'button-save'%>
         </div>
       </div>

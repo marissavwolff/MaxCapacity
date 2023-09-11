@@ -4,9 +4,9 @@
     <div class="col-4">
     <% if @member.photo.attached? %>
       <img class="member-avatar" src="<%= cl_image_path(@member.photo.key) %>" alt="Member Avatar">
-      <% else %>
-      <%= image_tag 'https://clipart-library.com/images/rcLoyeB6i.jpg', alt: @member.name, class: "member-avatar" %>
-      <% end %>
+    <% else %>
+      <%= image_tag "Avatar.jpg", class:"member-avatar" %>
+    <% end %>
     </div>
       <div class="col-3 col-lg-4">
         <div class="member-title-card">
