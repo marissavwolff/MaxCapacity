@@ -22,18 +22,19 @@ class ProjectsController < ApplicationController
     @members = @project.members
 
     # START ASANA IMPLEMENTATION
+
     @project = Project.find(params[:id])
     asannn = '1/1205422980318130:72fecd4355e1f6dfe789e2b414108a98'
 
     require 'asana'
     client = Asana::Client.new do |c|
-        c.authentication :access_token, asannn
+      c.authentication :access_token, asannn
     end
-    workspaces = client.workspaces.get_workspaces(options: {pretty: true})
+    workspaces = client.workspaces.get_workspaces(options: { pretty: true })
     workspace_id = workspaces.to_a[0].gid
-    @goals = client.goals.get_goals(workspace: workspace_id, options: {pretty: true})
+    @goals = client.goals.get_goals(workspace: workspace_id, options: { pretty: true })
     # first_goal = goals.to_a[0]
-    @result = client.tasks.get_tasks_for_project(project_gid: '1205422662236262', options: {pretty: true, fields: ["name", "due_on", "completed", "assignee.name", "start_on", "tags.name", "notes", "projects.name"]})
+    @result = client.tasks.get_tasks_for_project(project_gid: '1205422662236262', options: { pretty: true, fields: ["name", "due_on", "completed", "assignee.name", "start_on", "tags.name", "notes", "projects.name"]  })
     @result = @result.elements
 
     # START JIRA IMPLEMENTATION
@@ -62,7 +63,6 @@ class ProjectsController < ApplicationController
 
   def new_tool
     @project = Project.find(params[:project_id])
-
   end
 
   def edit_tool
@@ -76,10 +76,7 @@ class ProjectsController < ApplicationController
     # workspace_id = workspaces.to_a[0].gid
     # @goals = client.goals.get_goals(workspace: workspace_id, options: {pretty: true})
     # # first_goal = goals.to_a[0]
-
-
     # @result = client.tasks.get_tasks_for_project(project_gid: '1205422662236262', options: {pretty: true})
-
   end
 
   def new
@@ -138,11 +135,11 @@ class ProjectsController < ApplicationController
   private
 
   def add_members
-      member_ids = params[:project][:members]
+    member_ids = params[:project][:members]
     if member_ids.present?
       member_ids.each do |id|
         member = Member.find(id)
-      ProjectMember.create(member: member, project: @project) # When @project saves, this will be created
+        ProjectMember.create(member: member, project: @project) # When @project saves, this will be created
       end
     end
   end

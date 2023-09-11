@@ -31,6 +31,8 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "cloudinary"
 
+gem "chartkick"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
