@@ -64,6 +64,7 @@
         <div class="show-widgets col-12 mb-4">
           <div class="row m-1 p-1"><h4> Asana Tasks <i class="fa-solid fa-clipboard-list"></i></h4></div>
             <div>
+            <%# <%= @project.asana_hours %> 
               <ul class="asana-task">
                 <% @result.each do |task| %>
                   <div class="col-4" style="text-align: center;">
