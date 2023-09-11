@@ -20,21 +20,9 @@ class ProjectsController < ApplicationController
 
   def show
     @members = @project.members
-    #   require 'asana'
-    #   client = Asana::Client.new do |c|
-    #     c.authentication :access_token, '1/1205422980318130:72fecd4355e1f6dfe789e2b414108a98'
-    #   end
-    #   workspaces = client.workspaces.get_workspaces(options: { pretty: true })
-    #   workspace_id = workspaces.to_a[0].gid
-    #   @goals = client.goals.get_goals(workspace: workspace_id, options: { pretty: true })
-    #   # first_goal = goals.to_a[0]
-    #   @result = client.tasks.get_tasks_for_project(project_gid: '1205422662236262', options: { pretty: true, fields: ["name", "due_on", "completed", "assignee.name", "start_on", "tags.name", "notes"] })
-    #   @result = @result.elements
-    # end
-    #   def new_tool
-    #     @project = Project.find(params[:project_id])
 
-    # end
+    # START ASANA IMPLEMENTATION
+
     @project = Project.find(params[:id])
     asannn = '1/1205422980318130:72fecd4355e1f6dfe789e2b414108a98'
 
@@ -49,13 +37,28 @@ class ProjectsController < ApplicationController
     @result = client.tasks.get_tasks_for_project(project_gid: '1205422662236262', options: { pretty: true, fields: ["name", "due_on", "completed", "assignee.name", "start_on", "tags.name", "notes", "projects.name"]  })
     @result = @result.elements
 
-    # @task_name = @result.to_a[0].name
-    # @task_due_on = @result.to_a[0].due_on
-    # @task_completed = @result.to_a[0].completed
-    # @task_assignee_name = @result.to_a[0].assignee[:name]
-    # @task_start_on = @result.to_a[0].start_on
-    # @task_tags = @result.to_a[0].tags # collection
-    # @task_notes = @result.to_a[0].notes
+    # START JIRA IMPLEMENTATION
+    require 'jira-ruby'
+
+    # NOTE: the token should not be encoded
+    api_token = 'ATATT3xFfGF0kZ0_ZtslXAKkZbtuwZR9EZaALv8kSeB6qHasDHsWnvmWr_Xp8Kl7MBn3c43Q64BOUoZoQTT1JP7_SWj0RrXHuY-UrED8UxuY9l_Hy1IAkcBTBjhCkeW0oN17lgrByUUVpY42RyFWrnNPCr8DLMk1jj5r2NciGuqXNFy5fjEsKC4=E02B7DC7'
+
+    options = {
+      :site               => 'https://testsite953.atlassian.net/',
+      :context_path       => '',
+      :username           => 'bijans@gmail.com',
+      :password           => api_token,
+      :auth_type          => :basic
+    }
+
+    client = JIRA::Client.new(options)
+
+    @jira = client.Issue.all
+
+    # project.issues.each do |issue|
+    #   puts "#{issue.id} - #{issue.summary}"
+    # end
+
   end
 
   def new_tool
