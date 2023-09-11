@@ -19,13 +19,8 @@
   </div>
     <div class="row row-cols-4" style="justify-content:center;">
       <% @projects.each do |project| %>
-<<<<<<< HEAD
-        <div class="card-for-project col mb-4" data-aos="zoom-in">
-          <div class="dropdown text-right">
-=======
         <div class="col card-for-project" data-aos="zoom-in" data-controller="battery" data-battery-capacity-value="<%= project.capacity %>" data-battery-asana-value="<%= project.asana_hours %>">
           <div class="dropdown text-right" >
->>>>>>> master
             <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: transparent;border: none";>
               <i class="fa-solid fa-ellipsis-vertical"></i>
             </button>
