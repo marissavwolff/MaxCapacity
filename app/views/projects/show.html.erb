@@ -1,10 +1,8 @@
-<div class="container">
+<div class="container" data-controller="trello" data-trello-capacity-value="<%= @project.capacity %>">
   <div class="d-flex justify-content-md-center">
     <div class = "jadid">
-    <div class="row ">
-      <%# <div class="col-5 m-2"> %>
-      <div class="show-header">
-        <div class="col-8 show-info">
+      <div class="row show-header">
+        <div class="col-5 show-info" style="margin: 5px;">
           <h2><%= @project.name %></h2>
           <div class="deadpriority">
             <p class="pr-2" style="font-size:small;">Deadline: <%= @project.deadline %></p>
@@ -16,72 +14,123 @@
               <i class="fa-solid fa-circle fa-xs" style="color: #78e26a;"></i>
             <% end %>
             </div>
-          </div>
-        <div class="col-4">
-          <div style="margin: 5px;">
-          <%= link_to "Add tools", project_new_tool_path(@project), class: "btn button-save" %>
-          <%= link_to "Edit", edit_project_path(@project), class: "btn button-save" %>
-          <p><input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" ><label class="form-check-label" for="flexSwitchCheckChecked">Mark as completed</label></p>
+
+            Project Expected Hours: <%= @project.capacity %>
+
+            <div class="col-">
+              <div style="margin: 5px;">
+                <%#= link_to "Add tools", project_new_tool_path(@project), class: "btn button-save" %>
+                <%= link_to "Edit", edit_project_path(@project), class: "btn button-save m-3" %>
+                <p><input class="form-check-input ml-1" type="checkbox" id="flexSwitchCheckChecked" ><label class="form-check-label ml-4" for="flexSwitchCheckChecked">Mark as completed</label></p>
+                <p><%= @project.description %></p>
+              </div>
             </div>
           </div>
-        </div>
-      <div class=" m-2">
-        <div class="col-7 show-widgets">
-          Project Milestone Tracker
-          <div class="pt-3">
-            <div class="w3-border w3-round align-items-center">
-              <% percent = 50 %>
+          <div class="m-2">
+          <div class="col-7 show-widgets-milestone">
+          <h4> Project Milestone Tracker </h4>
+            Capacity hours: <%= @project.capacity %>
+            <div class="pt-3">
+              <p>Time to deadline:</p>
+              <div class="w3-border w3-round align-items-center">
+                <% percent = ((Date.today - @project.created_at.to_date).to_i/(@project.deadline - @project.created_at.to_date).to_f)*100 %>
+                <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
+            </div>
+            <div class="pt-3">
+              <p>% Trello Hours:</p>
+              <div class="w3-border w3-round align-items-center">
+                <div class="w3-grey w3-round" data-trello-target="progress"></div>
+              </div>
+            </div>
+            <div class="pt-3">
+              <p>% Asana Hours:</p>
+              <div class="w3-border w3-round align-items-center">
+                <% percent = 15 %>
               <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
             </div>
-            <div class="pt-3">
-              <div class="w3-border w3-round align-items-center">
-                <% percent = 50 %>
-                <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
+                </div>
               </div>
-            </div>
-            <div class="pt-3">
-              <div class="w3-border w3-round align-items-center">
-                <% percent = 50 %>
-                <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
-              </div>
-      </div>
-            </div>
           </div>
         </div>
       </div>
 
-
-      <div class = "col-12"><div class="col-12">Project_info_right</div></div>
-
-
-      <div class="col-6">
-        <div class= "row p-1 show-widgets">
-          <p>Team members</p>
-          <ul class="team-members">
-            <% @project.members.each do |member| %>
-              <li><%= member.name %> -
-              <%= member.title %> </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
             <%# <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
             <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
             <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
             <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div>
             <div class = "col-1 p-1"><img src="https://sebastien.saunier.me/images/sebastien_saunier.jpg" width="50" class="rounded-circle"></div> %>
 
-      <div class="col-12 mt-3">
-        <div class= "d-flex justify-content-evenly p-1 show-widgets">
-          <div class = "col-5 rounded-3 m-1 p-1"><h3>A headline here
-    </h3><p style = "font-size:12px;">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups</p></div>
-          <div class = "col-5 rounded-3 m-1 p-1"><h3>heading</h3><p style = "font-size:12px;">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups</p></div>
-        </div>
-        <div class= "d-flex justify-content-evenly m-2 show-widgets">
-          <div class = "col-5 rounded-3 m-1 p-1"><h3>heading</h3><p style = "font-size:12px;">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups</p></div>
-          <div class = "col-5 rounded-3 m-1 p-1"><h3>heading</h3><p style = "font-size:12px;">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups</p></div>
+      <div class="mt-3">
+        <div class="show-widgets col-12 mb-4">
+          <div class="row m-1 p-1"><h4> Asana Tasks <i class="fa-solid fa-clipboard-list"></i></h4></div>
+            <div>
+              <ul class="asana-task">
+                <% @result.each do |task| %>
+                  <div class="col-4" style="text-align: center;">
+                    <li class="pb-2" style="color: #F5E9CF;"> <strong> <%= task.name %>:</strong></li>
+                    <li> Starts on <%= task.start_on %> </li>
+                    <li> Due on <%= task.due_on %> </li>
+                    <li  class="pt-2"> Completed: <%= task.completed %> </li>
+                  </div>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <div class="show-widgets col-12">
+          <div class="m-1 p-1"><h4>Trello Tasks <%= link_to "https://trello.com/b/ZP1CdzZU/lewagonproject", target:"_blank" do %>
+          <i class="fa-solid fa-clipboard-list"></i>
+          <% end %> </h4>
+          </div>
+          <ul class="asana-task" style="text-align: center;">
+            <li><strong class="pb-2" style="color: #F5E9CF;">High Priority Tasks:</strong>
+            <p data-trello-target="task"></p></li>
+            <li><strong class="pb-2" style="color: #F5E9CF;">Open High Priority Tasks:</strong>
+            <p data-trello-target="highPriority"></p></li>
+            <li><strong class="pb-2" style="color: #F5E9CF;">Total Trello Hours:</strong>
+            <p data-trello-target="hours"></p></li>
+          </ul>
         </div>
       </div>
-    <%# </div> %>
+
+      <div class="mt-3 widgets-side">
+        <div class="show-widgets col-12">
+          <div class="m-1 p-1">
+            <h4>Team Members</h4>
+            <ul class="team-members">
+                <% @project.members.each do |member| %>
+              <%= link_to member_path(member) do %>
+                  <li class="pr-4" style="text-decoration-none;"><%= member.name %>
+                  <% end %>
+                  <em><%= member.title %> </em></li>
+              <% end %>
+            </ul>
+          </div>
+
+        </div>
+
+        <%# <div class="show-widgets col-6">
+          <div class="m-1 p-1"><h4>Team Members Boards</h4></div>
+              <% count = 0 %>
+            <%# <% @result.each do |task| %>
+              <%# <ul class="assign-mem"> %>
+                <%# <li class="pb-2"> %>
+                <%# <%= task.assignee["name"] if task.assignee %>
+                <%# <%= task.notes</li> %>
+                <%# <% task.tags.each do |tag|%>
+                  <%# <%= tag.name %>
+                  <%# <% end %>
+              <%# </ul> %>
+            <%# <% end %>
+        <%# </div> %>
+
+      </div>
+
+      <div class="show-widgets col-12 my-3">
+          <div class="m-1 p-1"><h4>Asana Notes</h4></div>
+          <% @result.each do |task| %>
+          <%= task.notes %>
+          <% end %>
+        </div>
+    </div>
   </div>
 </div>

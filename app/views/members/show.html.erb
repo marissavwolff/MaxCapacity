@@ -1,89 +1,124 @@
-<div class= "container-team">
-  <div class="row team-member-info">
-    <div class="photo-title">
-    <div class="col-4">
-    <% if @member.photo.attached? %>
-      <img class="member-avatar" src="<%= cl_image_path(@member.photo.key) %>" alt="Member Avatar">
+<div class="container mt-5">
+  <div class= "container-team">
+    <div class="row team-member-info">
+      <div class="photo-title">
+      <div class="col-4">
+      <% if @member.photo.attached? %>
+        <img class="member-avatar" src="<%= cl_image_path(@member.photo.key) %>" alt="Member Avatar">
       <% else %>
-      <%= image_tag 'https://clipart-library.com/images/rcLoyeB6i.jpg', alt: @member.name, class: "member-avatar" %>
+        <%= image_tag "Avatar.jpg", class:"member-avatar" %>
+      <% end %>
+      </div>
+        <div class="col-3 col-lg-4">
+          <div class="member-title-card">
+          <h2 class="sub-heading"><%= @member.name %></h2>
+          <p class="sub-title mt-3"><%= @member.title %></p>
+          <p class="small-title mt-3"> Line Manager: <%= @member.line_manager %></p>
+          <div class="member-buttons">
+            <%= link_to edit_member_path(@member), class:"text-decoration-none" do %>
+                    <i class="fa-solid fa-pen fa-2s" style="color: white;"></i>
+                    <% end %>
+          </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-3 col-lg-4">
+      <div id="capacity-card">
+        <p class="sub-title"> <%= @member.name %> is at 80% of their weekly capacity</p>
+        <canvas id="myChart" width="960" height="200"></canvas>
+          <script>
+            const ctx = document.getElementById('myChart');
+            const myChart = new Chart(ctx, {
+              type: 'bar',
+              data: {
+                labels: ['High Priority', 'Medium Priority', 'Low Priority'],
+                datasets: [{
+                  label: 'Assigned tasks',
+                  data: [3, 5, 6,],
+                  backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)'
+                   ],
+                }]
+              },
+              options: {
+                scales: {
+                  yAxes: [{
+                    ticks: {
+                      beginAtZero: true
+                    }
+                  }]
+                }
+              }
+            });
+            </script>
+      </div>
+    </div>
+  </div>
+    <div class="row mt-5 team-member-info">
+      <div class="weekday-grid">
+        <div class="weekday-card">
+          <p class="sub-title" >Monday</p>
+          <p class="small-title">3 hours of meetings</p>
+        </div>
+        <div class="weekday-card">
+          <p class="sub-title"> Tuesday</p>
+          <p class="small-title">2 hours of meetings</p>
+        </div>
+        <div class="weekday-card">
+          <p class="sub-title">Wednesday</p>
+          <p class="small-title">no meetings</p>
+        </div>
+        <div class="weekday-card">
+          <p class="sub-title">Thursday</p>
+          <p class="small-title">2 hours of meetings</p>
+        </div>
+        <div class="weekday-card">
+          <p class="sub-title">Friday</p>
+          <p class="small-title">4 hours of meetings</p>
+        </div>
+      </div>
+    </div>
+  <div class = "container-white">
+    <div class= "row">
+      <h2 class= "projects-font"> Projects</h2>
+    </div>
+    <div class="row member-project-grid row-cols-4">
+      <% @projects.each do |project| %>
+        <div class="card-for-project col mb-4" data-aos="zoom-in">
+          <div class="dropdown text-right">
+            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to "Edit", "#", class: "dropdown-item" %>
+              <%= link_to "Delete", "#", class: "dropdown-item" %>
+            </div>
+          </div>
+          <%= link_to project_path(project) do %>
+            <h2><%= link_to project.name, project_path(project), class: 'text-decoration-none text-reset' %>
+              <% if project.priority == "high" %>
+                <i class="fa-solid fa-circle" style="color: #fb6060;"></i>
+                <% elsif project.priority == "medium" %>
+                  <i class="fa-solid fa-circle" style="color: #fbb360;"></i>
+                <% elsif project.priority == "low" %>
+                  <i class="fa-solid fa-circle" style="color: #78e26a;"></i>
+              <% end %></h2>
+              <div class="p-2 rounded-bottom row justify-content-space-between">
+                <p><%= project.project_manager %></p>
+                <div class="col text-end">
+                </div>
+                <small><p class="text-left mt-3" style="color: #000000;">Days to deadline:</p></small>
+                <div class="w3-border w3-round align-items-center" style="width: 300px;">
+                  <% percent = 50 %>
+                  <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
+                </div>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
-      <div class="col-3 col-lg-4">
-        <div class="member-title-card">
-        <h2 class="sub-heading"><%= @member.name %></h2>
-        <p class="sub-title mt-3"><%= @member.title %></p>
-        <p class="small-title mt-3"> Line Manager: <%= @member.line_manager %></p>
-        <div class="member-buttons">
-          <%= link_to "Edit", edit_member_path(@member), class: 'btn button-save' %>
-          <%= link_to "Delete", member_path(@member), class: "btn button-delete",
-              data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this member?"} %>
-        </div>
-        </div>
-      </div>
   </div>
-  <div class="col-3 col-lg-4">
-    <div id="capacity-card">
-      <p class="capacity-font"> <%= @member.name %>'s Capacity Today</p>
-    </div>
-  </div>
-</div>
-  <div class="row mt-5 team-member-info">
-    <div class="weekday-grid">
-      <div class="weekday-card">
-        <p class="sub-title" >Monday</p>
-      </div>
-      <div class="weekday-card">
-        <p class="sub-title"> Tuesday</p>
-      </div>
-      <div class="weekday-card">
-        <p class="sub-title">Wednesday</p>
-      </div>
-      <div class="weekday-card">
-        <p class="sub-title">Thursday</p>
-      </div>
-      <div class="weekday-card">
-        <p class="sub-title">Friday</p>
-      </div>
-    </div>
-  </div>
-</div>
-<div class = "container-white">
-  <div class= "row">
-    <h2 class= "projects-font"> Projects</h2>
-  </div>
-  <div class="row member-project-grid row-cols-4">
-    <% @projects.each do |project| %>
-      <div class="card-for-project col mb-4" data-aos="zoom-in">
-        <div class="dropdown text-right">
-          <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa-solid fa-ellipsis-vertical"></i>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= link_to "Edit", "#", class: "dropdown-item" %>
-            <%= link_to "Delete", "#", class: "dropdown-item" %>
-          </div>
-        </div>
-        <%= link_to project_path(project) do %>
-          <h2><%= link_to project.name, project_path(project), class: 'text-decoration-none text-reset' %>
-            <% if project.priority == "high" %>
-              <i class="fa-solid fa-circle" style="color: #fb6060;"></i>
-              <% elsif project.priority == "medium" %>
-                <i class="fa-solid fa-circle" style="color: #fbb360;"></i>
-              <% elsif project.priority == "low" %>
-                <i class="fa-solid fa-circle" style="color: #78e26a;"></i>
-            <% end %></h2>
-            <div class="p-2 rounded-bottom row justify-content-space-between">
-              <p><%= project.project_manager %></p>
-              <div class="col text-end">
-              </div>
-              <small><p class="text-left mt-3" style="color: #000000;">Days to deadline:</p></small>
-              <div class="w3-border w3-round align-items-center" style="width: 300px;">
-                <% percent = 50 %>
-                <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
-              </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
   </div>
 </div>

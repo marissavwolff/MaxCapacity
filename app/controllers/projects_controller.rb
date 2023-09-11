@@ -20,6 +20,49 @@ class ProjectsController < ApplicationController
 
   def show
     @members = @project.members
+# <<<<<<< new-day
+# =======
+  #   require 'asana'
+  #   client = Asana::Client.new do |c|
+  #     c.authentication :access_token, '1/1205422980318130:72fecd4355e1f6dfe789e2b414108a98'
+  #   end
+  #   workspaces = client.workspaces.get_workspaces(options: { pretty: true })
+  #   workspace_id = workspaces.to_a[0].gid
+  #   @goals = client.goals.get_goals(workspace: workspace_id, options: { pretty: true })
+  #   # first_goal = goals.to_a[0]
+  #   @result = client.tasks.get_tasks_for_project(project_gid: '1205422662236262', options: { pretty: true, fields: ["name", "due_on", "completed", "assignee.name", "start_on", "tags.name", "notes"] })
+  #   @result = @result.elements
+
+  # end
+
+#   def new_tool
+#     @project = Project.find(params[:project_id])
+
+#   end
+
+#   def edit_tool
+# >>>>>>> master
+    @project = Project.find(params[:id])
+    asannn = '1/1205422980318130:72fecd4355e1f6dfe789e2b414108a98'
+
+    require 'asana'
+    client = Asana::Client.new do |c|
+        c.authentication :access_token, asannn
+    end
+    workspaces = client.workspaces.get_workspaces(options: {pretty: true})
+    workspace_id = workspaces.to_a[0].gid
+    @goals = client.goals.get_goals(workspace: workspace_id, options: {pretty: true})
+    # first_goal = goals.to_a[0]
+    @result = client.tasks.get_tasks_for_project(project_gid: '1205422662236262', options: {pretty: true, fields: ["name", "due_on", "completed", "assignee.name", "start_on", "tags.name", "notes", "projects.name"]})
+    @result = @result.elements
+
+    # @task_name = @result.to_a[0].name
+    # @task_due_on = @result.to_a[0].due_on
+    # @task_completed = @result.to_a[0].completed
+    # @task_assignee_name = @result.to_a[0].assignee[:name]
+    # @task_start_on = @result.to_a[0].start_on
+    # @task_tags = @result.to_a[0].tags # collection
+    # @task_notes = @result.to_a[0].notes
   end
 
   def new_tool
@@ -28,16 +71,20 @@ class ProjectsController < ApplicationController
   end
 
   def edit_tool
-    @project = Project.find(params[:id])
-    @project.update(project)
-    require 'asana'
-    client = Asana::Client.new do |c|
-        c.authentication :access_token, '1/1205422980318130:72fecd4355e1f6dfe789e2b414108a98'
-    end
-    workspaces = client.workspaces.get_workspaces(options: {pretty: true})
-    workspace_id = workspaces.to_a[0].gid
-    @goals = client.goals.get_goals(workspace: workspace_id, options: {pretty: true})
-    # first_goal = goals.to_a[0]
+    # @project = Project.find(params[:id])
+    # @project.update(project)
+    # require 'asana'
+    # client = Asana::Client.new do |c|
+    #     c.authentication :access_token, '1/1205422980318130:72fecd4355e1f6dfe789e2b414108a98'
+    # end
+    # workspaces = client.workspaces.get_workspaces(options: {pretty: true})
+    # workspace_id = workspaces.to_a[0].gid
+    # @goals = client.goals.get_goals(workspace: workspace_id, options: {pretty: true})
+    # # first_goal = goals.to_a[0]
+
+
+    # @result = client.tasks.get_tasks_for_project(project_gid: '1205422662236262', options: {pretty: true})
+
   end
 
   def new
@@ -73,10 +120,12 @@ class ProjectsController < ApplicationController
   private
 
   def add_members
-    member_ids = params[:project][:members]
-    member_ids.each do |id|
-      member = Member.find(id)
+      member_ids = params[:project][:members]
+    if member_ids.present?
+      member_ids.each do |id|
+        member = Member.find(id)
       ProjectMember.create(member: member, project: @project) # When @project saves, this will be created
+      end
     end
   end
 
@@ -84,7 +133,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :asana_token, :deadline, :capacity, :description, priority: [])
+    params.require(:project).permit(:name, :project_manager, :asana_token, :deadline, :capacity, :description, priority: [])
   end
 
   def set_project
