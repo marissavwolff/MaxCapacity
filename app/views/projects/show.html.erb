@@ -136,13 +136,22 @@
           </ul>
         </div>
 
-
-
-
-
-
-
       </div>
+
+      <div class="col-12">
+        <div class="show-widgets col-6 mb-4">
+            <div class="row m-1 p-1"><h4> Jira Tasks <i class="fa-solid fa-clipboard-list"></i></h4></div>
+            <div>
+
+              <%= pie_chart [['High', highjiracount ], ["Medium",  medjiracount], ["Low",  lowjiracount]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart" %>
+
+              <ul class="asana-task">
+                <li  class="pt-2" style="color: #F5E9CF;"> Total Asana Hours: </li>
+              </ul>
+            </div>
+          </div>
+      </div>
+
 
       <div class="mt-3 widgets-side">
         <div class="show-widgets col-12">
