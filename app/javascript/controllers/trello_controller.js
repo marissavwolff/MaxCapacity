@@ -68,7 +68,7 @@ export default class extends Controller {
       const myChart = new Chart(this.pieChartTarget, {
         type: 'pie',
         data: {
-          labels:  ['High Priority Tasks', 'Medium Priority Tasks', 'Low Priority Task'],
+          labels:  ['High', 'Medium', 'Low'],
           datasets: [{
             label: "Trello Tasks",
             data: [this.count, this.countmed, this.countlow],
