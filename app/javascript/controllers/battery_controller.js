@@ -36,7 +36,7 @@ export default class extends Controller {
         } else if ((hoursWork / this.capacityValue) > 0.8 ){
           this.hoursTarget.innerHTML = '<i class="fa-solid fa-battery-quarter" style="color: #fbb360;font-size: 30px;"></i>'
         } else if ((hoursWork / this.capacityValue) < 0.8 ) {
-          this.hoursTarget.innerHTML = '<i class="fa-solid fa-battery-full" style="color: #78e26a;font-size: 30px;"></i>'
+          this.hoursTarget.innerHTML = '<i class="fa-solid fa-battery-full" style="color: #7AB879;font-size: 30px;"></i>'
         }
 
         console.log("trello hours")
