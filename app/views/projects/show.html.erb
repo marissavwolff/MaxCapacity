@@ -70,11 +70,32 @@
         <% end %>
     <% end %>
 
+
+    <%# Start Jira logic %>
+
+    <% highjiracount = 0 %>
+    <%  medjiracount = 0 %>
+    <% lowjiracount = 0 %>
+
+    <% @jira.each do |issue| %>
+    <% issue.labels.each do |label| %>
+        <% if label == 'High' %>
+          <% highjiracount = highjiracount + 1 %>
+            <% elsif label == 'Medium' %>
+            <% medjiracount = medjiracount + 1 %>
+            <% else label == 'Low' %>
+            <% lowjiracount = lowjiracount + 1 %>
+          <% end %>
+        <% end %>
+    <% end %>
+
+    <%# End Jira logic %>
+
       <div class="mt-3 pie-tasks">
         <div class="show-widgets col-6 mb-4">
           <div class="row m-1 p-1"><h4> Asana Tasks <i class="fa-solid fa-clipboard-list"></i></h4></div>
             <div>
-              
+
             <%= pie_chart [['High', highcount ], ["Medium",  medcount], ["Low",  lowcount]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart" %>
 
               <ul class="asana-task">
@@ -104,6 +125,13 @@
              <p data-trello-target="hours"></p></li>
           </ul>
         </div>
+
+
+
+
+
+
+
       </div>
 
       <div class="mt-3 widgets-side">

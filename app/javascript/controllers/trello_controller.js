@@ -57,7 +57,7 @@ export default class extends Controller {
       const trelloPercentage = (this.hoursCount / this.capacityValue)*100
       // console.log(trelloPercentage)
       this.progressTarget.style = `height:10px;width: ${trelloPercentage}%`
-      
+
       const myChart = new Chart(this.pieChartTarget, {
         type: 'pie',
         data: {
