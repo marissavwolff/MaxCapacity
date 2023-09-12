@@ -9,9 +9,11 @@
       <h4>My Projects</h4>
     <% end %>
 
-    <%= link_to projects_path(filter: 'completed-projects'), class: 'icon-link text-decoration-none pr-3' do %>
-      <h4>Completed Projects</h4>
-    <% end %>
+    <%# if @projects.completed == true %>
+      <%= link_to projects_path(filter: 'completed-projects'), class: 'icon-link text-decoration-none pr-3' do %>
+        <h4>Completed Projects</h4>
+      <% end %>
+    <%# end %>
 
     <%= link_to new_project_path do %>
       <i class="fa-regular fa-square-plus fa-2xl pr-3 create-new" style="color: white;"></i>

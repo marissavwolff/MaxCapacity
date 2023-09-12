@@ -17,42 +17,45 @@
 
             Project Expected Hours: <%= @project.capacity %>
 
+             <p>Time to deadline:</p>
+              <div class="w3-border w3-round align-items-center">
+                <% percent = ((Date.today - @project.created_at.to_date).to_i/(@project.deadline - @project.created_at.to_date).to_f)*100 %>
+                <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
+              </div>
+
             <div class="col-">
               <div style="margin: 5px;">
                 <%#= link_to "Add tools", project_new_tool_path(@project), class: "btn button-save" %>
                 <%= link_to "Edit", edit_project_path(@project), class: "btn button-save m-3" %>
-                <p><input class="form-check-input ml-1" type="checkbox" id="flexSwitchCheckChecked" ><label class="form-check-label ml-4" for="flexSwitchCheckChecked">Mark as completed</label></p>
-                <p><%= @project.description %></p>
+                        <%= simple_form_for(@project, data: {controller: "completed", completed_target: "form"}) do |f| %>
+                          <%= f.input :completed, as: :boolean, checked_value: 'positive', unchecked_value: 'negative', input_html: { data: { action: "change->completed#checked"}, label: "Completed" } %>
+                          <%# f.submit %>
+                        <% end %>
               </div>
             </div>
           </div>
+
           <div class="m-2" data-controller="progress" data-progress-capacity-value="<%= @project.capacity %>" data-progress-asana-value="<%= @project.asana_hours %>">
-          <div class="col-7 show-widgets-milestone"  data-progress-target="progress">
-          <h4> Project Milestone Tracker </h4>
-            Capacity hours: <%= @project.capacity %>
-            <div class="pt-3">
-              <p>Time to deadline:</p>
-              <div class="w3-border w3-round align-items-center">
-                <% percent = ((Date.today - @project.created_at.to_date).to_i/(@project.deadline - @project.created_at.to_date).to_f)*100 %>
-                <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
-            </div>
-            <div class="pt-3">
+            <div class="col-7 show-widgets-milestone"  data-progress-target="progress">
+              <h4> Project Milestone Tracker </h4>
+              Capacity hours: <%= @project.capacity %>
+
+              <div class="pt-3">
               <p>% Trello Hours:</p>
-              <div class="w3-border w3-round align-items-center">
-                <div class="w3-grey w3-round" data-trello-target="progress"></div>
-              </div>
-            </div>
-            <div class="pt-3">
-              <p>% Asana Hours:</p>
-              <div class="w3-border w3-round align-items-center">
-                <% percent = 15 %>
-              <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
-            </div>
+                <div class="w3-border w3-round align-items-center">
+                  <div class="w3-grey w3-round" data-trello-target="progress"></div>
                 </div>
               </div>
+              <div class="pt-3">
+                <p>% Asana Hours:</p>
+                <div class="w3-border w3-round align-items-center">
+                  <% percent = 15 %>
+                  <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
+                </div>
           </div>
         </div>
       </div>
+    </div>
 
     <% highcount = 0 %>
     <%  medcount = 0 %>
@@ -74,9 +77,7 @@
         <div class="show-widgets col-6 mb-4">
           <div class="row m-1 p-1"><h4> Asana Tasks <i class="fa-solid fa-clipboard-list"></i></h4></div>
             <div>
-              
-            <%= pie_chart [['High', highcount ], ["Medium",  medcount], ["Low",  lowcount]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart" %>
-
+              <%= pie_chart [['High', highcount ], ["Medium",  medcount], ["Low",  lowcount]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart" %>
               <ul class="asana-task">
                 <% @result.each do |task| %>
                   <%# <div class="col-4" style="text-align: center;"> %>
@@ -125,7 +126,6 @@
                 <% end %>
             </ul>
           </div>
-
         </div>
 
         <%# <div class="show-widgets col-6">
