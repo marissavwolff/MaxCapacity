@@ -72,25 +72,6 @@
           </div>
         </div>
       </div>
-    <%# Start Jira logic %>
-
-    <% highjiracount = 0 %>
-    <% medjiracount = 0 %>
-    <% lowjiracount = 0 %>
-
-    <% @jira.each do |issue| %>
-    <% issue.labels.each do |label| %>
-        <% if label == 'High' %>
-          <% highjiracount = highjiracount + 1 %>
-            <% elsif label == 'Medium' %>
-            <% medjiracount = medjiracount + 1 %>
-            <% else label == 'Low' %>
-            <% lowjiracount = lowjiracount + 1 %>
-          <% end %>
-        <% end %>
-    <% end %>
-
-    <%# End Jira logic %>
 
     <% highcount = 0 %>
     <% medcount = 0 %>
