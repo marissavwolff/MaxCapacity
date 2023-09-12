@@ -24,7 +24,6 @@ class ProjectsController < ApplicationController
     @members = @project.members
 
     # START ASANA IMPLEMENTATION
-
     @project = Project.find(params[:id])
     asannn = '1/1205422980318130:72fecd4355e1f6dfe789e2b414108a98'
 
@@ -37,45 +36,10 @@ class ProjectsController < ApplicationController
     # first_goal = goals.to_a[0]
     @result = client.tasks.get_tasks_for_project(project_gid: '1205422662236262', options: { pretty: true, fields: ["name", "due_on", "completed", "assignee.name", "start_on", "tags.name", "notes", "projects.name"]  })
     @result = @result.elements
-
-    # START JIRA IMPLEMENTATION
-    require 'jira-ruby'
-
-    # NOTE: the token should not be encoded
-    api_token = 'ATATT3xFfGF0N9jARGZc2ILdoHpTH0Sv6_PtITig6HSNeiIWFst-Kwoc59WkNUfmOkVYx59QgjgWSrk1Qw3LpEGHEbSQVVvm-0bx9zI-KOi3JdG2sFAQpZEL4K59EY4iXUS-SKNo3VMdJnkYF01T7XiEIJ5jaze3KGCBvdovgud834m3PFgmGm4=1F864A2D'
-
-    options = {
-      :site               => 'https://testsite953.atlassian.net/',
-      :context_path       => '',
-      :username           => 'bijans@gmail.com',
-      :password           => api_token,
-      :auth_type          => :basic
-    }
-
-    client = JIRA::Client.new(options)
-
-    @jira = client.Issue.all
-    # project.issues.each do |issue|
-    #   puts "#{issue.id} - #{issue.summary}"
-    # end
   end
 
   def new_tool
     @project = Project.find(params[:project_id])
-  end
-
-  def edit_tool
-    # @project = Project.find(params[:id])
-    # @project.update(project)
-    # require 'asana'
-    # client = Asana::Client.new do |c|
-    #     c.authentication :access_token, '1/1205422980318130:72fecd4355e1f6dfe789e2b414108a98'
-    # end
-    # workspaces = client.workspaces.get_workspaces(options: {pretty: true})
-    # workspace_id = workspaces.to_a[0].gid
-    # @goals = client.goals.get_goals(workspace: workspace_id, options: {pretty: true})
-    # # first_goal = goals.to_a[0]
-    # @result = client.tasks.get_tasks_for_project(project_gid: '1205422662236262', options: {pretty: true})
   end
 
   def new
