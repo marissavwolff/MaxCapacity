@@ -36,3 +36,7 @@
       color: #5C8984;
     }
 }
+
+.form-check-input.is-valid ~ .form-check-label {
+  color: #5C8984;
+}

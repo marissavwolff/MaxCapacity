@@ -1,34 +1,25 @@
-<div style="background: white">
-  <div class="container new_member_page">
-    <div class="row new-member-form">
-      <div class="form-header">
-        <h1 class="sub-heading mt-5">New Team Member</h1>
-      </div>
-        <%= simple_form_for @member do |f|%>
-        <div class="row">
-          <div class="col-9">
-            <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
-      <div class="justify-content-center">
-            <h2 class="form-heading text-left">Name</h2>
-              <%= f.input :name, label_html: {class: 'member_input'}, label: false %>
-            <h2 class="form-heading">Role</h2>
-              <%= f.input :title, label_html: {class: 'member_input'}, label: false %>
-        </div>
+<div class="users-container">
+    <div class="form-new my-4 p-4">
+        <h1 class="mt-5">New Team Member</h1>
+        <%= simple_form_for @member, html: {data: {controller: "photo-preview"}} do |f|%>
+          <%= image_tag "Avatar.jpg", width: 300, class: "member-avatar", data: { photo_preview_target: "preview" } %>
+          <%= f.input :photo, as: :file, input_html: { class: 'd-none', data: { photo_preview_target: "input", action:"change->photo-preview#displayPreview" }}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo'%> 
+          <h2 class="form-heading text-left">Name</h2>
+            <%= f.input :name, label_html: {class: 'member_input'}, label: false %>
+          <h2 class="form-heading">Role</h2>
+            <%= f.input :title, label_html: {class: 'member_input'}, label: false %>
           <h2 class="form-heading">Email</h2>
           <%= f.input :email, label_html: {class: 'member_input'}, label: false %>
           <h2 class="form-heading">Line Manager</h2>
           <%= f.input :line_manager, label_html: {class: 'member_input'}, label: false %>
             <h2 class="form-heading">Team Member Capacity (hours)</h2>
           <%= f.input :capacity, label_html: {class: 'member_input'}, label: false %>
-        <div class="select-member">
-          <%= f.input :project_ids, label: false , as: :check_boxes, collection: Project.all, include_blank: false, include_hidden: false, input_html: { multiple: true, class: "team-member-select" }, item_wrapper_class: 'member-item'%>
-        </div>
-        </div>
+          <div class="select-member">
+            <%= f.input :project_ids, label: false , as: :check_boxes, collection: Project.all, include_blank: false, include_hidden: false, input_html: { multiple: true, class: "team-member-select" }, item_wrapper_class: 'member-item'%>
+          </div>
           <div class="button-right-corner">
             <%= f.submit 'Save', class: 'btn button-save'%>
           </div>
         <% end %>
-      </div>
-    </div>
   </div>
 </div>
