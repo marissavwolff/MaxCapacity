@@ -13,53 +13,53 @@
             <% else %>
               <i class="fa-solid fa-circle fa-xs" style="color: #78e26a;"></i>
             <% end %>
-            </div>
+          </div>
 
             Project Expected Hours: <%= @project.capacity %>
 
-            <div class="col-">
-              <div style="margin: 5px;">
-                <%#= link_to "Add tools", project_new_tool_path(@project), class: "btn button-save" %>
-                <%= link_to "Edit", edit_project_path(@project), class: "btn button-save m-3" %>
-                <p><input class="form-check-input ml-1" type="checkbox" id="flexSwitchCheckChecked" ><label class="form-check-label ml-4" for="flexSwitchCheckChecked">Mark as completed</label></p>
-                <%= simple_form_for(@project) do |f| %>
-                  <%= f.input :asana_hours, value: @project.asana_hours, input_html: {class:'d-none'}, label_html: {class:'d-none'} %>
-                  <%= f.hidden_field :asana_update, value: true %>
-                  <%= f.submit value: 'Update All Boards', class:'' %>
-                <% end %>
-                <p><%= @project.description %></p>
-              </div>
+          <div class="col-">
+            <div style="margin: 5px;">
+              <%#= link_to "Add tools", project_new_tool_path(@project), class: "btn button-save" %>
+              <%= link_to "Edit", edit_project_path(@project), class: "btn button-save m-3" %>
+              <p><input class="form-check-input ml-1" type="checkbox" id="flexSwitchCheckChecked" ><label class="form-check-label ml-4" for="flexSwitchCheckChecked">Mark as completed</label></p>
+              <%= simple_form_for(@project) do |f| %>
+                <%= f.input :asana_hours, value: @project.asana_hours, input_html: {class:'d-none'}, label_html: {class:'d-none'} %>
+                <%= f.hidden_field :asana_update, value: true %>
+                <%= f.submit value: 'Update All Boards', class:'' %>
+              <% end %>
+              <p><%= @project.description %></p>
             </div>
           </div>
+        </div>
           <div class="m-2" data-controller="progress" data-progress-capacity-value="<%= @project.capacity %>" data-progress-asana-value="<%= @project.asana_hours %>">
-          <div class="col-7 show-widgets-milestone"  data-progress-target="progress">
-          <h4> Project Milestone Tracker </h4>
-            Project Expected Hours: <%= @project.capacity %>
-            <p data-progress-target="notice"></p>
-            <div class="pt-3">
+            <div class="col-7 show-widgets-milestone"  data-progress-target="progress">
+              <h4> Project Milestone Tracker </h4>
+              Project Expected Hours: <%= @project.capacity %>
+              <p data-progress-target="notice"></p>
+                <div class="pt-3">
               <p>Time to deadline:</p>
               <div class="w3-border w3-round align-items-center">
                 <% percent = ((Date.today - @project.created_at.to_date).to_i/(@project.deadline - @project.created_at.to_date).to_f)*100 %>
                 <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
-            </div>
-            <div class="pt-3">
-              <p>% Trello Hours:</p>
-              <div class="w3-border w3-round align-items-center">
-                <div class="w3-grey w3-round" data-trello-target="progress"></div>
               </div>
-            </div>
-            <div class="pt-3">
-              <p>% Asana Hours:</p>
-              <div class="w3-border w3-round align-items-center">
-                <% if @project.asana_hours.to_f > @project.capacity.to_f %>
-                  <% percent = 100 %>
-                <% else %>
-                  <% percent = (@project.asana_hours.to_f / @project.capacity.to_i)*100 %>
-                <% end %>
-              <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
-            </div>
+              <div class="pt-3">
+                <p>% Trello Hours:</p>
+                <div class="w3-border w3-round align-items-center">
+                  <div class="w3-grey w3-round" data-trello-target="progress"></div>
                 </div>
               </div>
+              <div class="pt-3">
+                <p>% Asana Hours:</p>
+                <div class="w3-border w3-round align-items-center">
+                  <% if @project.asana_hours.to_f > @project.capacity.to_f %>
+                    <% percent = 100 %>
+                  <% else %>
+                    <% percent = (@project.asana_hours.to_f / @project.capacity.to_i)*100 %>
+                  <% end %>
+                  <div class="w3-grey w3-round" style="height:10px;width: <%= percent %>%"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -104,28 +104,28 @@
       <div class="mt-3 pie-tasks">
         <div class="show-widgets col-6 mb-4">
           <div class="row m-1 p-1"><h4> Asana Tasks <i class="fa-solid fa-clipboard-list"></i></h4></div>
-            <div>
+          <div>
 
             <%= pie_chart [['High', highcount ], ["Medium",  medcount], ["Low",  lowcount]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart" %>
 
-              <ul class="asana-task">
-                <% @result.each do |task| %>
-                  <%# <div class="col-4" style="text-align: center;"> %>
-                    <%# <li class="pb-2" style="color: #F5E9CF;"> <strong> <%= task.name %>
-                    <%# <li> Starts on <%= task.start_on %>
-                    <%# <li> Due on <%= task.due_on %>
-                     <li  class="pt-2" style="color: #F5E9CF;"> Total Asana Hours: </li>
-                  <%# </div> %>
-                <% end %>
-              </ul>
-            </div>
+            <ul class="asana-task">
+              <% @result.each do |task| %>
+                <%# <div class="col-4" style="text-align: center;"> %>
+                  <%# <li class="pb-2" style="color: #F5E9CF;"> <strong> <%= task.name %>
+                  <%# <li> Starts on <%= task.start_on %>
+                  <%# <li> Due on <%= task.due_on %>
+                    <li  class="pt-2" style="color: #F5E9CF;"> Total Asana Hours: </li>
+                <%# </div> %>
+              <% end %>
+            </ul>
           </div>
+        </div>
         <div class="show-widgets col-6">
           <div class="m-1 p-1"><h4>Trello Tasks <%= link_to "https://trello.com/b/ZP1CdzZU/lewagonproject", target:"_blank" do %>
             <i class="fa-solid fa-clipboard-list"></i>
             <% end %> </h4>
           </div>
-            <canvas data-trello-target="pieChart" id="myChart"></canvas>
+          <canvas data-trello-target="pieChart" id="myChart"></canvas>
           <ul class="asana-task" style="text-align: center;">
             <%# <li><strong class="pb-2" style="color: #F5E9CF;">High Priority Tasks:</strong>
             <p data-trello-target="task"></p></li> %>
@@ -136,13 +136,22 @@
           </ul>
         </div>
 
-
-
-
-
-
-
       </div>
+
+      <div class="col-12">
+        <div class="show-widgets col-6 mb-4">
+            <div class="row m-1 p-1"><h4> Jira Tasks <i class="fa-solid fa-clipboard-list"></i></h4></div>
+            <div>
+
+              <%= pie_chart [['High', highjiracount ], ["Medium",  medjiracount], ["Low",  lowjiracount]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart" %>
+
+              <ul class="asana-task">
+                <li  class="pt-2" style="color: #F5E9CF;"> Total Asana Hours: </li>
+              </ul>
+            </div>
+          </div>
+      </div>
+
 
       <div class="mt-3 widgets-side">
         <div class="show-widgets col-12">
@@ -152,14 +161,14 @@
               <% @project.members.each do |member| %>
                 <li class="team-member p-2" style="text-decoration-none;">
                 <% if member.photo.attached? %>
-                 <img class="member-show-page pb-2" src="<%= cl_image_path(member.photo.key) %>" alt="Member Avatar">
+                  <img class="member-show-page pb-2" src="<%= cl_image_path(member.photo.key) %>" alt="Member Avatar">
                   <% else %>
                   <%= image_tag "Avatar.jpg", class:"member-show-page pb-2"%>
                 <% end %>
                 <%= link_to member_path(member) do %>
-                    <%= member.name %>
-                    <% end %>
-                    <em><%= member.title %> </em></li>
+                  <%= member.name %>
+                  <% end %>
+                  <em><%= member.title %> </em></li>
                 <% end %>
             </ul>
           </div>
