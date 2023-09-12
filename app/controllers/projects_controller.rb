@@ -42,7 +42,7 @@ class ProjectsController < ApplicationController
     require 'jira-ruby'
 
     # NOTE: the token should not be encoded
-    api_token = 'ATATT3xFfGF0kZ0_ZtslXAKkZbtuwZR9EZaALv8kSeB6qHasDHsWnvmWr_Xp8Kl7MBn3c43Q64BOUoZoQTT1JP7_SWj0RrXHuY-UrED8UxuY9l_Hy1IAkcBTBjhCkeW0oN17lgrByUUVpY42RyFWrnNPCr8DLMk1jj5r2NciGuqXNFy5fjEsKC4=E02B7DC7'
+    api_token = 'ATATT3xFfGF0N9jARGZc2ILdoHpTH0Sv6_PtITig6HSNeiIWFst-Kwoc59WkNUfmOkVYx59QgjgWSrk1Qw3LpEGHEbSQVVvm-0bx9zI-KOi3JdG2sFAQpZEL4K59EY4iXUS-SKNo3VMdJnkYF01T7XiEIJ5jaze3KGCBvdovgud834m3PFgmGm4=1F864A2D'
 
     options = {
       :site               => 'https://testsite953.atlassian.net/',
