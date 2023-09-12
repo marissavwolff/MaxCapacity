@@ -1,4 +1,4 @@
-<div class="container mt-5" data-controller="members">
+<div class="container mt-5" data-controller="members" data-members-member-projects-value="<%= @member.projects.size %>">
   <div class= "container-team">
     <div class="row team-member-info">
       <div class="photo-title">
@@ -16,7 +16,7 @@
           <p class="small-title mt-3"> Line Manager: <%= @member.line_manager %></p>
           <div class="member-buttons">
             <%= link_to edit_member_path(@member), class:"text-decoration-none" do %>
-                    <i class="fa-solid fa-pen fa-2s" style="color: white;"></i>
+                    <i class="fa-solid fa-pen fa-2ml hover" style="color: white;"></i>
                     <% end %>
           </div>
           </div>
@@ -24,11 +24,14 @@
     </div>
     <div class="col-3 col-lg-4">
       <div id="capacity-card">
+      <% if @member.projects.size == 3 %>
         <p class="sub-title"> <%= @member.name %> is at 80% of their weekly capacity</p>
-        <% @result.each do |task| %>
-          <%= task.assignee.name %>
-          <% end %>
-        <canvas id="myChart" width="960" height="200" data-members-target="bar-chart"></canvas>
+        <% elsif @member.projects.size == 4%>
+        <p class="sub-title"> <%= @member.name %> is at 95% of their weekly capacity</p>
+        <% else %>
+        <p class="sub-title"> <%= @member.name %> is at 75% of their weekly capacity</p>
+      <% end %>
+        <canvas id="myChart" width="960" height="200" data-members-target="barChart"></canvas>
       </div>
     </div>
   </div>
@@ -61,7 +64,7 @@
       <h2 class= "projects-font"> Projects</h2>
     </div>
     <div class="row member-project-grid row-cols-4">
-      <% @projects.each do |project| %>
+      <% @member.projects.each do |project| %>
         <div class="col card-for-project" data-aos="zoom-in" data-controller="battery" data-battery-capacity-value="<%= project.capacity %>" data-battery-asana-value="<%= project.asana_hours %>">
           <div class="dropdown text-right" >
             <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: transparent;border: none";>
@@ -72,7 +75,6 @@
               <em><%= link_to "Delete", project_path(project), class: "dropdown-item", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this listing?"} %></em>
             </div>
           </div>
-
           <%= link_to project_path(project) do %>
             <h2><%= link_to project.name, project_path(project), class: 'text-decoration-none text-reset' %>
               </h2>
@@ -87,7 +89,6 @@
                     <div class="w3 w3-round" style="height:10px;background-color:#eab2a0;width: <%= percent %>%"></div>
                   </div>
                 </div>
-
                 <div class="w-100 d-flex justify-content-between align-items-center">
                   <% @project_member = project.members.last(3) %>
                   <div class="d-flex">
