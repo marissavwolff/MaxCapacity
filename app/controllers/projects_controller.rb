@@ -55,11 +55,9 @@ class ProjectsController < ApplicationController
     client = JIRA::Client.new(options)
 
     @jira = client.Issue.all
-
     # project.issues.each do |issue|
     #   puts "#{issue.id} - #{issue.summary}"
     # end
-
   end
 
   def new_tool
@@ -177,7 +175,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :project_manager, :asana_token, :deadline, :capacity, :asana_hours, :description, priority: [])
+    params.require(:project).permit(:name, :project_manager, :asana_token, :deadline, :capacity, :asana_hours, :description, :completed, priority: [])
   end
 
   def set_project
