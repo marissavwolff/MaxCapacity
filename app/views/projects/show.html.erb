@@ -38,26 +38,9 @@
                   <%= f.submit value: 'Update All Boards', class:'' %>
                 <% end %>
               </div>
-
-          <div class="col-">
-            <div style="margin: 5px;">
-              <%#= link_to "Add tools", project_new_tool_path(@project), class: "btn button-save" %>
-              <%= link_to "Edit", edit_project_path(@project), class: "btn button-save m-3" %>
-              <%= simple_form_for(@project, data: {controller: "completed", completed_target: "form"}) do |f| %>
-                          <%= f.input :completed, as: :boolean, checked_value: 'positive', unchecked_value: 'negative', input_html: { data: { action: "change->completed#checked"}, label: "Completed" } %>
-                          <%# f.submit %>
-                        <% end %>
-              <%= simple_form_for(@project) do |f| %>
-                <%= f.input :asana_hours, value: @project.asana_hours, input_html: {class:'d-none'}, label_html: {class:'d-none'} %>
-                <%= f.hidden_field :asana_update, value: true %>
-                <%= f.submit value: 'Update All Boards', class:'' %>
-              <% end %>
-              <p><%= @project.description %></p>
             </div>
           </div>
-        </div>
           <div class="m-2" data-controller="progress" data-progress-capacity-value="<%= @project.capacity %>" data-progress-asana-value="<%= @project.asana_hours %>">
-
           <div class="col-7 show-widgets-milestone"  data-progress-target="progress">
           <h4> Project Milestone Tracker </h4>
             Project Expected Hours: <%= @project.capacity %>
@@ -89,7 +72,6 @@
           </div>
         </div>
       </div>
-
     <%# Start Jira logic %>
 
     <% highjiracount = 0 %>
@@ -137,13 +119,10 @@
 
         <div class="show-widgets col-4 mb-4">
           <div class="row m-1 p-1"><h4> Asana Tasks <i class="fa-solid fa-clipboard-list"></i></h4></div>
-
             <div class="asana-chart">
 
             <%= pie_chart [['High', highcount ], ["Medium",  medcount], ["Low",  lowcount]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart" %>
 
-            <div>
-              <%= pie_chart [['High', highcount ], ["Medium",  medcount], ["Low",  lowcount]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart" %>
               <ul class="asana-task">
                 <% @result.each do |task| %>
                   <%# <div class="col-4" style="text-align: center;"> %>
@@ -155,18 +134,15 @@
                 <% end %>
               </ul>
             </div>
-
           </div>
-
         <div class="show-widgets col-4">
-
           <div class="m-1 p-1"><h4>Trello Tasks <%= link_to "https://trello.com/b/ZP1CdzZU/lewagonproject", target:"_blank" do %>
             <i class="fa-solid fa-clipboard-list"></i>
             <% end %> </h4>
           </div>
-
             <div class="asana-chart">
               <canvas data-trello-target="pieChart" id="myChart" width="545" height="450" style="display: block; box-sizing: border-box; height: 300px; width: 363px;"></canvas>
+
             </div>
               <ul class="asana-task" style="text-align: center;">
                 <%# <li><strong class="pb-2" style="color: #F5E9CF;">High Priority Tasks:</strong>
@@ -187,17 +163,18 @@
               <% @project.members.each do |member| %>
                 <li class="team-member p-2" style="text-decoration-none;">
                 <% if member.photo.attached? %>
-                  <img class="member-show-page pb-2" src="<%= cl_image_path(member.photo.key) %>" alt="Member Avatar">
+                 <img class="member-show-page pb-2" src="<%= cl_image_path(member.photo.key) %>" alt="Member Avatar">
                   <% else %>
                   <%= image_tag "Avatar.jpg", class:"member-show-page pb-2"%>
                 <% end %>
                 <%= link_to member_path(member) do %>
-                  <%= member.name %>
-                  <% end %>
-                  <em><%= member.title %> </em></li>
+                    <%= member.name %>
+                    <% end %>
+                    <em><%= member.title %> </em></li>
                 <% end %>
             </ul>
           </div>
+
         </div>
 
         <%# <div class="show-widgets col-6">
