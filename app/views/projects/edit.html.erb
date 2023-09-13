@@ -1,9 +1,9 @@
  <div class="users-container">
     <div class="form-new my-4 p-4">
       <h1 class=""><%= "Edit #{@project.name} Project" %></h1>
-      <%= simple_form_for(@project) do |f| %>
+      <%= simple_form_for @project, data: { controller: 'flatpickr' } do |f| %>
         <%= f.input :name %>
-        <%= f.input :deadline, as: :date, html5: true %>
+        <%= f.input :deadline, as: :string, input_html: { data: { flatpickr_target: "startTime" }} %>
         <div class="select-member">
           <%= f.input :members, as: :check_boxes, collection: Member.all, include_blank: false, include_hidden: false, input_html: { multiple: true, class: "team-member-select" }, item_wrapper_class: 'member-item' %>
           <%= link_to new_member_path do %>
@@ -18,7 +18,6 @@
             item_wrapper_class: 'tool-item',
             collection: (["Jira", "Asana", "Google Meets", "Slack"]) %>
         <%= f.input :project_manager %>
-        <%= f.input :description %>
         <div class="py-4"><%= f.submit "Update", class: 'btn button-save' %></div>
         <%= link_to "Delete", project_path(@project), class: 'btn button-delete',
         data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this project?" } %>
