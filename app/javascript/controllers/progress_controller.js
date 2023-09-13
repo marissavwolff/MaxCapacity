@@ -1,10 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="battery"
+// Connects to data-controller="progress"
 export default class extends Controller {
   static values = {capacity: Number, asana: Number}
-  static targets = ["hours"]
-
+  static targets = ["progress", "notice"]
   connect() {
     const trello_url = `https://api.trello.com/1/boards/64f88e6e1c5aa49598c65a5f/cards?key=3176e8152f30516a0b31e587eda58514&token=ATTAe5a9a5814363170dbd4214525d9d3a1f0e9f7fab7d7e435b352149488f5afd5fC50AB5E9`;
 
@@ -29,19 +28,21 @@ export default class extends Controller {
           })
         })
         // hoursCount = hoursCount + this.asanaValue
-        const hoursWork = (hoursCount + this.asanaValue)
+        const hoursWork = parseInt(hoursCount + this.asanaValue)
 
         if (hoursWork >= this.capacityValue) {
-          this.hoursTarget.innerHTML = '<i class="fa-solid fa-battery-empty" style="color: #fb6060;font-size: 30px;"></i>'
-        } else if ((hoursWork / this.capacityValue) > 0.8 ){
-          this.hoursTarget.innerHTML = '<i class="fa-solid fa-battery-quarter" style="color: #fbb360;font-size: 30px;"></i>'
-        } else if ((hoursWork / this.capacityValue) < 0.8 ) {
-          this.hoursTarget.innerHTML = '<i class="fa-solid fa-battery-full" style="color: #7AB879;font-size: 30px;"></i>'
+          this.progressTarget.style = 'background-color:#FB6060;'
+          this.noticeTarget.innerHTML = '<p><strong>Warning!</strong> Your capacity is at or over maxiumum, you may need to make some changes.</p>'
+        } else if ((hoursWork / this.capacityValue) > 0.80 ){
+          this.progressTarget.style = 'background-color:#FBB360;'
+          this.noticeTarget.innerHTML = '<p><strong>Warning!</strong> Your project is nearing capacity.</p>'
+        } else if ((hoursWork / this.capacityValue) < 0.80 ) {
+          this.progressTarget.style = 'background-color:#7AB879;'
+          this.noticeTarget.innerHTML = '<p>Your project is on track!</p>'
         }
 
         console.log("trello hours")
-        console.log(hoursWork)
-        // this.hoursTarget.innerHTML=hoursWork
+        console.log(hoursWork/this.capacityValue)
     })
 
 
