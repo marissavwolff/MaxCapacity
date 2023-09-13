@@ -23,13 +23,13 @@
       <%= f.input :line_manager %>
       <%= f.input :capacity, label: "Team member capacity (hours)" %>
       <div class="select-member">
-        <%= f.input :project_ids, label: "Member of project" , as: :check_boxes, collection: Project.all, include_blank: false, include_hidden: false, input_html: { multiple: true, class: "team-member-select" }, item_wrapper_class: 'member-item'%>
+      <%= f.input :project_ids, label: "Member of project" , as: :check_boxes, collection: Project.all, include_blank: false, include_hidden: false, input_html: { multiple: true, class: "team-member-select" }, item_wrapper_class: 'member-item'%>
       </div>
-      <%= link_to "Delete #{@member.name} from MaxCapacity", member_path(@member), class: "btn button-delete mtb-5",
+      <%= f.submit 'Save', class: 'btn button-save mr-3'%>
+      <%= link_to "Delete user", member_path(@member), class: "btn button-delete mtb-5",
         data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this member?"} %>
-      <div class="button-right-corner">
-        <%= f.submit 'Save', class: 'btn button-save'%>
-      </div>
+      <%# <div class="button-right-corner"> %>
+      <%# </div> %>
     <% end %>
     </div>
   </div>

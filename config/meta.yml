@@ -1,0 +1,5 @@
+meta_name: "Maxcapacity"
+meta_title: "Maxcapacity - Max Your Cap"
+meta_description: "Maxcapacity has a meta description of more than 20 characters."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@maxcapacity"   # required for Twitter Cards
