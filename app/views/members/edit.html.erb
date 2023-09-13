@@ -1,12 +1,11 @@
-<div style="width:800px; margin: 0 auto;">
-  <div class="row">
+<div class="users-container">
+  <div class="row form-new">
     <div class="col-4"></div>
     <div class="col-8">
-      <h1 class="mt-5" style="color:white;">Edit <%= @member.name %>'s Profile</h1>
-      <br>
+      <h1 class="mt-2" style="color:white;">Edit <%= @member.name %>'s Profile</h1>
     </div>
     <div class="col-4">
-      <div class="form-new my-4 p-4">
+      <div class="">
         <%= simple_form_for @member, html: {data: {controller: "photo-preview"}} do |f|%>
           <% if @member.photo.attached? %>
             <img class="member-avatar" src="<%= cl_image_path(@member.photo.key) %>" alt="Member Avatar", data: (photo_preview_target: "preview") >
