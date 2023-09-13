@@ -22,6 +22,8 @@ class ProjectsController < ApplicationController
 
   def show
     @members = @project.members
+    @deadline = @project.deadline
+    @betterdeadline = @deadline.strftime("%a, %e %b %Y")
 
     # START ASANA IMPLEMENTATION
     @project = Project.find(params[:id])

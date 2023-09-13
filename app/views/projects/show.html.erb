@@ -10,7 +10,7 @@
                 <% end %>
           </div>
           <div class="deadpriority">
-            <p class="pr-2" style="font-size:small;">Deadline: <%= @project.deadline %></p>
+            <p class="pr-2" style="font-size:small;">Deadline: <%= @betterdeadline %></p>
             <% if @project.priority == "[\"High\"]" %>
               <i class="fa-solid fa-circle fa-xs" style="color: #fb6060;"></i>
             <% elsif (@project.priority == "[\"Medium\"]")%>
