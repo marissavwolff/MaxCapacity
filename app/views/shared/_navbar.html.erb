@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon ">
   <div class="container-fluid">
   <% if user_signed_in? %>
-      <%= link_to projects_path, class: "navbar-brand" do %>
+      <%= link_to root_path, class: "navbar-brand" do %>
         <h4>ma<i class="fa-solid fa-maximize"></i>capacity</h4>
       <% end %>
     <% else %>
@@ -19,6 +19,12 @@
     <%# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button> %>
+
+    <% if user_signed_in? %>
+    <div class="flex-grow-1 align-items-end nav-links d-flex justify-content-end">
+    <%= link_to "All Projects",projects_path, style: "color: white; text-decoration: none; font-size: 18px; padding-right: 10px;" %>
+    </div>
+    <% end %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto ">
