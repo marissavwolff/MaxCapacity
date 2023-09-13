@@ -32,7 +32,8 @@
     padding: 14px;
     border-radius: 20px;
     h4 {
-      color: #F5E9CF;
+      color: white;
+      font-family: 'Jost', sans-serif;
     }
 }
 
@@ -41,7 +42,8 @@
   padding: 14px;
   border-radius: 20px;
   h4 {
-    color: #F5E9CF;
+    color: white;
+    font-family: 'Jost', sans-serif;
   }
 }
 
@@ -54,13 +56,19 @@
   display: flex;
   justify-content: space-around;
   list-style: none;
-  background-color: #545B77;
   padding: 10px;
   border-radius: 15px;
 }
 
 .assign-mem {
   list-style: none;
+}
+
+.chart-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 // .jadid {
@@ -76,11 +84,11 @@
 //     // width: 300px;
 // }
 
-.projectinfoleft {
-    background-color: #F5E9CF;
-    width: 200px;
-    height: 200px;
-}
+// .projectinfoleft {
+//     background-color: #F5E9CF;
+//     width: 200px;
+//     height: 200px;
+// }
 
 .cards_buttom {
     width: 700px;
@@ -88,22 +96,23 @@
     margin: 0 auto;
 }
 
-.project_info_middle {
-    background-color: #5C8984;
-    width: 300;
-}
+// .project_info_middle {
+//     background-color: #5C8984;
+//     width: 300;
+// }
 
-.project_info_right {
-    background-color: #EAB2A0;
-    width: 200px;
-    height: 300 px;
-    opacity: 0.9;
-}
+// .project_info_right {
+//     background-color: #EAB2A0;
+//     width: 200px;
+//     height: 300 px;
+//     opacity: 0.9;
+// }
 
 // .item {
 //     font-family: "Open Sans";
 //     font-weight:  "Bold 700";
 // }
+
 .team-members {
     list-style-type: none;
     text-decoration: none;
@@ -111,10 +120,8 @@
     flex-direction: row;
     a {
       text-decoration: none;
-      color:#F5E9CF;
+      color: white;
       &:hover {
-        font-weight: bold;
-        color: black;
       }
     }
 }
@@ -138,5 +145,40 @@
 
 .pie-tasks {
   display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
 
+}
+
+.edit-name {
+  display: flex;
+  align-items: center;
+}
+
+.show-info {
+  h2 {
+    color: white;
+    font-family: 'Jost', sans-serif;
+    font-size: 32px;
+  }
+
+  p {
+    color: white;
+  }
+}
+
+.form-check-label {
+  color: white;
+}
+
+.show-padding {
+  padding: 50px 0 50px;
+}
+
+.product-refresh {
+  h3 {
+    color: white;
+    font-family: 'Jost', sans-serif;
+  }
 }
