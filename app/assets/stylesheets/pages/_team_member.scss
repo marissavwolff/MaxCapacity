@@ -11,11 +11,15 @@
   width: 745px;
   height: auto;
   flex-shrink: 0;
-  border-radius: 20px;
+  border-radius: 25px;
   background: #374259;
   border: 1px solid #1F2533;
   text-align: center;
   padding: 20%;
+}
+
+.jeebz {
+  font-size: 10px;
 }
 
 .container-team {
@@ -37,12 +41,13 @@
 }
 
 .weekday-grid {
+  margin: 0 60px;
   width: 1338px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 80px;
-  margin-top: 65px;
-  margin-bottom: 65px;
+  grid-gap: 10px;
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 .weekday-card {
