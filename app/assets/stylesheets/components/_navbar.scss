@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #374259;
+  background: rgb(55, 66, 89);
   // font-family: 'Jost', sans-serif;
   padding: 0px 30px 0px;
 }
@@ -65,13 +65,13 @@
 }
 
 .dropdown-item {
-  color: #5C8984;
+  color: #374259;
   background-color: #f5e9cf;
   border-radius: 20px;
 
   &:hover {
     background-color: #f5e9cf;
-    color: #5C8984;
+    color: #374259;
     font-weight: bold;
     border-radius: 20px;
   }

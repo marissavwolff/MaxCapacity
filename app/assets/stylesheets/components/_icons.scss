@@ -2,18 +2,19 @@
   width: 100%;
   display: flex;
   overflow: auto;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
+  // margin-left: 60px;
   h4 {
     text-align: left;
     text-decoration: none;
-    color: #DDDDDD;
-    font-size: 20px;
-    font-family: 'Jost', sans-serif;
+    color: white;
+    font-size: 22px;
+    font-weight: 400;
     border-bottom: 2px solid #545b77;
     &:hover {
-      color: #f5f6f8;
+      color: white;
       border-bottom: 2px solid #eab2a0;
     }
   }
@@ -28,6 +29,7 @@
 
 .create-new:hover {
   font-weight: bolder;
+  justify-content: space-between;
 }
 
 .edit-pc {
