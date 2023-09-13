@@ -53,11 +53,11 @@
                 <% @project_member = project.members.last(3) %>
                 <div class="d-flex">
                   <% @project_member.each do |member| %>
-                    <div class="avatar-small my-4 pt-2" data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= member.name %>">
+                    <div class="avatar-small my-4" data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= member.name %>">
                       <% if member.photo.attached? %>
                         <img src="<%= cl_image_path(member.photo.key) %>">
                       <% else %>
-                        <small><%= member.name.first %></small>
+                       <p class="pt-2"><%= member.name.first %></p>
                       <% end %>
                     </div>
                   <% end %>
