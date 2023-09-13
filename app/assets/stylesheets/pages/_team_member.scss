@@ -8,13 +8,15 @@
 
 #capacity-card {
   color: white;
-  width: 545px;
-  height: 189px;
+  width: 745px;
+  height: auto;
   flex-shrink: 0;
   border-radius: 20px;
-  background: #5C8984;
+  background: #374259;
+  border: 1px solid #1F2533;
   text-align: center;
   padding: 20%;
+  box-shadow: 11px 10px 18px 0px #1F2533;
 }
 
 .container-team {
@@ -30,7 +32,7 @@
 }
 
 .member-title-card {
-  width: 545px;
+  width: 273px;
   height: 189px;
   padding: 15px;
 }
@@ -49,13 +51,16 @@
   height: auto;
   align-items: center;
   text-align: center;
-  background: #374259;
+  background: #374259;;
   border-radius: 10px;
-  padding: 15px;
+  padding: 20px;
+  border-color: black;
+  border: 1px solid #1F2533;
+  box-shadow: 11px 10px 18px 0px #1F2533;
 }
 
 .container-white {
-  width: 1338px;
+  width: 100%;
   height: auto;
   margin: auto;
   border-radius: 15px;

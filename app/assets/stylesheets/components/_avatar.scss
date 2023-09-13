@@ -44,8 +44,16 @@
 }
 
 .member-avatar {
-  width: 198px;
-  height: 198px;
+  width: 183px;
+  height: 183px;
   border-radius: 50%;
   flex-shrink: 0;
+  margin-bottom: 27px;
+  box-shadow: 11px 10px 18px 0px #1F2533;
+}
+
+
+.member-show-page {
+  border-radius: 50%;
+  width: 50px;
 }
