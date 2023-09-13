@@ -2,18 +2,18 @@
   border-style: none;
   background-color: #545B77;
     h1 {
-      color: #F5E9CF;
+      color: white;
       padding-bottom: 12px;
     }
     p {
-      color: #F5E9CF;
+      color: white;
       text-decoration: none;
     }
 
 }
 
 .form-label, .col-form-label {
-  color: #F5E9CF;
+  color: white;
   font-size: 16px;
 }
 
@@ -31,12 +31,20 @@
 }
 
 .fa-solid {
-  color: #F5E9CF;
+  color: white;
     &:hover {
       color: #5C8984;
     }
 }
 
 .form-check-input.is-valid ~ .form-check-label {
-  color: #5C8984;
+  color: white;
+}
+
+.form-check-label ~ .collection_check_boxes {
+  color: white;
+}
+
+.form-check {
+  color: white;
 }
