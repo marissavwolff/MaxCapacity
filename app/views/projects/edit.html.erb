@@ -1,6 +1,7 @@
  <div class="users-container">
-    <div class="form-new my-4 p-4">
+    <div class="form-new">
       <h1 class=""><%= "Edit #{@project.name} Project" %></h1>
+      <h1></h1>
       <%= simple_form_for @project, data: { controller: 'flatpickr' } do |f| %>
         <%= f.input :name %>
         <%= f.input :deadline, as: :string, input_html: { data: { flatpickr_target: "startTime" }} %>
