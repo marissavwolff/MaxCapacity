@@ -2,9 +2,9 @@
   <div class="users-container">
     <div class="form-new my-4 p-4">
       <h1 class="">Create New Project</h1>
-      <%= simple_form_for @project do |f| %>
+      <%= simple_form_for @project, data: { controller: 'flatpickr' } do |f| %>
         <%= f.input :name %>
-        <%= f.input :deadline, as: :date, html5: true %>
+        <%= f.input :deadline, as: :string, input_html: { data: { flatpickr_target: "startTime" }} %>
         <div class="select-member">
           <%= f.input :members, as: :check_boxes, collection: Member.all, include_blank: false, include_hidden: false, input_html: { multiple: true, class: "team-member-select" }, item_wrapper_class: 'member-item' %>
           <%= link_to new_member_path do %>

@@ -57,7 +57,7 @@
                       <% if member.photo.attached? %>
                         <img src="<%= cl_image_path(member.photo.key) %>">
                       <% else %>
-                        <p class="pt-2"><%= member.name.first %></p>
+                       <p class="pt-2"><%= member.name.first %></p>
                       <% end %>
                     </div>
                   <% end %>
