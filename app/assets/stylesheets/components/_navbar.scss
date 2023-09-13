@@ -3,6 +3,8 @@
   background: #374259;
   // font-family: 'Jost', sans-serif;
   padding: 0px 30px 0px;
+  height: 45px;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,18 +12,26 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 30px;
 }
 
 .navbar-brand {
+
   h4 {
     font-family: 'Jost', sans-serif;
-    font-size: 30px;
+    font-size: 33px;
     color: #f5e9cf;
   }
   i {
-    font-size: 25px;
+    font-size: 27px;
     color: #f5e9cf;
+  }
+}
+
+.nav-links {
+
+  li{
+    margin-right: 1rem;
   }
 }
 
@@ -62,6 +72,12 @@
   border-radius: 20px;
   background-color: #f5e9cf;
   overflow: visible;
+}
+
+.center-dropdown-menu {
+  right: auto;
+  left: 20%;
+  transform: translateX(-20%);
 }
 
 .dropdown-item {

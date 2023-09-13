@@ -9,8 +9,9 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:telephone_number, :company, :title, :name])
   
-  end
 
+  end
+  
   def after_sign_in_path_for(resource)
     projects_path
   end
