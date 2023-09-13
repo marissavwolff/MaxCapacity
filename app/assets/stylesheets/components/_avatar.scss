@@ -62,5 +62,10 @@
 
 .member-show-page {
   border-radius: 50%;
-  width: 50px;
+  width: 100px;
+  &:hover {
+    background-color: $reddish;
+    border-radius: 50%;
+    box-shadow: 2px 2px #eab2a0;
+  }
 }
