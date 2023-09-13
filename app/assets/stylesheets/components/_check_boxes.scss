@@ -1,5 +1,11 @@
 .member-item {
   display: inline-block;
+  .form-check-input.is-valid ~ .form-check-label {
+    color: #374259;
+  }
+  .form-check-input.is-valid:checked ~ .form-check-label {
+    color: white;
+  }
 }
 
 .team-member-select {
@@ -20,7 +26,11 @@
 
 .team-member-select:checked + label {
   background-color: #374259;
-  color: #F5E9CF;
+  color: white;
+}
+
+.collection_check_boxes {
+  color: white;
 }
 
 .tool-wrapper {
@@ -45,10 +55,10 @@
   margin-bottom: 8px;
   text-align: center;
   padding: 5px;
-  border: 1px solid #F5E9CF;
+  border: 1px solid #374259;
   border-radius: 20px;
-  background-color: #5C8984;
-  color: #F5E9CF;
+  background-color: #EAB2A0;
+  color: #374259;
 }
 
 // .tool-selector:checked + label {
@@ -61,9 +71,9 @@
 }
 
 #project_tool_system_trello:checked + label {
-  background-color: #F5E9CF;
-  border-color: #5C8984;
-  color: #5C8984;
+  background-color: #374259;
+  border-color: #374259;
+  color: white;
 }
 
 // project_tool_system_google_meet
@@ -79,22 +89,26 @@
 
 // project_tool_system_trello
 #project_tool_system_jira + label {
-  color: #F5E9CF;
+  color: #374259;
 }
 
 #project_tool_system_jira:checked + label {
-  background-color: #F5E9CF;
-  border-color: #5C8984;
-  color: #5C8984;
+  background-color: #374259;
+  border-color: #374259;
+  color: white;
 }
 
 // project_tool_system_asana
 #project_tool_system_asana + label {
-  color: #F5E9CF;
+  color: #374259;
+}
+
+#project_tool_system_trello + label {
+  color: #374259;
 }
 
 #project_tool_system_asana:checked + label {
-  background-color: #F5E9CF;
-  border-color: #5C8984;
-  color: #5C8984;
+  background-color: #374259;
+  border-color: #374259;
+  color: white;
 }

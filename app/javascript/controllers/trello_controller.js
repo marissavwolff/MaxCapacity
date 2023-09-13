@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="trello"
 export default class extends Controller {
-  static targets = ["hours", "progress", "pieChart"]
+  static targets = ["hours", "progress", "pieChart", "task"]
   static values = {capacity: Number}
 
   connect() {
@@ -34,6 +34,8 @@ export default class extends Controller {
         info.labels.forEach((item) => {
           if (item.name === 'high') {
             this.count = this.count + 1
+            const card = "<p>" + "- " + info.name + "</p>"
+            this.taskTarget.insertAdjacentHTML("beforeend", card)
           }
           if (item.name === '2' || item.name === '4' || item.name === '8') {
             let hour = parseInt(item.name)
@@ -63,7 +65,7 @@ export default class extends Controller {
         trelloPercentage = (this.hoursCount / this.capacityValue)*100
       }
       // console.log(trelloPercentage)
-      this.progressTarget.style = `height:10px;width: ${trelloPercentage}%`
+      this.progressTarget.style = `height:10px; width: ${trelloPercentage}%; background-color:#1F2533;`
 
       const myChart = new Chart(this.pieChartTarget, {
         type: 'pie',
@@ -80,6 +82,8 @@ export default class extends Controller {
             }]
           }
         });
+
+      this.pieChartTarget.style = `height:300px; width:300px; color:#fffff;`
     });
   }
 }

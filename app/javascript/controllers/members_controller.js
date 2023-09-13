@@ -1,4 +1,5 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
+
 
 export default class extends Controller {
   static targets = ["barChart"]
@@ -32,19 +33,37 @@ export default class extends Controller {
             'rgb(255, 99, 132)',
             'rgb(54, 162, 235)',
             'rgb(255, 205, 86)'
-           ],
+          ],
+          hoverBackgroundColor: "rgba(232,105,90,0.8)",
         }]
       },
       options: {
         scales: {
           yAxes: [{
             ticks: {
-              beginAtZero: true
+              beginAtZero: true,
+              labels: {
+                font: {
+                  fontSize: 14,
+                },
+                color: "white",
+              }
             }
-          }]
-        }
-      }
+          }],
+
+        },
+        plugins: {
+          legend: {
+            labels: {
+              font: {
+                size: 16,
+                fontFamily: 'Jost',
+              },
+              color: 'white',
+            },
+          },
+        },
+      },
     });
   }
-
 }

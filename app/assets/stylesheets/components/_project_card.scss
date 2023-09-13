@@ -10,7 +10,7 @@
   border-radius: 10%;
   padding: 10px;
   text-align: center;
-  background-color: #374259;
+  background-color: #545B77;
   &:hover {
     box-shadow: 6px 6px #eab2a0;
   }
@@ -18,14 +18,26 @@
     color: #fcfbfa;
     padding-top: 5px;
     font-family: 'Jost', sans-serif;
-    font-weight: bold;
   }
   i {
     font-size: 20px;
   }
   p {
-    text-align: center;
+    text-align: left;
     color: #fffdfd;
     font-size: 16px;
+    font-weight: 300;
+  }
+}
+
+#dropdownMenuButton {
+  padding: 0 10px;
+  margin-top: 5px;
+  i {
+    color: white;
+    padding: 2px;
+  &:hover {
+    color: #eab2a0;
+  }
   }
 }
