@@ -1,22 +1,23 @@
  <div class="users-container">
-    <div class="form-new my-4 p-4">
+    <div class="form-new">
       <h1 class=""><%= "Edit #{@project.name} Project" %></h1>
+      <h1></h1>
       <%= simple_form_for @project, data: { controller: 'flatpickr' } do |f| %>
         <%= f.input :name %>
         <%= f.input :deadline, as: :string, input_html: { data: { flatpickr_target: "startTime" }} %>
         <div class="select-member">
-          <%= f.input :members, as: :check_boxes, collection: Member.all, include_blank: false, include_hidden: false, input_html: { multiple: true, class: "team-member-select" }, item_wrapper_class: 'member-item' %>
+          <%= f.input :member_ids, :label => "Project Members", as: :check_boxes, collection: Member.all, include_blank: false, include_hidden: false, input_html: { multiple: true, class: "team-member-select" }, label_html: { class: "my-class" }, item_wrapper_class: 'member-item' %>
           <%= link_to new_member_path do %>
             <i class="fa-solid fa-plus pb-2"></i>
           <% end %>
         </div>
         <%= f.input :priority, as: :check_boxes, collection: (['High', 'Medium', 'Low']), include_blank: false, include_hidden: false, class: 'priority-select' %>
         <%= f.input :capacity, :label => "Project Expected Hours"  %>
-        <%#= f.input :tool_system, as: :check_boxes,  include_blank: false,
+        <%= f.input :tool_system, as: :check_boxes,  include_blank: false, include_hidden: false,
             input_html: { multiple: true, class: 'tool-selector'},
             wrapper_html: { class: 'tool-wrapper'},
             item_wrapper_class: 'tool-item',
-            collection: (["Jira", "Asana", "Google Meets", "Slack"]) %>
+            collection: (["Jira", "Asana", "Trello"]) %>
         <%= f.input :project_manager %>
         <div class="py-4"><%= f.submit "Update", class: 'btn button-save' %></div>
         <%= link_to "Delete", project_path(@project), class: 'btn button-delete',
