@@ -28,11 +28,12 @@
 }
 
 .show-widgets {
-    background-color: #374259;
+    background-color: #545B77;
     // height: 100px;
     padding: 14px;
     border-radius: 20px;
     margin-bottom: 35px;
+    border-style: solid 1px #1F2533;
     h4 {
       color: white;
       font-family: 'Jost', sans-serif;
@@ -40,12 +41,14 @@
 }
 
 .show-widgets-team {
-  background-color: #374259;
+  display: flex;
+  background-color: #545B77;
   padding-top: 14px;
   padding-left: 14px;
   border-radius: 20px;
   width: 400px;
   font-size: 14px;
+  border-color: #1F2533;
 }
 
 .show-widgets-milestone {
@@ -191,6 +194,7 @@
     h3 {
       color: #1F2533;
       font-family: 'Jost', sans-serif;
+      font-size: 30px;
     }
 }
 
@@ -198,6 +202,7 @@
   display: flex;
   flex-direction: row;
   align-items: baseline;
+  font-size: 26px;
 }
 
 .task-hours {
@@ -206,4 +211,8 @@
 
 .progress-width {
   width: 100%;
+}
+
+.completed-check {
+  color: #1F2533;
 }
