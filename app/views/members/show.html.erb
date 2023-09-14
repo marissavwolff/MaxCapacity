@@ -15,12 +15,13 @@
             <div class="row">
               <h2 class="sub-heading col-11"><%= @member.name %>
               <%= link_to edit_member_path(@member), class:"text-decoration-none col-1" do %>
+
                 <i class="fa-solid fa-pen fa-2xs" style="color: #1F2533;"></i>
               <% end %>
               </h2>
             </div>
 
-            <p class="small-title mt-3"> Line Manager: <%= @member.line_manager %></p>
+            <p class="small-title"> Line Manager: <%= @member.line_manager %></p>
             <div class="member-buttons">
             </div>
           </div>
