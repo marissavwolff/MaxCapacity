@@ -1,31 +1,30 @@
 .button-save {
-  background-color: #545B77;
+  background-color: #EAB2A0;
   border-radius: 20px;
-  border-color: #F5E9CF;
-  color: #F5E9CF;
+  border-color: #1F2533;
+  color: #1F2533;
   // width: 126px;
   // height: 69px;
 
   &:hover {
-  background-color: #F5E9CF;
-  color: #5C8984;
-  border-color: #5C8984;
+  background-color: #1F2533;
+  color: white;
+  border-color: #1F2533;
   border-radius: 20px;
   }
 }
 
 
 .button-delete {
-  background-color: #E46D6D;
+  background-color: #1F2533;
   border-radius: 20px;
-  border-color: #5C8984;
-  color: #5C8984;
+  border-color: #1F2533;
+  color: white;
 
   &:hover {
-    background-color: #ff6363;
+    background-color: #E46D6D;
     border-radius: 20px;
-    border-color: #F5E9CF;
-    color: #F5E9CF;
+    color: white;
   }
 }
 
