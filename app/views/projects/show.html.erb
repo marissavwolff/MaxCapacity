@@ -30,7 +30,7 @@
           <div style="margin: 5px;" class= "completed-check">
             <%#= link_to "Add tools", project_new_tool_path(@project), class: "btn button-save" %>
             <%= simple_form_for(@project, data: {controller: "completed", completed_target: "form"}) do |f| %>
-              <%= f.input :completed, as: :boolean, checked_value: 'positive', unchecked_value: 'negative', input_html: { data: { action: "change->completed#checked"}, label: "Completed" }, label_html: { class:'completed-check' } %>
+              <%= f.input :completed, as: :boolean, checked_value: 'positive', unchecked_value: 'negative', input_html: { data: { action: "change->completed#checked"}, label: "Completed", class: "toggle" }, label_html: { class:'completed-check' } %>
               <%# f.submit %>
             <% end %>
           </div>
@@ -59,13 +59,13 @@
           <h4> Project Capacity Hours - <%= @project.capacity %> </h4>
             <p data-progress-target="notice" class="pt-2"></p>
           <div class="pt-2">
-            <p>% Trello Hours:</p>
+            <p>Trello Hours:</p>
               <div class="w3-border w3-round align-items-center">
                 <div class="w3 w3-round" data-trello-target="progress"></div>
           </div>
 
           <div class="pt-2">
-            <p>% Jira Hours:</p>
+            <p>Jira Hours:</p>
             <div class="w3-border w3-round align-items-center">
               <% percent = 10 %>
               <div class="w3 w3-round" style="height:10px; width: <%= percent %>%; background-color:#1F2533;"></div>
@@ -73,7 +73,7 @@
           </div>
 
           <div class="pt-2">
-            <p>% Asana Hours:</p>
+            <p>Asana Hours:</p>
               <div class="w3-border w3-round align-items-center">
                 <% if @project.asana_hours.to_f > @project.capacity.to_f %>
                   <% percent = 100 %>
@@ -132,7 +132,7 @@
                 </div>
                   <ul class="asana-task">
 
-                    <li><strong class="pb-2" style="color: #ffffff;">High Priority Tasks:</strong>
+                    <li><strong class="pb-4" style="color: #ffffff;">High Priority Tasks:</strong>
                     <p data-trello-target="task" style="color: #ffffff;"></p></li>
                     <%# <li><strong class="pb-2" style="color: #F5E9CF;">Open High Priority Tasks:</strong>
                     <p data-trello-target="highPriority"></p></li> %>
@@ -142,15 +142,15 @@
 
           <div class="show-widgets col-5">
             <div class="task-title ml-1"><h4 class="pr-2"> Asana Tasks <i class="fa-solid fa-clipboard-list" style="color: #ffffff;"></i></h4> </div>
-              <div>
-                <p class="ml-1 task-hours" style="color: #ffffff;"> Expected Hours:</p>
+              <div class="ml-1 task-hours">
+                <p class="pr-1" style="color: #ffffff;"> Expected Hours:</p>
                 <p style="color: #ffffff;"> <%= @project.asana_hours %> </p>
               </div>
               <div class="chart-info">
-                  <%= pie_chart [['High', highcount ], ["Medium",  medcount], ["Low",  lowcount]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart", style: "width:300px", library: {color: "#fff"}  %>
+                  <%= pie_chart [['High', highcount ], ["Medium",  medcount], ["Low",  lowcount]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart", width: "300px", library: {color: "#fff"}  %>
                   <ul class="asana-task">
                     <div class="list">
-                      <strong class="pb-2" style="color: #ffffff;">High Priority Tasks:</strong>
+                      <strong class="pb-4" style="color: #ffffff;">High Priority Tasks:</strong>
                       <% @result.each do |task| %>
                         <li style="color: #ffffff;"><p> - <%= task.name %> </p></li>
                       <% end %>
@@ -164,13 +164,13 @@
         <div class="show-widgets col-5 mb-4">
           <div class="ml-1 task-title"><h4 class="pr-2"> Jira Tasks <i class="fa-solid fa-clipboard-list" style="color: #ffffff;"></i></h4></div>
             <div class="ml-1 task-hours">
-              <p class="pr-1" style="color: #ffffff;"> Current Expected Hours: </p>
+              <p class="pr-1" style="color: #ffffff;">Expected Hours: </p>
               <p style="color: #ffffff;"> 15 </p>
             </div>
             <div class="chart-info">
-              <%= pie_chart [['High', 3 ], ["Medium",  5], ["Low",  10]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart", library: {color: "#fff"}  %>
+              <%= pie_chart [['High', 3 ], ["Medium",  5], ["Low",  10]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart", width: "300px", library: {color: "#fff"}  %>
               <ul class="asana-task">
-                <li class="pb-2" ><strong style="color: #ffffff;">High Priority Tasks:</strong></li>
+                <strong class="pb-2" style="color: #ffffff;">High Priority Tasks:</strong>
                  <li>
                   <p style="color: #ffffff;"> - Design Layout </p>
                   <p style="color: #ffffff;"> - Flow </p>
