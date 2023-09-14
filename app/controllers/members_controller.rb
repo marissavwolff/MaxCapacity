@@ -45,7 +45,7 @@ class MembersController < ApplicationController
 
   def update
     @member.update(member_params)
-    if @member.save
+    if @member.save!
       redirect_to member_path(@member), notice: "You have successfully updated #{@member.name}'s profile"
     else
       render :new, status: :unprocessable_entity
