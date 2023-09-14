@@ -32,13 +32,16 @@ export default class extends Controller {
 
         if (hoursWork >= this.capacityValue) {
           this.progressTarget.style = 'background-color:#FB6060;'
-          this.noticeTarget.innerHTML = '<p><strong>Warning!</strong> Your capacity is at or over maxiumum, you may need to make some changes.</p>'
+          this.noticeTarget.innerHTML = '<strong><p><i class="fa-regular fa-bell" style="color: #374259;"></i> WARNING! Capacity is at or over maximum, you may need to make some changes.</p></strong>'
+          this.noticeTarget.style = 'color:#374259'
         } else if ((hoursWork / this.capacityValue) > 0.80 ){
           this.progressTarget.style = 'background-color:#FBB360;'
-          this.noticeTarget.innerHTML = '<p><strong>Warning!</strong> Your project is nearing capacity.</p>'
+          this.noticeTarget.innerHTML = '<strong><p><i class="fa-regular fa-bell" style="color: #374259;"></i> WARNING! Project is nearing capacity.</p></strong>'
+          this.noticeTarget.style = 'color:#374259'
         } else if ((hoursWork / this.capacityValue) < 0.80 ) {
           this.progressTarget.style = 'background-color:#7AB879;'
-          this.noticeTarget.innerHTML = '<p>Your project is on track!</p>'
+          this.noticeTarget.innerHTML = '<strong><p><i class="fa-regular fa-thumbs-up" style="color: #374259;"></i> Project is on track!</p></strong>'
+          this.noticeTarget.style = 'color:#374259'
         }
 
         console.log("trello hours")
