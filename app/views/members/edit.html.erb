@@ -4,8 +4,7 @@
     <div class="col-8">
       <h1 class="mt-2" style="color:white;">Edit <%= @member.name %>'s Profile</h1>
     </div>
-    <div class="col-4">
-      <div class="">
+
         <%= simple_form_for @member, html: {data: {controller: "photo-preview"}} do |f|%>
           <% if @member.photo.attached? %>
             <img class="member-avatar" src="<%= cl_image_path(@member.photo.key) %>" alt="Member Avatar", data: (photo_preview_target: "preview") >
@@ -13,8 +12,7 @@
             <%= image_tag "Avatar.jpg", class:"member-avatar" %>
           <% end %>
           <%= f.input :photo, as: :file, input_html: { class: 'd-none', data: { photo_preview_target: "input", action:"change->photo-preview#displayPreview" }}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo'%>
-      </div>
-    </div>
+   
     <div class="col-8">
       <%= f.input :name %>
       <%= f.input :title, label: "Role" %>
