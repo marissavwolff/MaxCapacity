@@ -12,7 +12,7 @@
   align-items: center;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .project-info {
@@ -30,10 +30,9 @@
 .show-widgets {
     background-color: #545B77;
     // height: 100px;
-    padding: 14px;
+    padding: 30px;
     border-radius: 20px;
     margin-bottom: 35px;
-    border-style: solid 1px #1F2533;
     h4 {
       color: white;
       font-family: 'Jost', sans-serif;
@@ -53,7 +52,7 @@
 
 .show-widgets-milestone {
   background-color: #5C8984;
-  padding: 14px;
+  padding: 30px;
   border-radius: 20px;
   h4 {
     color: white;
@@ -71,6 +70,7 @@
   list-style: none;
   padding: 10px;
   flex-direction: column;
+  padding-left: 45px;
 }
 
 .assign-mem {
