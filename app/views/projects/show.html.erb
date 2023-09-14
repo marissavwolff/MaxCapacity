@@ -147,7 +147,7 @@
                 <p style="color: #ffffff;"> <%= @project.asana_hours %> </p>
               </div>
               <div class="chart-info">
-                  <%= pie_chart [['High', highcount ], ["Medium",  medcount], ["Low",  lowcount]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart", style: "width:300px" %>
+                  <%= pie_chart [['High', highcount ], ["Medium",  medcount], ["Low",  lowcount]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart", style: "width:300px", library: {color: "#fff"}  %>
                   <ul class="asana-task">
                     <div class="list">
                       <strong class="pb-2" style="color: #ffffff;">High Priority Tasks:</strong>
@@ -168,7 +168,7 @@
               <p style="color: #ffffff;"> 15 </p>
             </div>
             <div class="chart-info">
-              <%= pie_chart [['High', 3 ], ["Medium",  5], ["Low",  10]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart" %>
+              <%= pie_chart [['High', 3 ], ["Medium",  5], ["Low",  10]], colors: ["#E46D6D", "#FFAB6D", "#7AB879"], class: "asana-chart", library: {color: "#fff"}  %>
               <ul class="asana-task">
                 <li class="pb-2" ><strong style="color: #ffffff;">High Priority Tasks:</strong></li>
                  <li>
