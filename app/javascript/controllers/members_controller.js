@@ -14,6 +14,7 @@ export default class extends Controller {
     const memberProjects = this.memberProjectsValue;
 
     let chartData = [3, 5, 6];
+    Chart.defaults.color = 'white';
 
     if (memberProjects === 3) {
       chartData = [8, 9, 4];
@@ -27,40 +28,34 @@ export default class extends Controller {
       data: {
         labels: ['High Priority', 'Medium Priority', 'Low Priority'],
         datasets: [{
-          label: 'Assigned tasks',
           data: chartData,
           backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
+            'rgb(228, 109, 109)',
+            'rgb(255, 171, 109)',
+            'rgb(122, 184, 121)'
           ],
           hoverBackgroundColor: "rgba(232,105,90,0.8)",
         }]
       },
+
       options: {
+        responsive: true,
         scales: {
           yAxes: [{
             ticks: {
+              color: 'white',
               beginAtZero: true,
-              labels: {
-                font: {
-                  fontSize: 14,
-                },
-                color: "white",
-              }
             }
           }],
-
+          xAxes: [{
+            ticks: {
+                color: 'white'
+            },
+        }],
         },
         plugins: {
           legend: {
-            labels: {
-              font: {
-                size: 16,
-                fontFamily: 'Jost',
-              },
-              color: 'white',
-            },
+            display: false,
           },
         },
       },
