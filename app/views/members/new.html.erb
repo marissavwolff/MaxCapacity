@@ -1,12 +1,12 @@
-<div style="width:800px; margin: 0 auto;">
-  <div class="row">
+<div style="users-container">
+  <div class="row form-new">
     <div class="col-4"></div>
     <div class="col-8">
-      <h1 class="mt-5" style="color:white;">New Team Member</h1>
+      <h1 class="mt-2" style="color:white;">New Team Member</h1>
       <br>
     </div>
     <div class="col-4">
-      <div class="form-new my-4 p-4">
+      <div class="">
         <%= simple_form_for @member, html: {data: {controller: "photo-preview"}} do |f|%>
           <%= image_tag "Avatar.jpg", width: 183, class: "member-avatar", data: { photo_preview_target: "preview" } %>
           <%= f.input :photo, as: :file, input_html: { class: 'd-none', data: { photo_preview_target: "input", action:"change->photo-preview#displayPreview" }}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo'%>
