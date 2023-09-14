@@ -13,15 +13,21 @@
   width: 40px;
 }
 
+.custom-dropdown {
+  width: 150px;
+  margin-right: 10px;
+
+}
+
 .navbar-brand {
   h4 {
     font-family: 'Jost', sans-serif;
     font-size: 30px;
-    color: #f5e9cf;
+    color: #DDDDDD;
   }
   i {
     font-size: 25px;
-    color: #f5e9cf;
+    color: #DDDDDD;
   }
 }
 
@@ -60,17 +66,17 @@
 
 .dropdown-menu {
   border-radius: 20px;
-  background-color: #f5e9cf;
+  background-color: #545B77;
   overflow: visible;
 }
 
 .dropdown-item {
   color: #374259;
-  background-color: #f5e9cf;
+  background-color: #545B77;
   border-radius: 20px;
 
   &:hover {
-    background-color: #f5e9cf;
+    background-color: #545B77;
     color: #374259;
     font-weight: bold;
     border-radius: 20px;
