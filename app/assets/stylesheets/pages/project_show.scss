@@ -153,18 +153,18 @@
 
 .show-info {
   h2 {
-    color: white;
+    color: #1F2533;
     font-family: 'Jost', sans-serif;
     font-size: 32px;
   }
 
   p {
-    color: white;
+    color: #1F2533;
   }
 }
 
 .form-check-label {
-  color: white;
+  color: #1F2533;
 }
 
 .show-padding {
@@ -176,7 +176,7 @@
   flex-direction: row;
   align-items: baseline;
     h3 {
-      color: white;
+      color: #1F2533;
       font-family: 'Jost', sans-serif;
     }
 }
@@ -185,4 +185,8 @@
   display: flex;
   flex-direction: row;
   align-items: baseline;
+}
+
+.task-hours {
+  display: flex;
 }
