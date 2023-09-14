@@ -5,7 +5,7 @@
         <div class="edit-name">
           <h2><%= @project.name %></h2>
             <%= link_to edit_project_path(@project), class: "m-3" do %>
-              <i class="fa-solid fa-pen fa-2ml hover" style="color: #1F2533"></i>
+              <i class="fa-solid fa-pen fa-2ml hover" style="color: #1F2533;font-size:18px;"></i>
             <% end %>
         </div>
         <div class="deadpriority">
@@ -43,29 +43,29 @@
               <%= link_to member_path(member) do %>
               <li class="team-member p-2" style="text-decoration-none;">
               <% if member.photo.attached? %>
-                <img class="member-show-page pb-2" src="<%= cl_image_path(member.photo.key) %>" alt="Member Avatar">
+                <img class="member-show-page" src="<%= cl_image_path(member.photo.key) %>">
               <% else %>
-                <%= image_tag "Avatar.jpg", class:"member-show-page pb-2" %>
+                <i class="fa-regular fa-circle-user" style="color: #ffffff;font-size:50px;"></i>
               <% end %>
-                <%= member.name %>
+                <%= member.name%>
               <% end %>
-              <%= member.title %> </li>
+              <small><%= member.title %></small></li>
             </ul>
           <% end %>
         </div>
       </div>
 
         <div class="col-4 show-widgets-milestone" data-controller="progress" data-progress-capacity-value="<%= @project.capacity %>" data-progress-asana-value="<%= @project.asana_hours %>" data-progress-target="progress">
-          <h4> Project Capacity Hours - <%= @project.capacity %> </h4>
+          <h4> Project Capacity Hours: <%= @project.capacity %> </h4>
             <p data-progress-target="notice" class="pt-2"></p>
           <div class="pt-2">
-            <p>Trello Hours:</p>
+            <p style='color:#374259;'>Trello Hours:</p>
               <div class="w3-border w3-round align-items-center">
                 <div class="w3 w3-round" data-trello-target="progress"></div>
           </div>
 
           <div class="pt-2">
-            <p>Jira Hours:</p>
+            <p style='color:#374259;'>Jira Hours:</p>
             <div class="w3-border w3-round align-items-center">
               <% percent = 10 %>
               <div class="w3 w3-round" style="height:10px; width: <%= percent %>%; background-color:#1F2533;"></div>
@@ -73,7 +73,7 @@
           </div>
 
           <div class="pt-2">
-            <p>Asana Hours:</p>
+            <p style='color:#374259;'>Asana Hours:</p>
               <div class="w3-border w3-round align-items-center">
                 <% if @project.asana_hours.to_f > @project.capacity.to_f %>
                   <% percent = 100 %>

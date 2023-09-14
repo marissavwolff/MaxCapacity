@@ -43,10 +43,10 @@
   display: flex;
   background-color: #545B77;
   padding-top: 14px;
-  padding-left: 14px;
   border-radius: 20px;
-  width: 400px;
   font-size: 14px;
+  justify-content: space-evenly;
+  min-width: 400px;
   border-color: #1F2533;
 }
 
@@ -131,6 +131,7 @@
     text-decoration: none;
     display: flex;
     flex-direction: row;
+    padding: 0;
     a {
       text-decoration: none;
       color: white;
