@@ -80,6 +80,15 @@ export default class extends Controller {
               'rgb(122, 184, 121)'],
             hoverOffSet: 4
             }]
+          },
+          options: {
+            plugins: {
+              legend: {
+                labels: {
+                  color: 'white'
+                }
+              }
+            }
           }
         });
 
