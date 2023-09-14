@@ -115,8 +115,9 @@ class ProjectsController < ApplicationController
 
       @project.update(asana_hours: @asana_hours)
     else
-      @project.update(project_params)
       add_members
+      add_tools
+      @project.update(project_params)
     end
     redirect_to project_path
   end
@@ -142,7 +143,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :project_manager, :asana_token, :member_ids, :deadline, :capacity, :asana_hours, :description, :completed, priority: [])
+    params.require(:project).permit(:name, :project_manager, :asana_token, :deadline, :capacity, :asana_hours, :description, :completed, priority: [], member_ids: [])
   end
 
   def set_project
