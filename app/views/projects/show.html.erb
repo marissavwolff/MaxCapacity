@@ -5,7 +5,7 @@
         <div class="edit-name">
           <h2><%= @project.name %></h2>
             <%= link_to edit_project_path(@project), class: "m-3" do %>
-              <i class="fa-solid fa-pen fa-2ml hover" style="color: #1F2533;font-size:18px;"></i>
+              <i class="fa-solid fa-pen fa-2ml hover edit-project" style="color: #1F2533;font-size:18px;></i>
             <% end %>
         </div>
         <div class="deadpriority">
@@ -94,8 +94,8 @@
               <%= simple_form_for(@project) do |f| %>
                     <%= f.input :asana_hours, value: @project.asana_hours, input_html: {class:'d-none'}, label_html: {class:'d-none'} %>
                     <%= f.hidden_field :asana_update, value: true %>
-                    <%= button_tag(type: 'submit', class: "btn") do %>
-                      <i class="fa-solid fa-arrows-rotate" style="color: #1F2533;"></i>
+                    <%= button_tag(type: 'submit', class: "btn refresh-project") do %>
+                      <i class="fa-solid fa-arrows-rotate" ></i>
                     <% end %>
               <% end %>
           </div>
