@@ -16,7 +16,6 @@
 .custom-dropdown {
   width: 150px;
   margin-right: 10px;
-
 }
 
 .navbar-brand {
@@ -66,19 +65,39 @@
 
 .dropdown-menu {
   border-radius: 20px;
-  background-color: #545B77;
+  border: 1px solid #545B77;
+  background-color: white;
   overflow: visible;
 }
 
 .dropdown-item {
-  color: #374259;
-  background-color: #545B77;
+  color: #545B77;
+  background-color: white;
   border-radius: 20px;
 
   &:hover {
-    background-color: #545B77;
-    color: #374259;
+    background-color: white;
+    color: #545B77;
     font-weight: bold;
     border-radius: 20px;
   }
 }
+
+// .nav-bar-menu {
+//   border-radius: 20px;
+//   background-color: #545B77;
+//   overflow: visible;
+// }
+
+// .nav-bar-item {
+//   color: white;
+//   background-color: #545B77;
+//   border-radius: 20px;
+
+//   &:hover {
+//     background-color: #545B77;
+//     color: white;
+//     font-weight: bold;
+//     border-radius: 20px;
+//   }
+// }
