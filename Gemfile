@@ -12,7 +12,7 @@ gem "sprockets-rails"
 gem 'flatpickr', '~> 4.6', '>= 4.6.13.0'
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+gem "pg", "~>
 gem "jira-ruby"
 
 # Use the Puma web server [https://github.com/puma/puma]
